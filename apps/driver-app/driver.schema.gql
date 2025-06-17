@@ -1,0 +1,3234 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type ProviderTransaction {
+  id: ID!
+  operatorId: ID!
+  requestId: ID!
+}
+
+type DeleteManyResponse {
+  """The number of records deleted."""
+  deletedCount: Int!
+}
+
+type UpdateManyResponse {
+  """The number of records updated."""
+  updatedCount: Int!
+}
+
+type OffsetPageInfo {
+  """true if paging forward and there are more records."""
+  hasNextPage: Boolean
+
+  """true if paging backwards and there are more records."""
+  hasPreviousPage: Boolean
+}
+
+type ProviderTransactionAggregateGroupBy {
+  id: ID
+  operatorId: ID
+  requestId: ID
+}
+
+type ProviderTransactionCountAggregate {
+  id: Int
+  operatorId: Int
+  requestId: Int
+}
+
+type ProviderTransactionSumAggregate {
+  id: Float
+  operatorId: Float
+  requestId: Float
+}
+
+type ProviderTransactionAvgAggregate {
+  id: Float
+  operatorId: Float
+  requestId: Float
+}
+
+type ProviderTransactionMinAggregate {
+  id: ID
+  operatorId: ID
+  requestId: ID
+}
+
+type ProviderTransactionMaxAggregate {
+  id: ID
+  operatorId: ID
+  requestId: ID
+}
+
+type ProviderWalletAggregateGroupBy {
+  id: ID
+  balance: Float
+  currency: String
+}
+
+type ProviderWalletCountAggregate {
+  id: Int
+  balance: Int
+  currency: Int
+}
+
+type ProviderWalletSumAggregate {
+  id: Float
+  balance: Float
+}
+
+type ProviderWalletAvgAggregate {
+  id: Float
+  balance: Float
+}
+
+type ProviderWalletMinAggregate {
+  id: ID
+  balance: Float
+  currency: String
+}
+
+type ProviderWalletMaxAggregate {
+  id: ID
+  balance: Float
+  currency: String
+}
+
+type Address {
+  id: ID!
+}
+
+type AddressEdge {
+  """The node containing the Address"""
+  node: Address!
+
+  """Cursor for this node."""
+  cursor: ConnectionCursor!
+}
+
+"""Cursor for paging through collections"""
+scalar ConnectionCursor
+
+type PageInfo {
+  """true if paging forward and there are more records."""
+  hasNextPage: Boolean
+
+  """true if paging backwards and there are more records."""
+  hasPreviousPage: Boolean
+
+  """The cursor of the first returned record."""
+  startCursor: ConnectionCursor
+
+  """The cursor of the last returned record."""
+  endCursor: ConnectionCursor
+}
+
+type AddressAggregateGroupBy {
+  id: ID
+}
+
+type AddressCountAggregate {
+  id: Int
+}
+
+type AddressSumAggregate {
+  id: Float
+}
+
+type AddressAvgAggregate {
+  id: Float
+}
+
+type AddressMinAggregate {
+  id: ID
+}
+
+type AddressMaxAggregate {
+  id: ID
+}
+
+type AdminAnnouncement {
+  id: ID!
+  title: String!
+}
+
+type AdminAnnouncementAggregateGroupBy {
+  id: ID
+}
+
+type AdminAnnouncementCountAggregate {
+  id: Int
+}
+
+type AdminAnnouncementSumAggregate {
+  id: Float
+}
+
+type AdminAnnouncementAvgAggregate {
+  id: Float
+}
+
+type AdminAnnouncementMinAggregate {
+  id: ID
+}
+
+type AdminAnnouncementMaxAggregate {
+  id: ID
+}
+
+type AdminCarModel {
+  id: ID!
+}
+
+type AdminCarModelAggregateGroupBy {
+  id: ID
+}
+
+type AdminCarModelCountAggregate {
+  id: Int
+}
+
+type AdminCarModelSumAggregate {
+  id: Float
+}
+
+type AdminCarModelAvgAggregate {
+  id: Float
+}
+
+type AdminCarModelMinAggregate {
+  id: ID
+}
+
+type AdminCarModelMaxAggregate {
+  id: ID
+}
+
+type AdminCarColorAggregateGroupBy {
+  id: ID
+}
+
+type AdminCarColorCountAggregate {
+  id: Int
+}
+
+type AdminCarColorSumAggregate {
+  id: Float
+}
+
+type AdminCarColorAvgAggregate {
+  id: Float
+}
+
+type AdminCarColorMinAggregate {
+  id: ID
+}
+
+type AdminCarColorMaxAggregate {
+  id: ID
+}
+
+type Region {
+  id: ID!
+  currency: String!
+}
+
+type AdminMedia {
+  id: ID!
+  address: String!
+  type: String!
+}
+
+type Coupon {
+  id: ID!
+  manyUsersCanUse: Int!
+  manyTimesUserCanUse: Int!
+  discountPercent: Int!
+  discountFlat: Int!
+}
+
+type CouponAggregateGroupBy {
+  id: ID
+}
+
+type CouponCountAggregate {
+  id: Int
+}
+
+type CouponSumAggregate {
+  id: Float
+}
+
+type CouponAvgAggregate {
+  id: Float
+}
+
+type CouponMinAggregate {
+  id: ID
+}
+
+type CouponMaxAggregate {
+  id: ID
+}
+
+type Feedback {
+  id: ID!
+  score: Int!
+  driverId: ID!
+  requestId: ID!
+}
+
+type Operator {
+  id: ID!
+  roleId: ID!
+}
+
+type AdminComplaint {
+  id: ID!
+  subject: String!
+  description: String!
+  status: ComplaintStatus!
+  requestId: ID!
+}
+
+enum ComplaintStatus {
+  Submitted
+  UnderInvestigation
+  Resolved
+}
+
+type DriverTransaction {
+  createdAt: Timestamp!
+  driverId: ID!
+  operatorId: ID!
+}
+
+"""
+`Date` type as integer. Type represents date and time as number of milliseconds from start of UNIX epoch.
+"""
+scalar Timestamp
+
+type FleetTransaction {
+  id: ID!
+  operatorId: ID!
+  requestId: ID!
+  fleetId: ID!
+}
+
+type AdminPaymentGateway {
+  id: ID!
+  enabled: Boolean!
+  title: String!
+  type: String!
+  publicKey: String!
+  privateKey: String!
+}
+
+type RiderAddress {
+  id: ID!
+  riderId: ID!
+}
+
+type RiderWallet {
+  id: ID!
+  balance: Float!
+  riderId: ID!
+}
+
+type AdminRider {
+  id: ID!
+  firstName: String!
+  lastName: String!
+  mobileNumber: String!
+  gender: String!
+}
+
+type RiderTransaction {
+  id: ID!
+  createdAt: Timestamp!
+  amount: Float!
+  currency: String!
+  riderId: ID!
+  paymentGatewayId: ID!
+  operatorId: ID!
+  requestId: ID!
+}
+
+type AdminOrderMessage {
+  id: ID!
+  content: String!
+}
+
+type AdminOrder {
+  id: ID!
+  createdOn: Timestamp!
+  status: OrderStatus!
+  distanceBest: Int!
+  durationBest: Int!
+  riderId: ID!
+  driverId: ID!
+}
+
+enum OrderStatus {
+  Requested
+  NotFound
+  NoCloseFound
+  Found
+  DriverAccepted
+  Arrived
+  WaitingForPrePay
+  DriverCanceled
+  RiderCanceled
+  Started
+  WaitingForPostPay
+  WaitingForReview
+  Finished
+  Booked
+  Expired
+}
+
+type AdminDriver {
+  id: ID!
+  fleetId: ID!
+  lastName: String!
+  mobileNumber: String!
+  carProductionYear: Int!
+  carId: ID!
+  carColorId: ID!
+  status: DriverStatus!
+  mediaId: ID!
+}
+
+enum DriverStatus {
+  Online
+  Offline
+  Blocked
+  InService
+  WaitingDocuments
+  PendingApproval
+  SoftReject
+  HardReject
+}
+
+type AdminDriverWallet {
+  id: ID!
+  balance: Float!
+  currency: String!
+  driverId: ID!
+}
+
+type AdminDriverAggregateGroupBy {
+  id: ID
+  fleetId: ID
+  lastName: String
+  mobileNumber: String
+  status: DriverStatus
+}
+
+type AdminDriverCountAggregate {
+  id: Int
+  fleetId: Int
+  lastName: Int
+  mobileNumber: Int
+  status: Int
+}
+
+type AdminDriverSumAggregate {
+  id: Float
+  fleetId: Float
+}
+
+type AdminDriverAvgAggregate {
+  id: Float
+  fleetId: Float
+}
+
+type AdminDriverMinAggregate {
+  id: ID
+  fleetId: ID
+  lastName: String
+  mobileNumber: String
+  status: DriverStatus
+}
+
+type AdminDriverMaxAggregate {
+  id: ID
+  fleetId: ID
+  lastName: String
+  mobileNumber: String
+  status: DriverStatus
+}
+
+type AdminDriverOrdersAggregateGroupBy {
+  id: ID
+  createdOn: Timestamp
+  status: OrderStatus
+  riderId: ID
+  driverId: ID
+}
+
+type AdminDriverOrdersCountAggregate {
+  id: Int
+  createdOn: Int
+  status: Int
+  riderId: Int
+  driverId: Int
+}
+
+type AdminDriverOrdersSumAggregate {
+  id: Float
+  riderId: Float
+  driverId: Float
+}
+
+type AdminDriverOrdersAvgAggregate {
+  id: Float
+  riderId: Float
+  driverId: Float
+}
+
+type AdminDriverOrdersMinAggregate {
+  id: ID
+  createdOn: Timestamp
+  status: OrderStatus
+  riderId: ID
+  driverId: ID
+}
+
+type AdminDriverOrdersMaxAggregate {
+  id: ID
+  createdOn: Timestamp
+  status: OrderStatus
+  riderId: ID
+  driverId: ID
+}
+
+type AdminDriverTransactionsAggregateGroupBy {
+  createdAt: Timestamp
+  driverId: ID
+}
+
+type AdminDriverTransactionsCountAggregate {
+  createdAt: Int
+  driverId: Int
+}
+
+type AdminDriverTransactionsSumAggregate {
+  driverId: Float
+}
+
+type AdminDriverTransactionsAvgAggregate {
+  driverId: Float
+}
+
+type AdminDriverTransactionsMinAggregate {
+  createdAt: Timestamp
+  driverId: ID
+}
+
+type AdminDriverTransactionsMaxAggregate {
+  createdAt: Timestamp
+  driverId: ID
+}
+
+type AdminDriverDocumentsAggregateGroupBy {
+  id: ID
+}
+
+type AdminDriverDocumentsCountAggregate {
+  id: Int
+}
+
+type AdminDriverDocumentsSumAggregate {
+  id: Float
+}
+
+type AdminDriverDocumentsAvgAggregate {
+  id: Float
+}
+
+type AdminDriverDocumentsMinAggregate {
+  id: ID
+}
+
+type AdminDriverDocumentsMaxAggregate {
+  id: ID
+}
+
+type AdminDriverEnabledServicesAggregateGroupBy {
+  id: ID
+  categoryId: ID
+}
+
+type AdminDriverEnabledServicesCountAggregate {
+  id: Int
+  categoryId: Int
+}
+
+type AdminDriverEnabledServicesSumAggregate {
+  id: Float
+  categoryId: Float
+}
+
+type AdminDriverEnabledServicesAvgAggregate {
+  id: Float
+  categoryId: Float
+}
+
+type AdminDriverEnabledServicesMinAggregate {
+  id: ID
+  categoryId: ID
+}
+
+type AdminDriverEnabledServicesMaxAggregate {
+  id: ID
+  categoryId: ID
+}
+
+type AdminDriverWalletsAggregateGroupBy {
+  id: ID
+  balance: Float
+  currency: String
+  driverId: ID
+}
+
+type AdminDriverWalletsCountAggregate {
+  id: Int
+  balance: Int
+  currency: Int
+  driverId: Int
+}
+
+type AdminDriverWalletsSumAggregate {
+  id: Float
+  balance: Float
+  driverId: Float
+}
+
+type AdminDriverWalletsAvgAggregate {
+  id: Float
+  balance: Float
+  driverId: Float
+}
+
+type AdminDriverWalletsMinAggregate {
+  id: ID
+  balance: Float
+  currency: String
+  driverId: ID
+}
+
+type AdminDriverWalletsMaxAggregate {
+  id: ID
+  balance: Float
+  currency: String
+  driverId: ID
+}
+
+type AdminDriverFeedbacksAggregateGroupBy {
+  id: ID
+  driverId: ID
+  requestId: ID
+}
+
+type AdminDriverFeedbacksCountAggregate {
+  id: Int
+  driverId: Int
+  requestId: Int
+}
+
+type AdminDriverFeedbacksSumAggregate {
+  id: Float
+  driverId: Float
+  requestId: Float
+}
+
+type AdminDriverFeedbacksAvgAggregate {
+  id: Float
+  driverId: Float
+  requestId: Float
+}
+
+type AdminDriverFeedbacksMinAggregate {
+  id: ID
+  driverId: ID
+  requestId: ID
+}
+
+type AdminDriverFeedbacksMaxAggregate {
+  id: ID
+  driverId: ID
+  requestId: ID
+}
+
+type AdminDriverWalletAggregateGroupBy {
+  id: ID
+  balance: Float
+  currency: String
+  driverId: ID
+}
+
+type AdminDriverWalletCountAggregate {
+  id: Int
+  balance: Int
+  currency: Int
+  driverId: Int
+}
+
+type AdminDriverWalletSumAggregate {
+  id: Float
+  balance: Float
+  driverId: Float
+}
+
+type AdminDriverWalletAvgAggregate {
+  id: Float
+  balance: Float
+  driverId: Float
+}
+
+type AdminDriverWalletMinAggregate {
+  id: ID
+  balance: Float
+  currency: String
+  driverId: ID
+}
+
+type AdminDriverWalletMaxAggregate {
+  id: ID
+  balance: Float
+  currency: String
+  driverId: ID
+}
+
+type DriverTransactionAggregateGroupBy {
+  createdAt: Timestamp
+  driverId: ID
+}
+
+type DriverTransactionCountAggregate {
+  createdAt: Int
+  driverId: Int
+}
+
+type DriverTransactionSumAggregate {
+  driverId: Float
+}
+
+type DriverTransactionAvgAggregate {
+  driverId: Float
+}
+
+type DriverTransactionMinAggregate {
+  createdAt: Timestamp
+  driverId: ID
+}
+
+type DriverTransactionMaxAggregate {
+  createdAt: Timestamp
+  driverId: ID
+}
+
+type FeedbackAggregateGroupBy {
+  id: ID
+  driverId: ID
+  requestId: ID
+}
+
+type FeedbackCountAggregate {
+  id: Int
+  driverId: Int
+  requestId: Int
+}
+
+type FeedbackSumAggregate {
+  id: Float
+  driverId: Float
+  requestId: Float
+}
+
+type FeedbackAvgAggregate {
+  id: Float
+  driverId: Float
+  requestId: Float
+}
+
+type FeedbackMinAggregate {
+  id: ID
+  driverId: ID
+  requestId: ID
+}
+
+type FeedbackMaxAggregate {
+  id: ID
+  driverId: ID
+  requestId: ID
+}
+
+type FeedbackParametersAggregateGroupBy {
+  id: ID
+  title: String
+  isGood: Boolean
+}
+
+type FeedbackParametersCountAggregate {
+  id: Int
+  title: Int
+  isGood: Int
+}
+
+type FeedbackParametersSumAggregate {
+  id: Float
+}
+
+type FeedbackParametersAvgAggregate {
+  id: Float
+}
+
+type FeedbackParametersMinAggregate {
+  id: ID
+  title: String
+}
+
+type FeedbackParametersMaxAggregate {
+  id: ID
+  title: String
+}
+
+type FeedbackParameterAggregateGroupBy {
+  id: ID
+  title: String
+  isGood: Boolean
+}
+
+type FeedbackParameterCountAggregate {
+  id: Int
+  title: Int
+  isGood: Int
+}
+
+type FeedbackParameterSumAggregate {
+  id: Float
+}
+
+type FeedbackParameterAvgAggregate {
+  id: Float
+}
+
+type FeedbackParameterMinAggregate {
+  id: ID
+  title: String
+}
+
+type FeedbackParameterMaxAggregate {
+  id: ID
+  title: String
+}
+
+type Fleet {
+  id: ID!
+  name: String!
+}
+
+type FleetWallet {
+  id: ID!
+  balance: Float!
+  currency: String!
+  fleetId: ID!
+}
+
+type FleetAggregateGroupBy {
+  id: ID
+  name: String
+}
+
+type FleetCountAggregate {
+  id: Int
+  name: Int
+}
+
+type FleetSumAggregate {
+  id: Float
+}
+
+type FleetAvgAggregate {
+  id: Float
+}
+
+type FleetMinAggregate {
+  id: ID
+  name: String
+}
+
+type FleetMaxAggregate {
+  id: ID
+  name: String
+}
+
+type FleetWalletAggregateGroupBy {
+  id: ID
+  balance: Float
+  currency: String
+  fleetId: ID
+}
+
+type FleetWalletCountAggregate {
+  id: Int
+  balance: Int
+  currency: Int
+  fleetId: Int
+}
+
+type FleetWalletSumAggregate {
+  id: Float
+  balance: Float
+  fleetId: Float
+}
+
+type FleetWalletAvgAggregate {
+  id: Float
+  balance: Float
+  fleetId: Float
+}
+
+type FleetWalletMinAggregate {
+  id: ID
+  balance: Float
+  currency: String
+  fleetId: ID
+}
+
+type FleetWalletMaxAggregate {
+  id: ID
+  balance: Float
+  currency: String
+  fleetId: ID
+}
+
+type FleetTransactionAggregateGroupBy {
+  id: ID
+  operatorId: ID
+  requestId: ID
+  fleetId: ID
+}
+
+type FleetTransactionCountAggregate {
+  id: Int
+  operatorId: Int
+  requestId: Int
+  fleetId: Int
+}
+
+type FleetTransactionSumAggregate {
+  id: Float
+  operatorId: Float
+  requestId: Float
+  fleetId: Float
+}
+
+type FleetTransactionAvgAggregate {
+  id: Float
+  operatorId: Float
+  requestId: Float
+  fleetId: Float
+}
+
+type FleetTransactionMinAggregate {
+  id: ID
+  operatorId: ID
+  requestId: ID
+  fleetId: ID
+}
+
+type FleetTransactionMaxAggregate {
+  id: ID
+  operatorId: ID
+  requestId: ID
+  fleetId: ID
+}
+
+type OperatorRoleAggregateGroupBy {
+  id: ID
+}
+
+type OperatorRoleCountAggregate {
+  id: Int
+}
+
+type OperatorRoleSumAggregate {
+  id: Float
+}
+
+type OperatorRoleAvgAggregate {
+  id: Float
+}
+
+type OperatorRoleMinAggregate {
+  id: ID
+}
+
+type OperatorRoleMaxAggregate {
+  id: ID
+}
+
+type OperatorAggregateGroupBy {
+  id: ID
+}
+
+type OperatorCountAggregate {
+  id: Int
+}
+
+type OperatorSumAggregate {
+  id: Float
+}
+
+type OperatorAvgAggregate {
+  id: Float
+}
+
+type OperatorMinAggregate {
+  id: ID
+}
+
+type OperatorMaxAggregate {
+  id: ID
+}
+
+type AdminOrderAggregateGroupBy {
+  id: ID
+  createdOn: Timestamp
+  status: OrderStatus
+  riderId: ID
+  driverId: ID
+}
+
+type AdminOrderCountAggregate {
+  id: Int
+  createdOn: Int
+  status: Int
+  riderId: Int
+  driverId: Int
+}
+
+type AdminOrderSumAggregate {
+  id: Float
+  riderId: Float
+  driverId: Float
+}
+
+type AdminOrderAvgAggregate {
+  id: Float
+  riderId: Float
+  driverId: Float
+}
+
+type AdminOrderMinAggregate {
+  id: ID
+  createdOn: Timestamp
+  status: OrderStatus
+  riderId: ID
+  driverId: ID
+}
+
+type AdminOrderMaxAggregate {
+  id: ID
+  createdOn: Timestamp
+  status: OrderStatus
+  riderId: ID
+  driverId: ID
+}
+
+type AdminOrderActivitiesAggregateGroupBy {
+  id: ID
+}
+
+type AdminOrderActivitiesCountAggregate {
+  id: Int
+}
+
+type AdminOrderActivitiesSumAggregate {
+  id: Float
+}
+
+type AdminOrderActivitiesAvgAggregate {
+  id: Float
+}
+
+type AdminOrderActivitiesMinAggregate {
+  id: ID
+}
+
+type AdminOrderActivitiesMaxAggregate {
+  id: ID
+}
+
+type AdminOrderProviderTransactionsAggregateGroupBy {
+  id: ID
+  operatorId: ID
+  requestId: ID
+}
+
+type AdminOrderProviderTransactionsCountAggregate {
+  id: Int
+  operatorId: Int
+  requestId: Int
+}
+
+type AdminOrderProviderTransactionsSumAggregate {
+  id: Float
+  operatorId: Float
+  requestId: Float
+}
+
+type AdminOrderProviderTransactionsAvgAggregate {
+  id: Float
+  operatorId: Float
+  requestId: Float
+}
+
+type AdminOrderProviderTransactionsMinAggregate {
+  id: ID
+  operatorId: ID
+  requestId: ID
+}
+
+type AdminOrderProviderTransactionsMaxAggregate {
+  id: ID
+  operatorId: ID
+  requestId: ID
+}
+
+type AdminOrderFleetTransactionsAggregateGroupBy {
+  id: ID
+  operatorId: ID
+  requestId: ID
+  fleetId: ID
+}
+
+type AdminOrderFleetTransactionsCountAggregate {
+  id: Int
+  operatorId: Int
+  requestId: Int
+  fleetId: Int
+}
+
+type AdminOrderFleetTransactionsSumAggregate {
+  id: Float
+  operatorId: Float
+  requestId: Float
+  fleetId: Float
+}
+
+type AdminOrderFleetTransactionsAvgAggregate {
+  id: Float
+  operatorId: Float
+  requestId: Float
+  fleetId: Float
+}
+
+type AdminOrderFleetTransactionsMinAggregate {
+  id: ID
+  operatorId: ID
+  requestId: ID
+  fleetId: ID
+}
+
+type AdminOrderFleetTransactionsMaxAggregate {
+  id: ID
+  operatorId: ID
+  requestId: ID
+  fleetId: ID
+}
+
+type AdminOrderDriverTransactionsAggregateGroupBy {
+  createdAt: Timestamp
+  driverId: ID
+}
+
+type AdminOrderDriverTransactionsCountAggregate {
+  createdAt: Int
+  driverId: Int
+}
+
+type AdminOrderDriverTransactionsSumAggregate {
+  driverId: Float
+}
+
+type AdminOrderDriverTransactionsAvgAggregate {
+  driverId: Float
+}
+
+type AdminOrderDriverTransactionsMinAggregate {
+  createdAt: Timestamp
+  driverId: ID
+}
+
+type AdminOrderDriverTransactionsMaxAggregate {
+  createdAt: Timestamp
+  driverId: ID
+}
+
+type AdminOrderRiderTransactionsAggregateGroupBy {
+  id: ID
+  createdAt: Timestamp
+  amount: Float
+  currency: String
+  riderId: ID
+}
+
+type AdminOrderRiderTransactionsCountAggregate {
+  id: Int
+  createdAt: Int
+  amount: Int
+  currency: Int
+  riderId: Int
+}
+
+type AdminOrderRiderTransactionsSumAggregate {
+  id: Float
+  amount: Float
+  riderId: Float
+}
+
+type AdminOrderRiderTransactionsAvgAggregate {
+  id: Float
+  amount: Float
+  riderId: Float
+}
+
+type AdminOrderRiderTransactionsMinAggregate {
+  id: ID
+  createdAt: Timestamp
+  amount: Float
+  currency: String
+  riderId: ID
+}
+
+type AdminOrderRiderTransactionsMaxAggregate {
+  id: ID
+  createdAt: Timestamp
+  amount: Float
+  currency: String
+  riderId: ID
+}
+
+type AdminOrderConversationsAggregateGroupBy {
+  id: ID
+}
+
+type AdminOrderConversationsCountAggregate {
+  id: Int
+}
+
+type AdminOrderConversationsSumAggregate {
+  id: Float
+}
+
+type AdminOrderConversationsAvgAggregate {
+  id: Float
+}
+
+type AdminOrderConversationsMinAggregate {
+  id: ID
+}
+
+type AdminOrderConversationsMaxAggregate {
+  id: ID
+}
+
+type AdminOrderComplaintsAggregateGroupBy {
+  id: ID
+  status: ComplaintStatus
+  requestId: ID
+}
+
+type AdminOrderComplaintsCountAggregate {
+  id: Int
+  status: Int
+  requestId: Int
+}
+
+type AdminOrderComplaintsSumAggregate {
+  id: Float
+  requestId: Float
+}
+
+type AdminOrderComplaintsAvgAggregate {
+  id: Float
+  requestId: Float
+}
+
+type AdminOrderComplaintsMinAggregate {
+  id: ID
+  status: ComplaintStatus
+  requestId: ID
+}
+
+type AdminOrderComplaintsMaxAggregate {
+  id: ID
+  status: ComplaintStatus
+  requestId: ID
+}
+
+type AdminOrderMessageAggregateGroupBy {
+  id: ID
+}
+
+type AdminOrderMessageCountAggregate {
+  id: Int
+}
+
+type AdminOrderMessageSumAggregate {
+  id: Float
+}
+
+type AdminOrderMessageAvgAggregate {
+  id: Float
+}
+
+type AdminOrderMessageMinAggregate {
+  id: ID
+}
+
+type AdminOrderMessageMaxAggregate {
+  id: ID
+}
+
+type AdminPaymentGatewayAggregateGroupBy {
+  id: ID
+}
+
+type AdminPaymentGatewayCountAggregate {
+  id: Int
+}
+
+type AdminPaymentGatewaySumAggregate {
+  id: Float
+}
+
+type AdminPaymentGatewayAvgAggregate {
+  id: Float
+}
+
+type AdminPaymentGatewayMinAggregate {
+  id: ID
+}
+
+type AdminPaymentGatewayMaxAggregate {
+  id: ID
+}
+
+type RegionAggregateGroupBy {
+  id: ID
+  currency: String
+}
+
+type RegionCountAggregate {
+  id: Int
+  currency: Int
+}
+
+type RegionSumAggregate {
+  id: Float
+}
+
+type RegionAvgAggregate {
+  id: Float
+}
+
+type RegionMinAggregate {
+  id: ID
+  currency: String
+}
+
+type RegionMaxAggregate {
+  id: ID
+  currency: String
+}
+
+type AdminRiderAggregateGroupBy {
+  id: ID
+  firstName: String
+  lastName: String
+  mobileNumber: String
+  gender: String
+}
+
+type AdminRiderCountAggregate {
+  id: Int
+  firstName: Int
+  lastName: Int
+  mobileNumber: Int
+  gender: Int
+}
+
+type AdminRiderSumAggregate {
+  id: Float
+}
+
+type AdminRiderAvgAggregate {
+  id: Float
+}
+
+type AdminRiderMinAggregate {
+  id: ID
+  firstName: String
+  lastName: String
+  mobileNumber: String
+  gender: String
+}
+
+type AdminRiderMaxAggregate {
+  id: ID
+  firstName: String
+  lastName: String
+  mobileNumber: String
+  gender: String
+}
+
+type RiderWalletAggregateGroupBy {
+  id: ID
+  balance: Float
+  riderId: ID
+}
+
+type RiderWalletCountAggregate {
+  id: Int
+  balance: Int
+  riderId: Int
+}
+
+type RiderWalletSumAggregate {
+  id: Float
+  balance: Float
+  riderId: Float
+}
+
+type RiderWalletAvgAggregate {
+  id: Float
+  balance: Float
+  riderId: Float
+}
+
+type RiderWalletMinAggregate {
+  id: ID
+  balance: Float
+  riderId: ID
+}
+
+type RiderWalletMaxAggregate {
+  id: ID
+  balance: Float
+  riderId: ID
+}
+
+type RiderTransactionAggregateGroupBy {
+  id: ID
+  createdAt: Timestamp
+  amount: Float
+  currency: String
+  riderId: ID
+}
+
+type RiderTransactionCountAggregate {
+  id: Int
+  createdAt: Int
+  amount: Int
+  currency: Int
+  riderId: Int
+}
+
+type RiderTransactionSumAggregate {
+  id: Float
+  amount: Float
+  riderId: Float
+}
+
+type RiderTransactionAvgAggregate {
+  id: Float
+  amount: Float
+  riderId: Float
+}
+
+type RiderTransactionMinAggregate {
+  id: ID
+  createdAt: Timestamp
+  amount: Float
+  currency: String
+  riderId: ID
+}
+
+type RiderTransactionMaxAggregate {
+  id: ID
+  createdAt: Timestamp
+  amount: Float
+  currency: String
+  riderId: ID
+}
+
+type RiderAddressAggregateGroupBy {
+  id: ID
+  riderId: ID
+}
+
+type RiderAddressCountAggregate {
+  id: Int
+  riderId: Int
+}
+
+type RiderAddressSumAggregate {
+  id: Float
+  riderId: Float
+}
+
+type RiderAddressAvgAggregate {
+  id: Float
+  riderId: Float
+}
+
+type RiderAddressMinAggregate {
+  id: ID
+  riderId: ID
+}
+
+type RiderAddressMaxAggregate {
+  id: ID
+  riderId: ID
+}
+
+type AdminServiceAggregateGroupBy {
+  id: ID
+  categoryId: ID
+}
+
+type AdminServiceCountAggregate {
+  id: Int
+  categoryId: Int
+}
+
+type AdminServiceSumAggregate {
+  id: Float
+  categoryId: Float
+}
+
+type AdminServiceAvgAggregate {
+  id: Float
+  categoryId: Float
+}
+
+type AdminServiceMinAggregate {
+  id: ID
+  categoryId: ID
+}
+
+type AdminServiceMaxAggregate {
+  id: ID
+  categoryId: ID
+}
+
+type ServiceCategoryAggregateGroupBy {
+  id: ID
+}
+
+type ServiceCategoryCountAggregate {
+  id: Int
+}
+
+type ServiceCategorySumAggregate {
+  id: Float
+}
+
+type ServiceCategoryAvgAggregate {
+  id: Float
+}
+
+type ServiceCategoryMinAggregate {
+  id: ID
+}
+
+type ServiceCategoryMaxAggregate {
+  id: ID
+}
+
+type ServiceOptionAggregateGroupBy {
+  id: ID
+}
+
+type ServiceOptionCountAggregate {
+  id: Int
+}
+
+type ServiceOptionSumAggregate {
+  id: Float
+}
+
+type ServiceOptionAvgAggregate {
+  id: Float
+}
+
+type ServiceOptionMinAggregate {
+  id: ID
+}
+
+type ServiceOptionMaxAggregate {
+  id: ID
+}
+
+type AdminMediaEdge {
+  """The node containing the AdminMedia"""
+  node: AdminMedia!
+
+  """Cursor for this node."""
+  cursor: ConnectionCursor!
+}
+
+type AdminMediaAggregateGroupBy {
+  id: ID
+}
+
+type AdminMediaCountAggregate {
+  id: Int
+}
+
+type AdminMediaSumAggregate {
+  id: Float
+}
+
+type AdminMediaAvgAggregate {
+  id: Float
+}
+
+type AdminMediaMinAggregate {
+  id: ID
+}
+
+type AdminMediaMaxAggregate {
+  id: ID
+}
+
+type AdminComplaintAggregateGroupBy {
+  id: ID
+  status: ComplaintStatus
+  requestId: ID
+}
+
+type AdminComplaintCountAggregate {
+  id: Int
+  status: Int
+  requestId: Int
+}
+
+type AdminComplaintSumAggregate {
+  id: Float
+  requestId: Float
+}
+
+type AdminComplaintAvgAggregate {
+  id: Float
+  requestId: Float
+}
+
+type AdminComplaintMinAggregate {
+  id: ID
+  status: ComplaintStatus
+  requestId: ID
+}
+
+type AdminComplaintMaxAggregate {
+  id: ID
+  status: ComplaintStatus
+  requestId: ID
+}
+
+type AdminComplaintActivitiesAggregateGroupBy {
+  id: ID
+  complaintId: ID
+}
+
+type AdminComplaintActivitiesCountAggregate {
+  id: Int
+  complaintId: Int
+}
+
+type AdminComplaintActivitiesSumAggregate {
+  id: Float
+  complaintId: Float
+}
+
+type AdminComplaintActivitiesAvgAggregate {
+  id: Float
+  complaintId: Float
+}
+
+type AdminComplaintActivitiesMinAggregate {
+  id: ID
+  complaintId: ID
+}
+
+type AdminComplaintActivitiesMaxAggregate {
+  id: ID
+  complaintId: ID
+}
+
+type ComplaintActivityAggregateGroupBy {
+  id: ID
+  complaintId: ID
+}
+
+type ComplaintActivityCountAggregate {
+  id: Int
+  complaintId: Int
+}
+
+type ComplaintActivitySumAggregate {
+  id: Float
+  complaintId: Float
+}
+
+type ComplaintActivityAvgAggregate {
+  id: Float
+  complaintId: Float
+}
+
+type ComplaintActivityMinAggregate {
+  id: ID
+  complaintId: ID
+}
+
+type ComplaintActivityMaxAggregate {
+  id: ID
+  complaintId: ID
+}
+
+type DistressSignal {
+  id: ID!
+}
+
+type DistressSignalAggregateGroupBy {
+  id: ID
+}
+
+type DistressSignalCountAggregate {
+  id: Int
+}
+
+type DistressSignalSumAggregate {
+  id: Float
+}
+
+type DistressSignalAvgAggregate {
+  id: Float
+}
+
+type DistressSignalMinAggregate {
+  id: ID
+}
+
+type DistressSignalMaxAggregate {
+  id: ID
+}
+
+type SOSActivityAggregateGroupBy {
+  id: ID
+}
+
+type SOSActivityCountAggregate {
+  id: Int
+}
+
+type SOSActivitySumAggregate {
+  id: Float
+}
+
+type SOSActivityAvgAggregate {
+  id: Float
+}
+
+type SOSActivityMinAggregate {
+  id: ID
+}
+
+type SOSActivityMaxAggregate {
+  id: ID
+}
+
+type Reward {
+  id: ID!
+}
+
+type RewardAggregateGroupBy {
+  id: ID
+}
+
+type RewardCountAggregate {
+  id: Int
+}
+
+type RewardSumAggregate {
+  id: Float
+}
+
+type RewardAvgAggregate {
+  id: Float
+}
+
+type RewardMinAggregate {
+  id: ID
+}
+
+type RewardMaxAggregate {
+  id: ID
+}
+
+type DriverCarModel {
+  id: ID!
+}
+
+type DriverCarColor {
+  id: ID!
+  name: String!
+}
+
+type DriverMedia {
+  id: ID!
+  address: String!
+  type: String!
+}
+
+type DriverRider {
+  id: ID!
+  mobileNumber: String!
+  media: DriverMedia
+}
+
+type DriverService {
+  id: ID!
+  name: String!
+  title: String!
+  description: String!
+  baseFare: Float!
+  perHundredMeters: Float!
+  perMinuteDrive: Float!
+  perMinuteWait: Float!
+  minimumFee: Float!
+  searchRadius: Float!
+  isEnabled: Boolean!
+  media: DriverMedia!
+}
+
+type DriverOrderMessage {
+  id: ID!
+  content: String!
+  requestId: ID!
+  request: DriverOrder!
+}
+
+type ServiceOption {
+  id: ID!
+}
+
+type DriverOrder {
+  id: ID!
+  status: OrderStatus!
+  createdOn: Timestamp!
+  distanceBest: Int!
+  durationBest: Int!
+  costBest: Float!
+  optionsAggregate(
+    """Filter to find records to aggregate on"""
+    filter: ServiceOptionAggregateFilter
+  ): [DriverOrderOptionsAggregateResponse!]!
+  conversationsAggregate(
+    """Filter to find records to aggregate on"""
+    filter: DriverOrderMessageAggregateFilter
+  ): [DriverOrderConversationsAggregateResponse!]!
+  driver: Driver!
+  rider: DriverRider!
+  service: DriverService!
+  options(
+    """Specify to filter the records returned."""
+    filter: ServiceOptionFilter! = {}
+
+    """Specify to sort results."""
+    sorting: [ServiceOptionSort!]! = []
+  ): [ServiceOption!]!
+  conversations(
+    """Specify to filter the records returned."""
+    filter: DriverOrderMessageFilter! = {}
+
+    """Specify to sort results."""
+    sorting: [DriverOrderMessageSort!]! = []
+  ): [DriverOrderMessage!]!
+}
+
+input ServiceOptionAggregateFilter {
+  and: [ServiceOptionAggregateFilter!]
+  or: [ServiceOptionAggregateFilter!]
+  id: IDFilterComparison
+}
+
+input IDFilterComparison {
+  is: Boolean
+  isNot: Boolean
+  eq: ID
+  neq: ID
+  gt: ID
+  gte: ID
+  lt: ID
+  lte: ID
+  like: ID
+  notLike: ID
+  iLike: ID
+  notILike: ID
+  in: [ID!]
+  notIn: [ID!]
+}
+
+input DriverOrderMessageAggregateFilter {
+  and: [DriverOrderMessageAggregateFilter!]
+  or: [DriverOrderMessageAggregateFilter!]
+  id: IDFilterComparison
+  requestId: IDFilterComparison
+}
+
+input ServiceOptionFilter {
+  and: [ServiceOptionFilter!]
+  or: [ServiceOptionFilter!]
+  id: IDFilterComparison
+}
+
+input ServiceOptionSort {
+  field: ServiceOptionSortFields!
+  direction: SortDirection!
+  nulls: SortNulls
+}
+
+enum ServiceOptionSortFields {
+  id
+}
+
+"""Sort Directions"""
+enum SortDirection {
+  ASC
+  DESC
+}
+
+"""Sort Nulls Options"""
+enum SortNulls {
+  NULLS_FIRST
+  NULLS_LAST
+}
+
+input DriverOrderMessageFilter {
+  and: [DriverOrderMessageFilter!]
+  or: [DriverOrderMessageFilter!]
+  id: IDFilterComparison
+  requestId: IDFilterComparison
+}
+
+input DriverOrderMessageSort {
+  field: DriverOrderMessageSortFields!
+  direction: SortDirection!
+  nulls: SortNulls
+}
+
+enum DriverOrderMessageSortFields {
+  id
+  requestId
+}
+
+type DriverWallet {
+  id: ID!
+  balance: Float!
+}
+
+type Driver {
+  id: ID!
+  carProductionYear: Int!
+  carId: ID!
+
+  """arbitary field to prevent exception. The correct field is carId"""
+  carModelId: ID!
+  carColorId: ID!
+  searchDistance: Int!
+  isWalletHidden: Boolean!
+  historyOrdersAggregate(
+    """Filter to find records to aggregate on"""
+    filter: DriverOrderAggregateFilter
+  ): [DriverHistoryOrdersAggregateResponse!]!
+  car: DriverCarModel
+  carColor: DriverCarColor
+  media: DriverMedia
+  documents(
+    """Specify to filter the records returned."""
+    filter: DriverMediaFilter! = {}
+
+    """Specify to sort results."""
+    sorting: [DriverMediaSort!]! = []
+  ): [DriverMedia!]!
+  historyOrders(
+    """Limit or page results."""
+    paging: OffsetPaging! = {limit: 10}
+
+    """Specify to filter the records returned."""
+    filter: DriverOrderFilter! = {}
+
+    """Specify to sort results."""
+    sorting: [DriverOrderSort!]! = []
+  ): DriverHistoryOrdersConnection!
+  orders(
+    """Limit or page results."""
+    paging: OffsetPaging! = {limit: 1}
+
+    """Specify to filter the records returned."""
+    filter: DriverOrderFilter! = {status: {in: [DriverAccepted, Arrived, Started, WaitingForPostPay]}}
+
+    """Specify to sort results."""
+    sorting: [DriverOrderSort!]! = [{field: id, direction: DESC}]
+  ): DriverOrdersConnection!
+  currentOrders(
+    """Specify to filter the records returned."""
+    filter: DriverOrderFilter! = {status: {in: [DriverAccepted, Arrived, Started, WaitingForPostPay]}}
+
+    """Specify to sort results."""
+    sorting: [DriverOrderSort!]! = [{field: id, direction: DESC}]
+  ): [DriverOrder!]!
+  enabledServices(
+    """Specify to filter the records returned."""
+    filter: DriverServiceFilter! = {}
+
+    """Specify to sort results."""
+    sorting: [DriverServiceSort!]! = []
+  ): [DriverService!]!
+  wallets(
+    """Specify to filter the records returned."""
+    filter: DriverWalletFilter! = {}
+
+    """Specify to sort results."""
+    sorting: [DriverWalletSort!]! = []
+  ): [DriverWallet!]!
+}
+
+input DriverOrderAggregateFilter {
+  and: [DriverOrderAggregateFilter!]
+  or: [DriverOrderAggregateFilter!]
+  id: IDFilterComparison
+  status: OrderStatusFilterComparison
+  createdOn: DateFieldComparison
+  distanceBest: IntFieldComparison
+  costBest: NumberFieldComparison
+  driverId: IDFilterComparison
+}
+
+input OrderStatusFilterComparison {
+  is: Boolean
+  isNot: Boolean
+  eq: OrderStatus
+  neq: OrderStatus
+  gt: OrderStatus
+  gte: OrderStatus
+  lt: OrderStatus
+  lte: OrderStatus
+  like: OrderStatus
+  notLike: OrderStatus
+  iLike: OrderStatus
+  notILike: OrderStatus
+  in: [OrderStatus!]
+  notIn: [OrderStatus!]
+}
+
+input DateFieldComparison {
+  is: Boolean
+  isNot: Boolean
+  eq: DateTime
+  neq: DateTime
+  gt: DateTime
+  gte: DateTime
+  lt: DateTime
+  lte: DateTime
+  in: [DateTime!]
+  notIn: [DateTime!]
+  between: DateFieldComparisonBetween
+  notBetween: DateFieldComparisonBetween
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+input DateFieldComparisonBetween {
+  lower: DateTime!
+  upper: DateTime!
+}
+
+input IntFieldComparison {
+  is: Boolean
+  isNot: Boolean
+  eq: Int
+  neq: Int
+  gt: Int
+  gte: Int
+  lt: Int
+  lte: Int
+  in: [Int!]
+  notIn: [Int!]
+  between: IntFieldComparisonBetween
+  notBetween: IntFieldComparisonBetween
+}
+
+input IntFieldComparisonBetween {
+  lower: Int!
+  upper: Int!
+}
+
+input NumberFieldComparison {
+  is: Boolean
+  isNot: Boolean
+  eq: Float
+  neq: Float
+  gt: Float
+  gte: Float
+  lt: Float
+  lte: Float
+  in: [Float!]
+  notIn: [Float!]
+  between: NumberFieldComparisonBetween
+  notBetween: NumberFieldComparisonBetween
+}
+
+input NumberFieldComparisonBetween {
+  lower: Float!
+  upper: Float!
+}
+
+input DriverMediaFilter {
+  and: [DriverMediaFilter!]
+  or: [DriverMediaFilter!]
+  id: IDFilterComparison
+}
+
+input DriverMediaSort {
+  field: DriverMediaSortFields!
+  direction: SortDirection!
+  nulls: SortNulls
+}
+
+enum DriverMediaSortFields {
+  id
+}
+
+input OffsetPaging {
+  """Limit the number of records returned"""
+  limit: Int
+
+  """Offset to start returning records from"""
+  offset: Int
+}
+
+input DriverOrderFilter {
+  and: [DriverOrderFilter!]
+  or: [DriverOrderFilter!]
+  id: IDFilterComparison
+  status: OrderStatusFilterComparison
+  createdOn: DateFieldComparison
+  distanceBest: IntFieldComparison
+  costBest: NumberFieldComparison
+  driverId: IDFilterComparison
+}
+
+input DriverOrderSort {
+  field: DriverOrderSortFields!
+  direction: SortDirection!
+  nulls: SortNulls
+}
+
+enum DriverOrderSortFields {
+  id
+  status
+  createdOn
+  distanceBest
+  costBest
+  driverId
+}
+
+input DriverServiceFilter {
+  and: [DriverServiceFilter!]
+  or: [DriverServiceFilter!]
+  id: IDFilterComparison
+}
+
+input DriverServiceSort {
+  field: DriverServiceSortFields!
+  direction: SortDirection!
+  nulls: SortNulls
+}
+
+enum DriverServiceSortFields {
+  id
+}
+
+input DriverWalletFilter {
+  and: [DriverWalletFilter!]
+  or: [DriverWalletFilter!]
+  id: IDFilterComparison
+  driverId: IDFilterComparison
+}
+
+input DriverWalletSort {
+  field: DriverWalletSortFields!
+  direction: SortDirection!
+  nulls: SortNulls
+}
+
+enum DriverWalletSortFields {
+  id
+  driverId
+}
+
+type DriverMediaEdge {
+  """The node containing the DriverMedia"""
+  node: DriverMedia!
+
+  """Cursor for this node."""
+  cursor: ConnectionCursor!
+}
+
+type DriverMediaAggregateGroupBy {
+  id: ID
+}
+
+type DriverMediaCountAggregate {
+  id: Int
+}
+
+type DriverMediaSumAggregate {
+  id: Float
+}
+
+type DriverMediaAvgAggregate {
+  id: Float
+}
+
+type DriverMediaMinAggregate {
+  id: ID
+}
+
+type DriverMediaMaxAggregate {
+  id: ID
+}
+
+type DriverEdge {
+  """The node containing the Driver"""
+  node: Driver!
+
+  """Cursor for this node."""
+  cursor: ConnectionCursor!
+}
+
+type DriverAggregateGroupBy {
+  id: ID
+}
+
+type DriverCountAggregate {
+  id: Int
+}
+
+type DriverSumAggregate {
+  id: Float
+}
+
+type DriverAvgAggregate {
+  id: Float
+}
+
+type DriverMinAggregate {
+  id: ID
+}
+
+type DriverMaxAggregate {
+  id: ID
+}
+
+type DriverOrdersConnection {
+  """Paging information"""
+  pageInfo: OffsetPageInfo!
+
+  """Array of nodes."""
+  nodes: [DriverOrder!]!
+}
+
+type DriverHistoryOrdersConnection {
+  """Paging information"""
+  pageInfo: OffsetPageInfo!
+
+  """Array of nodes."""
+  nodes: [DriverOrder!]!
+}
+
+type DriverHistoryOrdersAggregateGroupBy {
+  id: ID
+  status: OrderStatus
+  createdOn: Timestamp
+  distanceBest: Int
+  costBest: Float
+  driverId: ID
+}
+
+type DriverHistoryOrdersCountAggregate {
+  id: Int
+  status: Int
+  createdOn: Int
+  distanceBest: Int
+  costBest: Int
+  driverId: Int
+}
+
+type DriverHistoryOrdersSumAggregate {
+  id: Float
+  distanceBest: Float
+  costBest: Float
+  driverId: Float
+}
+
+type DriverHistoryOrdersAvgAggregate {
+  id: Float
+  distanceBest: Float
+  costBest: Float
+  driverId: Float
+}
+
+type DriverHistoryOrdersMinAggregate {
+  id: ID
+  status: OrderStatus
+  createdOn: Timestamp
+  distanceBest: Int
+  costBest: Float
+  driverId: ID
+}
+
+type DriverHistoryOrdersMaxAggregate {
+  id: ID
+  status: OrderStatus
+  createdOn: Timestamp
+  distanceBest: Int
+  costBest: Float
+  driverId: ID
+}
+
+type DriverHistoryOrdersAggregateResponse {
+  groupBy: DriverHistoryOrdersAggregateGroupBy
+  count: DriverHistoryOrdersCountAggregate
+  sum: DriverHistoryOrdersSumAggregate
+  avg: DriverHistoryOrdersAvgAggregate
+  min: DriverHistoryOrdersMinAggregate
+  max: DriverHistoryOrdersMaxAggregate
+}
+
+type DriverCarModelAggregateGroupBy {
+  id: ID
+}
+
+type DriverCarModelCountAggregate {
+  id: Int
+}
+
+type DriverCarModelSumAggregate {
+  id: Float
+}
+
+type DriverCarModelAvgAggregate {
+  id: Float
+}
+
+type DriverCarModelMinAggregate {
+  id: ID
+}
+
+type DriverCarModelMaxAggregate {
+  id: ID
+}
+
+type DriverCarColorAggregateGroupBy {
+  id: ID
+}
+
+type DriverCarColorCountAggregate {
+  id: Int
+}
+
+type DriverCarColorSumAggregate {
+  id: Float
+}
+
+type DriverCarColorAvgAggregate {
+  id: Float
+}
+
+type DriverCarColorMinAggregate {
+  id: ID
+}
+
+type DriverCarColorMaxAggregate {
+  id: ID
+}
+
+type SOS {
+  id: ID!
+}
+
+type DriverOrderEdge {
+  """The node containing the DriverOrder"""
+  node: DriverOrder!
+
+  """Cursor for this node."""
+  cursor: ConnectionCursor!
+}
+
+type DriverOrderConnection {
+  """Paging information"""
+  pageInfo: PageInfo!
+
+  """Array of edges."""
+  edges: [DriverOrderEdge!]!
+}
+
+type DriverOrderAggregateGroupBy {
+  id: ID
+  status: OrderStatus
+  createdOn: Timestamp
+  distanceBest: Int
+  costBest: Float
+  driverId: ID
+}
+
+type DriverOrderCountAggregate {
+  id: Int
+  status: Int
+  createdOn: Int
+  distanceBest: Int
+  costBest: Int
+  driverId: Int
+}
+
+type DriverOrderSumAggregate {
+  id: Float
+  distanceBest: Float
+  costBest: Float
+  driverId: Float
+}
+
+type DriverOrderAvgAggregate {
+  id: Float
+  distanceBest: Float
+  costBest: Float
+  driverId: Float
+}
+
+type DriverOrderMinAggregate {
+  id: ID
+  status: OrderStatus
+  createdOn: Timestamp
+  distanceBest: Int
+  costBest: Float
+  driverId: ID
+}
+
+type DriverOrderMaxAggregate {
+  id: ID
+  status: OrderStatus
+  createdOn: Timestamp
+  distanceBest: Int
+  costBest: Float
+  driverId: ID
+}
+
+type DriverOrderAggregateResponse {
+  groupBy: DriverOrderAggregateGroupBy
+  count: DriverOrderCountAggregate
+  sum: DriverOrderSumAggregate
+  avg: DriverOrderAvgAggregate
+  min: DriverOrderMinAggregate
+  max: DriverOrderMaxAggregate
+}
+
+type DriverOrderConversationsAggregateGroupBy {
+  id: ID
+  requestId: ID
+}
+
+type DriverOrderConversationsCountAggregate {
+  id: Int
+  requestId: Int
+}
+
+type DriverOrderConversationsSumAggregate {
+  id: Float
+  requestId: Float
+}
+
+type DriverOrderConversationsAvgAggregate {
+  id: Float
+  requestId: Float
+}
+
+type DriverOrderConversationsMinAggregate {
+  id: ID
+  requestId: ID
+}
+
+type DriverOrderConversationsMaxAggregate {
+  id: ID
+  requestId: ID
+}
+
+type DriverOrderConversationsAggregateResponse {
+  groupBy: DriverOrderConversationsAggregateGroupBy
+  count: DriverOrderConversationsCountAggregate
+  sum: DriverOrderConversationsSumAggregate
+  avg: DriverOrderConversationsAvgAggregate
+  min: DriverOrderConversationsMinAggregate
+  max: DriverOrderConversationsMaxAggregate
+}
+
+type DriverOrderOptionsAggregateGroupBy {
+  id: ID
+}
+
+type DriverOrderOptionsCountAggregate {
+  id: Int
+}
+
+type DriverOrderOptionsSumAggregate {
+  id: Float
+}
+
+type DriverOrderOptionsAvgAggregate {
+  id: Float
+}
+
+type DriverOrderOptionsMinAggregate {
+  id: ID
+}
+
+type DriverOrderOptionsMaxAggregate {
+  id: ID
+}
+
+type DriverOrderOptionsAggregateResponse {
+  groupBy: DriverOrderOptionsAggregateGroupBy
+  count: DriverOrderOptionsCountAggregate
+  sum: DriverOrderOptionsSumAggregate
+  avg: DriverOrderOptionsAvgAggregate
+  min: DriverOrderOptionsMinAggregate
+  max: DriverOrderOptionsMaxAggregate
+}
+
+type DriverRiderEdge {
+  """The node containing the DriverRider"""
+  node: DriverRider!
+
+  """Cursor for this node."""
+  cursor: ConnectionCursor!
+}
+
+type DriverRiderAggregateGroupBy {
+  id: ID
+}
+
+type DriverRiderCountAggregate {
+  id: Int
+}
+
+type DriverRiderSumAggregate {
+  id: Float
+}
+
+type DriverRiderAvgAggregate {
+  id: Float
+}
+
+type DriverRiderMinAggregate {
+  id: ID
+}
+
+type DriverRiderMaxAggregate {
+  id: ID
+}
+
+type DriverAnnouncement {
+  id: ID!
+  title: String!
+  userType: [AnnouncementUserType!]!
+}
+
+enum AnnouncementUserType {
+  Driver
+  Rider
+  Operator
+}
+
+type DriverAnnouncementAggregateGroupBy {
+  id: ID
+}
+
+type DriverAnnouncementCountAggregate {
+  id: Int
+}
+
+type DriverAnnouncementSumAggregate {
+  id: Float
+}
+
+type DriverAnnouncementAvgAggregate {
+  id: Float
+}
+
+type DriverAnnouncementMinAggregate {
+  id: ID
+}
+
+type DriverAnnouncementMaxAggregate {
+  id: ID
+}
+
+type DriverTransacion {
+  id: ID!
+}
+
+type DriverPaymentGateway {
+  id: ID!
+  title: String!
+  type: String!
+  publicKey: String!
+  privateKey: String!
+  isEnabled: Boolean!
+  media: DriverMedia
+}
+
+type StatisticsResult {
+  currency: String!
+  dataset: [Datapoint!]!
+}
+
+type Datapoint {
+  name: String!
+  current: String!
+  earning: Float!
+  count: Float!
+  distance: Float!
+  time: Float!
+}
+
+type TopUpWalletResponse {
+  status: TopUpWalletStatus!
+  url: String!
+}
+
+enum TopUpWalletStatus {
+  OK
+  Redirect
+}
+
+type DriverTransacionEdge {
+  """The node containing the DriverTransacion"""
+  node: DriverTransacion!
+
+  """Cursor for this node."""
+  cursor: ConnectionCursor!
+}
+
+type DriverTransacionConnection {
+  """Paging information"""
+  pageInfo: PageInfo!
+
+  """Array of edges."""
+  edges: [DriverTransacionEdge!]!
+}
+
+type DriverTransacionAggregateGroupBy {
+  id: ID
+  driverId: ID
+}
+
+type DriverTransacionCountAggregate {
+  id: Int
+  driverId: Int
+}
+
+type DriverTransacionSumAggregate {
+  id: Float
+  driverId: Float
+}
+
+type DriverTransacionAvgAggregate {
+  id: Float
+  driverId: Float
+}
+
+type DriverTransacionMinAggregate {
+  id: ID
+  driverId: ID
+}
+
+type DriverTransacionMaxAggregate {
+  id: ID
+  driverId: ID
+}
+
+type DriverWalletAggregateGroupBy {
+  id: ID
+  driverId: ID
+}
+
+type DriverWalletCountAggregate {
+  id: Int
+  driverId: Int
+}
+
+type DriverWalletSumAggregate {
+  id: Float
+  driverId: Float
+}
+
+type DriverWalletAvgAggregate {
+  id: Float
+  driverId: Float
+}
+
+type DriverWalletMinAggregate {
+  id: ID
+  driverId: ID
+}
+
+type DriverWalletMaxAggregate {
+  id: ID
+  driverId: ID
+}
+
+type DriverPaymentGatewayAggregateGroupBy {
+  id: ID
+}
+
+type DriverPaymentGatewayCountAggregate {
+  id: Int
+}
+
+type DriverPaymentGatewaySumAggregate {
+  id: Float
+}
+
+type DriverPaymentGatewayAvgAggregate {
+  id: Float
+}
+
+type DriverPaymentGatewayMinAggregate {
+  id: ID
+}
+
+type DriverPaymentGatewayMaxAggregate {
+  id: ID
+}
+
+type DriverServiceEdge {
+  """The node containing the DriverService"""
+  node: DriverService!
+
+  """Cursor for this node."""
+  cursor: ConnectionCursor!
+}
+
+type DriverServiceAggregateGroupBy {
+  id: ID
+}
+
+type DriverServiceCountAggregate {
+  id: Int
+}
+
+type DriverServiceSumAggregate {
+  id: Float
+}
+
+type DriverServiceAvgAggregate {
+  id: Float
+}
+
+type DriverServiceMinAggregate {
+  id: ID
+}
+
+type DriverServiceMaxAggregate {
+  id: ID
+}
+
+type DriverOrderMessageDeleteResponse {
+  id: ID
+  content: String
+  requestId: ID
+}
+
+type DriverOrderMessageEdge {
+  """The node containing the DriverOrderMessage"""
+  node: DriverOrderMessage!
+
+  """Cursor for this node."""
+  cursor: ConnectionCursor!
+}
+
+type DriverOrderMessageConnection {
+  """Paging information"""
+  pageInfo: PageInfo!
+
+  """Array of edges."""
+  edges: [DriverOrderMessageEdge!]!
+
+  """Fetch total count of records"""
+  totalCount: Int!
+}
+
+type DriverOrderMessageAggregateGroupBy {
+  id: ID
+  requestId: ID
+}
+
+type DriverOrderMessageCountAggregate {
+  id: Int
+  requestId: Int
+}
+
+type DriverOrderMessageSumAggregate {
+  id: Float
+  requestId: Float
+}
+
+type DriverOrderMessageAvgAggregate {
+  id: Float
+  requestId: Float
+}
+
+type DriverOrderMessageMinAggregate {
+  id: ID
+  requestId: ID
+}
+
+type DriverOrderMessageMaxAggregate {
+  id: ID
+  requestId: ID
+}
+
+type DriverOrderMessageAggregateResponse {
+  groupBy: DriverOrderMessageAggregateGroupBy
+  count: DriverOrderMessageCountAggregate
+  sum: DriverOrderMessageSumAggregate
+  avg: DriverOrderMessageAvgAggregate
+  min: DriverOrderMessageMinAggregate
+  max: DriverOrderMessageMaxAggregate
+}
+
+type DriverComplaint {
+  id: ID!
+  subject: String!
+  description: String!
+  status: String!
+}
+
+type DriverComplaintEdge {
+  """The node containing the DriverComplaint"""
+  node: DriverComplaint!
+
+  """Cursor for this node."""
+  cursor: ConnectionCursor!
+}
+
+type DriverComplaintAggregateGroupBy {
+  id: ID
+}
+
+type DriverComplaintCountAggregate {
+  id: Int
+}
+
+type DriverComplaintSumAggregate {
+  id: Float
+}
+
+type DriverComplaintAvgAggregate {
+  id: Float
+}
+
+type DriverComplaintMinAggregate {
+  id: ID
+}
+
+type DriverComplaintMaxAggregate {
+  id: ID
+}
+
+type Query {
+  driverOrderAggregate(
+    """Filter to find records to aggregate on"""
+    filter: DriverOrderAggregateFilter
+  ): [DriverOrderAggregateResponse!]!
+  driverOrder(
+    """The id of the record to find."""
+    id: ID!
+  ): DriverOrder
+  driverOrders(
+    """Limit or page results."""
+    paging: CursorPaging! = {first: 10}
+
+    """Specify to filter the records returned."""
+    filter: DriverOrderFilter! = {}
+
+    """Specify to sort results."""
+    sorting: [DriverOrderSort!]! = []
+  ): DriverOrderConnection!
+  availableOrders: [DriverOrder!]!
+  driver(
+    """The id of the record to find."""
+    id: ID!
+  ): Driver
+  driverCarModels(
+    """Specify to filter the records returned."""
+    filter: DriverCarModelFilter! = {}
+
+    """Specify to sort results."""
+    sorting: [DriverCarModelSort!]! = []
+  ): [DriverCarModel!]!
+  driverCarColors(
+    """Specify to filter the records returned."""
+    filter: DriverCarColorFilter! = {}
+
+    """Specify to sort results."""
+    sorting: [DriverCarColorSort!]! = []
+  ): [DriverCarColor!]!
+  driverOrderMessageAggregate(
+    """Filter to find records to aggregate on"""
+    filter: DriverOrderMessageAggregateFilter
+  ): [DriverOrderMessageAggregateResponse!]!
+  driverOrderMessage(
+    """The id of the record to find."""
+    id: ID!
+  ): DriverOrderMessage
+  driverOrderMessages(
+    """Limit or page results."""
+    paging: CursorPaging! = {first: 10}
+
+    """Specify to filter the records returned."""
+    filter: DriverOrderMessageFilter! = {}
+
+    """Specify to sort results."""
+    sorting: [DriverOrderMessageSort!]! = []
+  ): DriverOrderMessageConnection!
+  getStats(timeframe: TimeQuery!): StatisticsResult!
+  getStatsNew(timeframe: TimeQuery!, startDate: DateTime!, endDate: DateTime!): StatisticsResult!
+  driverTransacions(
+    """Limit or page results."""
+    paging: CursorPaging! = {first: 10}
+
+    """Specify to filter the records returned."""
+    filter: DriverTransacionFilter! = {}
+
+    """Specify to sort results."""
+    sorting: [DriverTransacionSort!]! = []
+  ): DriverTransacionConnection!
+  driverWallets(
+    """Specify to filter the records returned."""
+    filter: DriverWalletFilter! = {}
+
+    """Specify to sort results."""
+    sorting: [DriverWalletSort!]! = []
+  ): [DriverWallet!]!
+  driverPaymentGateways(
+    """Specify to filter the records returned."""
+    filter: DriverPaymentGatewayFilter! = {}
+
+    """Specify to sort results."""
+    sorting: [DriverPaymentGatewaySort!]! = []
+  ): [DriverPaymentGateway!]!
+  driverAnnouncements(
+    """Specify to filter the records returned."""
+    filter: DriverAnnouncementFilter! = {}
+
+    """Specify to sort results."""
+    sorting: [DriverAnnouncementSort!]! = []
+  ): [DriverAnnouncement!]!
+}
+
+input CursorPaging {
+  """Paginate before opaque cursor"""
+  before: ConnectionCursor
+
+  """Paginate after opaque cursor"""
+  after: ConnectionCursor
+
+  """Paginate first"""
+  first: Int
+
+  """Paginate last"""
+  last: Int
+}
+
+input DriverCarModelFilter {
+  and: [DriverCarModelFilter!]
+  or: [DriverCarModelFilter!]
+  id: IDFilterComparison
+}
+
+input DriverCarModelSort {
+  field: DriverCarModelSortFields!
+  direction: SortDirection!
+  nulls: SortNulls
+}
+
+enum DriverCarModelSortFields {
+  id
+}
+
+input DriverCarColorFilter {
+  and: [DriverCarColorFilter!]
+  or: [DriverCarColorFilter!]
+  id: IDFilterComparison
+}
+
+input DriverCarColorSort {
+  field: DriverCarColorSortFields!
+  direction: SortDirection!
+  nulls: SortNulls
+}
+
+enum DriverCarColorSortFields {
+  id
+}
+
+enum TimeQuery {
+  Daily
+  Weekly
+  Monthly
+}
+
+input DriverTransacionFilter {
+  and: [DriverTransacionFilter!]
+  or: [DriverTransacionFilter!]
+  id: IDFilterComparison
+  driverId: IDFilterComparison
+}
+
+input DriverTransacionSort {
+  field: DriverTransacionSortFields!
+  direction: SortDirection!
+  nulls: SortNulls
+}
+
+enum DriverTransacionSortFields {
+  id
+  driverId
+}
+
+input DriverPaymentGatewayFilter {
+  and: [DriverPaymentGatewayFilter!]
+  or: [DriverPaymentGatewayFilter!]
+  id: IDFilterComparison
+}
+
+input DriverPaymentGatewaySort {
+  field: DriverPaymentGatewaySortFields!
+  direction: SortDirection!
+  nulls: SortNulls
+}
+
+enum DriverPaymentGatewaySortFields {
+  id
+}
+
+input DriverAnnouncementFilter {
+  and: [DriverAnnouncementFilter!]
+  or: [DriverAnnouncementFilter!]
+  id: IDFilterComparison
+}
+
+input DriverAnnouncementSort {
+  field: DriverAnnouncementSortFields!
+  direction: SortDirection!
+  nulls: SortNulls
+}
+
+enum DriverAnnouncementSortFields {
+  id
+}
+
+type Mutation {
+  updateOneDriverOrder(input: UpdateOneDriverOrderInput!): DriverOrder!
+  updateDriversLocationNew(point: PointInput!): [DriverOrder!]!
+  sosSignal(orderId: ID!, location: PointInput): SOS!
+  addDocumentsToDriver(input: AddDocumentsToDriverInput!): Driver!
+  setDocumentsOnDriver(input: SetDocumentsOnDriverInput!): Driver!
+  addEnabledServicesToDriver(input: AddEnabledServicesToDriverInput!): Driver!
+  setEnabledServicesOnDriver(input: SetEnabledServicesOnDriverInput!): Driver!
+  removeEnabledServicesFromDriver(input: RemoveEnabledServicesFromDriverInput!): Driver!
+  updateOneDriver(input: UpdateOneDriverInput!): Driver!
+  createOneDriverOrderMessage(input: CreateOneDriverOrderMessageInput!): DriverOrderMessage!
+  createManyDriverOrderMessages(input: CreateManyDriverOrderMessagesInput!): [DriverOrderMessage!]!
+  updateOneDriverOrderMessage(input: UpdateOneDriverOrderMessageInput!): DriverOrderMessage!
+  updateManyDriverOrderMessages(input: UpdateManyDriverOrderMessagesInput!): UpdateManyResponse!
+  deleteOneDriverOrderMessage(input: DeleteOneDriverOrderMessageInput!): DriverOrderMessageDeleteResponse!
+  deleteManyDriverOrderMessages(input: DeleteManyDriverOrderMessagesInput!): DeleteManyResponse!
+  topUpWallet(input: TopUpWalletInput!): TopUpWalletResponse!
+  createOneDriverComplaint(input: CreateOneDriverComplaintInput!): DriverComplaint!
+}
+
+input UpdateOneDriverOrderInput {
+  """The id of the record to update"""
+  id: ID!
+
+  """The update to apply."""
+  update: UpdateOrderInput!
+}
+
+input UpdateOrderInput {
+  status: OrderStatus!
+  paidAmount: Float
+}
+
+input PointInput {
+  coordinates: [Float!]! = []
+}
+
+input AddDocumentsToDriverInput {
+  """The id of the record."""
+  id: ID!
+
+  """The ids of the relations."""
+  relationIds: [ID!]!
+}
+
+input SetDocumentsOnDriverInput {
+  """The id of the record."""
+  id: ID!
+
+  """The ids of the relations."""
+  relationIds: [ID!]!
+}
+
+input AddEnabledServicesToDriverInput {
+  """The id of the record."""
+  id: ID!
+
+  """The ids of the relations."""
+  relationIds: [ID!]!
+}
+
+input SetEnabledServicesOnDriverInput {
+  """The id of the record."""
+  id: ID!
+
+  """The ids of the relations."""
+  relationIds: [ID!]!
+}
+
+input RemoveEnabledServicesFromDriverInput {
+  """The id of the record."""
+  id: ID!
+
+  """The ids of the relations."""
+  relationIds: [ID!]!
+}
+
+input UpdateOneDriverInput {
+  """The id of the record to update"""
+  id: ID!
+
+  """The update to apply."""
+  update: UpdateDriverInput!
+}
+
+input UpdateDriverInput {
+  carProductionYear: Int!
+  carModelId: ID!
+  carId: ID!
+  carColorId: ID!
+  searchDistance: Int!
+}
+
+input CreateOneDriverOrderMessageInput {
+  """The record to create"""
+  driverOrderMessage: OrderMessageInput!
+}
+
+input OrderMessageInput {
+  requestId: ID!
+}
+
+input CreateManyDriverOrderMessagesInput {
+  """Array of records to create"""
+  driverOrderMessages: [OrderMessageInput!]!
+}
+
+input UpdateOneDriverOrderMessageInput {
+  """The id of the record to update"""
+  id: ID!
+
+  """The update to apply."""
+  update: OrderMessageInput!
+}
+
+input UpdateManyDriverOrderMessagesInput {
+  """Filter used to find fields to update"""
+  filter: DriverOrderMessageUpdateFilter!
+
+  """The update to apply to all records found using the filter"""
+  update: OrderMessageInput!
+}
+
+input DriverOrderMessageUpdateFilter {
+  and: [DriverOrderMessageUpdateFilter!]
+  or: [DriverOrderMessageUpdateFilter!]
+  id: IDFilterComparison
+  requestId: IDFilterComparison
+}
+
+input DeleteOneDriverOrderMessageInput {
+  """The id of the record to delete."""
+  id: ID!
+}
+
+input DeleteManyDriverOrderMessagesInput {
+  """Filter to find records to delete"""
+  filter: DriverOrderMessageDeleteFilter!
+}
+
+input DriverOrderMessageDeleteFilter {
+  and: [DriverOrderMessageDeleteFilter!]
+  or: [DriverOrderMessageDeleteFilter!]
+  id: IDFilterComparison
+  requestId: IDFilterComparison
+}
+
+input TopUpWalletInput {
+  gatewayId: ID!
+  amount: ID!
+  currency: ID!
+  token: String
+  pin: String
+  otp: String
+  transactionId: String
+}
+
+input CreateOneDriverComplaintInput {
+  """The record to create"""
+  driverComplaint: ComplaintInput!
+}
+
+input ComplaintInput {
+  requestId: ID!
+}
+
+type Subscription {
+  orderCreated: DriverOrder!
+  orderUpdated: DriverOrder!
+  orderRemoved: DriverOrder!
+}

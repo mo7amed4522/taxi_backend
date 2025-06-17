@@ -1,0 +1,13 @@
+import { Field, ID, ObjectType } from '@nestjs/graphql';
+import { IDField } from '@nestjs-query/query-graphql';
+
+@ObjectType('AdminMedia')
+export class MediaDTO {
+    @IDField(() => ID)
+    id: number;
+    @Field()
+    address: string;
+    @Field()
+    type: string;
+    base64?: string;
+}
