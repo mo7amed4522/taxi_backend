@@ -1,0 +1,1480 @@
+{
+	"info": {
+		"_postman_id": "taxi-api-collection",
+		"name": "Taxi API",
+		"description": "Combined collection for Admin, Driver and Rider API endpoints",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Admin API",
+			"item": [
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "Login",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{adminBaseUrl}}/graphql",
+									"host": ["{{adminBaseUrl}}"],
+									"path": ["graphql"]
+								},
+								"body": {
+									"mode": "raw",
+									"raw": "{\"query\":\"query Login($userName: String!, $password: String!) { login(userName: $userName, password: $password) { token } }\",\"variables\":{\"userName\":\"admin\",\"password\":\"password\"}}"
+								}
+							}
+						},
+						{
+							"name": "Get Current User",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{adminToken}}"
+									}
+								],
+								"url": {
+									"raw": "{{adminBaseUrl}}/graphql",
+									"host": ["{{adminBaseUrl}}"],
+									"path": ["graphql"]
+								},
+								"body": {
+									"mode": "raw",
+									"raw": "{\"query\":\"query { me { id userName role { id name permissions } } }\"}"
+								}
+							}
+						}
+					]
+				},
+				{
+					"name": "Configuration",
+					"item": [
+						{
+							"name": "Get Current Configuration",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{adminToken}}"
+									}
+								],
+								"url": {
+									"raw": "{{adminBaseUrl}}/graphql",
+									"host": ["{{adminBaseUrl}}"],
+									"path": ["graphql"]
+								},
+								"body": {
+									"mode": "raw",
+									"raw": "{\"query\":\"query { currentConfiguration { purchaseCode backendMapsAPIKey adminPanelAPIKey firebaseProjectPrivateKey } }\"}"
+								}
+							}
+						},
+						{
+							"name": "Update Purchase Code",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{adminToken}}"
+									}
+								],
+								"url": {
+									"raw": "{{adminBaseUrl}}/graphql",
+									"host": ["{{adminBaseUrl}}"],
+									"path": ["graphql"]
+								},
+								"body": {
+									"mode": "raw",
+									"raw": "{\"query\":\"mutation UpdatePurchaseCode($purchaseCode: String!) { updatePurchaseCode(purchaseCode: $purchaseCode) { success message } }\",\"variables\":{\"purchaseCode\":\"your-purchase-code\"}}"
+								}
+							}
+						},
+						{
+							"name": "Update Maps API Key",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{adminToken}}"
+									}
+								],
+								"url": {
+									"raw": "{{adminBaseUrl}}/graphql",
+									"host": ["{{adminBaseUrl}}"],
+									"path": ["graphql"]
+								},
+								"body": {
+									"mode": "raw",
+									"raw": "{\"query\":\"mutation UpdateMapsAPIKey($backend: String!, $adminPanel: String!) { updateMapsAPIKey(backend: $backend, adminPanel: $adminPanel) { success message } }\",\"variables\":{\"backend\":\"your-backend-key\",\"adminPanel\":\"your-admin-panel-key\"}}"
+								}
+							}
+						},
+						{
+							"name": "Update Firebase",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{adminToken}}"
+									}
+								],
+								"url": {
+									"raw": "{{adminBaseUrl}}/graphql",
+									"host": ["{{adminBaseUrl}}"],
+									"path": ["graphql"]
+								},
+								"body": {
+									"mode": "raw",
+									"raw": "{\"query\":\"mutation UpdateFirebase($keyFileName: String!) { updateFirebase(keyFileName: $keyFileName) { success message } }\",\"variables\":{\"keyFileName\":\"your-firebase-key-file.json\"}}"
+								}
+							}
+						},
+						{
+							"name": "Disable Previous Server",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{adminToken}}"
+									}
+								],
+								"url": {
+									"raw": "{{adminBaseUrl}}/graphql",
+									"host": ["{{adminBaseUrl}}"],
+									"path": ["graphql"]
+								},
+								"body": {
+									"mode": "raw",
+									"raw": "{\"query\":\"mutation DisablePreviousServer($ip: String!) { disablePreviousServer(ip: $ip) { success message } }\",\"variables\":{\"ip\":\"previous-server-ip\"}}"
+								}
+							}
+						}
+					]
+				},
+				{
+					"name": "Accounting",
+					"item": [
+						{
+							"name": "Get Request Chart",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{adminToken}}"
+									}
+								],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "query GetRequestChart($timeframe: ChartTimeframe!) {\n  requestChart(timeframe: $timeframe) {\n    items {\n      date\n      count\n      amount\n    }\n  }\n}",
+										"variables": "{\n  \"timeframe\": \"DAILY\"\n}"
+									}
+								},
+								"url": {
+									"raw": "{{adminBaseUrl}}/graphql",
+									"host": ["{{adminBaseUrl}}"],
+									"path": ["graphql"]
+								}
+							}
+						}
+					]
+				},
+				{
+					"name": "Dispatcher",
+					"item": [
+						{
+							"name": "Calculate Fare",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "query CalculateFare($input: CalculateFareInput!) {\n  calculateFare(input: $input) {\n    distance\n    duration\n    cost\n    currency\n  }\n}",
+										"variables": "{\n  \"input\": {\n    \"points\": [\n      {\n        \"lat\": 35.6892,\n        \"lng\": 51.3890\n      },\n      {\n        \"lat\": 35.6892,\n        \"lng\": 51.3890\n      }\n    ],\n    \"twoWay\": false\n  }\n}"
+									}
+								},
+								"url": {
+									"raw": "{{adminBaseUrl}}/graphql",
+									"host": ["{{adminBaseUrl}}"],
+									"path": ["graphql"]
+								}
+							}
+						},
+						{
+							"name": "Create Order",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{adminToken}}"
+									}
+								],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "mutation CreateOrder($input: CreateOrderInput!) {\n  createOrder(input: $input) {\n    id\n    status\n    costAfterCoupon\n    currency\n  }\n}",
+										"variables": "{\n  \"input\": {\n    \"points\": [\n      {\n        \"lat\": 35.6892,\n        \"lng\": 51.3890\n      },\n      {\n        \"lat\": 35.6892,\n        \"lng\": 51.3890\n      }\n    ],\n    \"twoWay\": false,\n    \"optionIds\": []\n  }\n}"
+									}
+								},
+								"url": {
+									"raw": "{{adminBaseUrl}}/graphql",
+									"host": ["{{adminBaseUrl}}"],
+									"path": ["graphql"]
+								}
+							}
+						},
+						{
+							"name": "Cancel Order",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "mutation CancelOrder($orderId: ID!) {\n  cancelOrder(orderId: $orderId) {\n    id\n    status\n  }\n}",
+										"variables": "{\n  \"orderId\": 1\n}"
+									}
+								},
+								"url": {
+									"raw": "{{adminBaseUrl}}/graphql",
+									"host": ["{{adminBaseUrl}}"],
+									"path": ["graphql"]
+								}
+							}
+						},
+						{
+							"name": "Assign Driver to Order",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "mutation AssignDriver($orderId: ID!, $driverId: ID!) {\n  assignDriverToOrder(orderId: $orderId, driverId: $driverId) {\n    id\n    status\n    driver {\n      id\n      firstName\n      lastName\n    }\n  }\n}",
+										"variables": "{\n  \"orderId\": 1,\n  \"driverId\": 1\n}"
+									}
+								},
+								"url": {
+									"raw": "{{adminBaseUrl}}/graphql",
+									"host": ["{{adminBaseUrl}}"],
+									"path": ["graphql"]
+								}
+							}
+						}
+					]
+				},
+				{
+					"name": "Upload",
+					"item": [
+						{
+							"name": "Upload File",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{adminToken}}"
+									}
+								],
+								"url": {
+									"raw": "{{adminBaseUrl}}/upload",
+									"host": ["{{adminBaseUrl}}"],
+									"path": ["upload"]
+								},
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"type": "file",
+											"src": "/path/to/your/file"
+										}
+									]
+								}
+							}
+						}
+					]
+				},
+				{
+					"name": "Order API",
+					"item": [
+						{
+							"name": "Order Management",
+							"item": [
+								{
+									"name": "Calculate Fare",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer {{adminToken}}"
+											}
+										],
+										"url": {
+											"raw": "{{adminBaseUrl}}/graphql",
+											"host": ["{{adminBaseUrl}}"],
+											"path": ["graphql"]
+										},
+										"body": {
+											"mode": "raw",
+											"raw": "{\"query\":\"mutation CalculateFare($input: CalculateFareInput!) { calculateFare(input: $input) { distance duration cost currency costBest costAfterCoupon } }\",\"variables\":{\"input\":{\"points\":[{\"lat\":0,\"lng\":0},{\"lat\":0,\"lng\":0}],\"serviceId\":1,\"couponCode\":null}}}"
+										}
+									}
+								},
+								{
+									"name": "Create Order",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer {{adminToken}}"
+											}
+										],
+										"url": {
+											"raw": "{{adminBaseUrl}}/graphql",
+											"host": ["{{adminBaseUrl}}"],
+											"path": ["graphql"]
+										},
+										"body": {
+											"mode": "raw",
+											"raw": "{\"query\":\"mutation CreateOrder($input: CreateOrderInput!) { createOrder(input: $input) { id status costBest currency addresses points } }\",\"variables\":{\"input\":{\"riderId\":1,\"serviceId\":1,\"points\":[{\"lat\":0,\"lng\":0},{\"lat\":0,\"lng\":0}],\"addresses\":[\"Start\",\"End\"],\"optionIds\":[1]}}}"
+										}
+									}
+								},
+								{
+									"name": "Cancel Order",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer {{adminToken}}"
+											}
+										],
+										"url": {
+											"raw": "{{adminBaseUrl}}/graphql",
+											"host": ["{{adminBaseUrl}}"],
+											"path": ["graphql"]
+										},
+										"body": {
+											"mode": "raw",
+											"raw": "{\"query\":\"mutation CancelOrder($id: ID!) { cancelOrder(id: $id) { id status } }\",\"variables\":{\"id\":1}}"
+										}
+									}
+								},
+								{
+									"name": "Finish Order",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer {{adminToken}}"
+											}
+										],
+										"url": {
+											"raw": "{{adminBaseUrl}}/graphql",
+											"host": ["{{adminBaseUrl}}"],
+											"path": ["graphql"]
+										},
+										"body": {
+											"mode": "raw",
+											"raw": "{\"query\":\"mutation FinishOrder($id: ID!, $cashAmount: Float) { finishOrder(id: $id, cashAmount: $cashAmount) { id status } }\",\"variables\":{\"id\":1,\"cashAmount\":0}}"
+										}
+									}
+								},
+								{
+									"name": "Assign Order to Driver",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer {{adminToken}}"
+											}
+										],
+										"url": {
+											"raw": "{{adminBaseUrl}}/graphql",
+											"host": ["{{adminBaseUrl}}"],
+											"path": ["graphql"]
+										},
+										"body": {
+											"mode": "raw",
+											"raw": "{\"query\":\"mutation AssignOrder($orderId: ID!, $driverId: ID!) { assignOrderToDriver(orderId: $orderId, driverId: $driverId) { id status driver { id firstName lastName } } }\",\"variables\":{\"orderId\":1,\"driverId\":1}}"
+										}
+									}
+								},
+								{
+									"name": "Process Pre-Pay",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer {{adminToken}}"
+											}
+										],
+										"url": {
+											"raw": "{{adminBaseUrl}}/graphql",
+											"host": ["{{adminBaseUrl}}"],
+											"path": ["graphql"]
+										},
+										"body": {
+											"mode": "raw",
+											"raw": "{\"query\":\"mutation ProcessPrePay($orderId: ID!) { processPrePay(orderId: $orderId) { id status } }\",\"variables\":{\"orderId\":1}}"
+										}
+									}
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Driver API",
+			"item": [
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "Login",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{driverBaseUrl}}/graphql",
+									"host": ["{{driverBaseUrl}}"],
+									"path": ["graphql"]
+								},
+								"body": {
+									"mode": "raw",
+									"raw": "{\"query\":\"mutation Login($input: LoginInput!) { login(input: $input) { token } }\",\"variables\":{\"input\":{\"mobileNumber\":\"+1234567890\",\"password\":\"password\"}}}"
+								}
+							}
+						},
+						{
+							"name": "Delete User",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{driverToken}}"
+									}
+								],
+								"url": {
+									"raw": "{{driverBaseUrl}}/graphql",
+									"host": ["{{driverBaseUrl}}"],
+									"path": ["graphql"]
+								},
+								"body": {
+									"mode": "raw",
+									"raw": "{\"query\":\"mutation { deleteUser { id } }\"}"
+								}
+							}
+						},
+						{
+							"name": "Check Version",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "query CheckVersion($versionCode: Int!) {\n  requireUpdate(versionCode: $versionCode)\n}",
+										"variables": "{\n  \"versionCode\": 1\n}"
+									}
+								},
+								"url": {
+									"raw": "{{driverBaseUrl}}/graphql",
+									"host": ["{{driverBaseUrl}}"],
+									"path": ["graphql"]
+								}
+							}
+						}
+					]
+				},
+				{
+					"name": "Orders",
+					"item": [
+						{
+							"name": "Get Current Order",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{driverToken}}"
+									}
+								],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "query {\n  currentOrder {\n    id\n    status\n    costAfterCoupon\n    currency\n    startTimestamp\n    finishTimestamp\n    rider {\n      id\n      firstName\n      lastName\n      mobileNumber\n    }\n  }\n}"
+									}
+								},
+								"url": {
+									"raw": "{{driverBaseUrl}}/graphql",
+									"host": ["{{driverBaseUrl}}"],
+									"path": ["graphql"]
+								}
+							}
+						},
+						{
+							"name": "Get Current Order With Location",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{driverToken}}"
+									}
+								],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "query {\n  currentOrderWithLocation {\n    order {\n      id\n      status\n      rider {\n        id\n        firstName\n        lastName\n      }\n    }\n    riderLocation {\n      lat\n      lng\n    }\n  }\n}"
+									}
+								},
+								"url": {
+									"raw": "{{driverBaseUrl}}/graphql",
+									"host": ["{{driverBaseUrl}}"],
+									"path": ["graphql"]
+								}
+							}
+						},
+						{
+							"name": "Accept Order",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{driverToken}}"
+									}
+								],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "mutation AcceptOrder($id: ID!) {\n  acceptOrder(id: $id) {\n    id\n    status\n  }\n}",
+										"variables": "{\n  \"id\": 1\n}"
+									}
+								},
+								"url": {
+									"raw": "{{driverBaseUrl}}/graphql",
+									"host": ["{{driverBaseUrl}}"],
+									"path": ["graphql"]
+								}
+							}
+						},
+						{
+							"name": "Start Order",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{driverToken}}"
+									}
+								],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "mutation StartOrder($id: ID!) {\n  startOrder(id: $id) {\n    id\n    status\n  }\n}",
+										"variables": "{\n  \"id\": 1\n}"
+									}
+								},
+								"url": {
+									"raw": "{{driverBaseUrl}}/graphql",
+									"host": ["{{driverBaseUrl}}"],
+									"path": ["graphql"]
+								}
+							}
+						},
+						{
+							"name": "Finish Order",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{driverToken}}"
+									}
+								],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "mutation FinishOrder($id: ID!) {\n  finishOrder(id: $id) {\n    id\n    status\n  }\n}",
+										"variables": "{\n  \"id\": 1\n}"
+									}
+								},
+								"url": {
+									"raw": "{{driverBaseUrl}}/graphql",
+									"host": ["{{driverBaseUrl}}"],
+									"path": ["graphql"]
+								}
+							}
+						},
+						{
+							"name": "Cancel Order",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{driverToken}}"
+									}
+								],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "mutation CancelOrder($id: ID!) {\n  cancelOrder(id: $id) {\n    id\n    status\n  }\n}",
+										"variables": "{\n  \"id\": 1\n}"
+									}
+								},
+								"url": {
+									"raw": "{{driverBaseUrl}}/graphql",
+									"host": ["{{driverBaseUrl}}"],
+									"path": ["graphql"]
+								}
+							}
+						},
+						{
+							"name": "Get Available Orders",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{driverToken}}"
+									}
+								],
+								"url": {
+									"raw": "{{driverBaseUrl}}/graphql",
+									"host": ["{{driverBaseUrl}}"],
+									"path": ["graphql"]
+								},
+								"body": {
+									"mode": "raw",
+									"raw": "{\"query\":\"query { availableOrders { id status costBest currency addresses points } }\"}"
+								}
+							}
+						},
+						{
+							"name": "Update Driver Location",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{driverToken}}"
+									}
+								],
+								"url": {
+									"raw": "{{driverBaseUrl}}/graphql",
+									"host": ["{{driverBaseUrl}}"],
+									"path": ["graphql"]
+								},
+								"body": {
+									"mode": "raw",
+									"raw": "{\"query\":\"mutation UpdateLocation($point: Point!) { updateDriversLocationNew(point: $point) { id status costBest currency addresses points } }\",\"variables\":{\"point\":{\"lat\":0,\"lng\":0}}}"
+								}
+							}
+						},
+						{
+							"name": "SOS Signal",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{driverToken}}"
+									}
+								],
+								"url": {
+									"raw": "{{driverBaseUrl}}/graphql",
+									"host": ["{{driverBaseUrl}}"],
+									"path": ["graphql"]
+								},
+								"body": {
+									"mode": "raw",
+									"raw": "{\"query\":\"mutation SOS($orderId: ID!, $location: Point) { sosSignal(orderId: $orderId, location: $location) { id } }\",\"variables\":{\"orderId\":1,\"location\":{\"lat\":0,\"lng\":0}}}"
+								}
+							}
+						}
+					]
+				},
+				{
+					"name": "Driver",
+					"item": [
+						{
+							"name": "Update Driver Profile",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{driverToken}}"
+									}
+								],
+								"url": {
+									"raw": "{{driverBaseUrl}}/graphql",
+									"host": ["{{driverBaseUrl}}"],
+									"path": ["graphql"]
+								},
+								"body": {
+									"mode": "raw",
+									"raw": "{\"query\":\"mutation UpdateDriver($input: UpdateDriverInput!) { updateOneDriver(input: { id: 1, update: $input }) { id firstName lastName status } }\",\"variables\":{\"input\":{\"firstName\":\"John\",\"lastName\":\"Doe\",\"status\":\"Online\"}}}"
+								}
+							}
+						},
+						{
+							"name": "Get Driver Details",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{driverToken}}"
+									}
+								],
+								"url": {
+									"raw": "{{driverBaseUrl}}/graphql",
+									"host": ["{{driverBaseUrl}}"],
+									"path": ["graphql"]
+								},
+								"body": {
+									"mode": "raw",
+									"raw": "{\"query\":\"query { driver { id firstName lastName status carModel { id name } carColor { id name } } }\"}"
+								}
+							}
+						}
+					]
+				},
+				{
+					"name": "Wallet",
+					"item": [
+						{
+							"name": "Get Driver Wallet",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{driverToken}}"
+									}
+								],
+								"url": {
+									"raw": "{{driverBaseUrl}}/graphql",
+									"host": ["{{driverBaseUrl}}"],
+									"path": ["graphql"]
+								},
+								"body": {
+									"mode": "raw",
+									"raw": "{\"query\":\"query { driverWallet { id balance currency } }\"}"
+								}
+							}
+						},
+						{
+							"name": "Get Driver Transactions",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{driverToken}}"
+									}
+								],
+								"url": {
+									"raw": "{{driverBaseUrl}}/graphql",
+									"host": ["{{driverBaseUrl}}"],
+									"path": ["graphql"]
+								},
+								"body": {
+									"mode": "raw",
+									"raw": "{\"query\":\"query { driverTransactions { id createdAt action amount currency } }\"}"
+								}
+							}
+						}
+					]
+				},
+				{
+					"name": "Chat",
+					"item": [
+						{
+							"name": "Send Message",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{driverToken}}"
+									}
+								],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "mutation SendMessage($input: OrderMessageInput!) {\n  createOneOrderMessage(input: $input) {\n    id\n    content\n    sentAt\n    sentByDriver\n  }\n}",
+										"variables": "{\n  \"input\": {\n    \"requestId\": 1,\n    \"content\": \"Hello rider!\"\n  }\n}"
+									}
+								},
+								"url": {
+									"raw": "{{driverBaseUrl}}/graphql",
+									"host": ["{{driverBaseUrl}}"],
+									"path": ["graphql"]
+								}
+							}
+						}
+					]
+				},
+				{
+					"name": "Announcements",
+					"item": [
+						{
+							"name": "Get Announcements",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{driverToken}}"
+									}
+								],
+								"body": {
+									"mode": "graphql",
+									"graphql": {
+										"query": "query {\n  announcements {\n    id\n    title\n    description\n    url\n    startAt\n    expireAt\n  }\n}"
+									}
+								},
+								"url": {
+									"raw": "{{driverBaseUrl}}/graphql",
+									"host": ["{{driverBaseUrl}}"],
+									"path": ["graphql"]
+								}
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Rider API",
+			"item": [
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "Login",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{riderBaseUrl}}/graphql",
+									"host": ["{{riderBaseUrl}}"],
+									"path": ["graphql"]
+								},
+								"body": {
+									"mode": "raw",
+									"raw": "{\"query\":\"mutation Login($input: LoginInput!) { login(input: $input) { token } }\",\"variables\":{\"input\":{\"mobileNumber\":\"+1234567890\",\"password\":\"password\"}}}"
+								}
+							}
+						},
+						{
+							"name": "Delete User",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{riderToken}}"
+									}
+								],
+								"url": {
+									"raw": "{{riderBaseUrl}}/graphql",
+									"host": ["{{riderBaseUrl}}"],
+									"path": ["graphql"]
+								},
+								"body": {
+									"mode": "raw",
+									"raw": "{\"query\":\"mutation { deleteUser { id } }\"}"
+								}
+							}
+						}
+					]
+				},
+				{
+					"name": "Order",
+					"item": [
+						{
+							"name": "Get Current Order",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{riderToken}}"
+									}
+								],
+								"url": {
+									"raw": "{{riderBaseUrl}}/graphql",
+									"host": ["{{riderBaseUrl}}"],
+									"path": ["graphql"]
+								},
+								"body": {
+									"mode": "raw",
+									"raw": "{\"query\":\"query { currentOrder { id status costBest currency addresses points driver { id firstName lastName } } }\"}"
+								}
+							}
+						},
+						{
+							"name": "Calculate Fare",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{riderToken}}"
+									}
+								],
+								"url": {
+									"raw": "{{riderBaseUrl}}/graphql",
+									"host": ["{{riderBaseUrl}}"],
+									"path": ["graphql"]
+								},
+								"body": {
+									"mode": "raw",
+									"raw": "{\"query\":\"query CalculateFare($input: CalculateFareInput!) { calculateFare(input: $input) { costBest currency distanceBest durationBest } }\",\"variables\":{\"input\":{\"points\":[{\"lat\":0,\"lng\":0},{\"lat\":0,\"lng\":0}],\"serviceId\":1}}}"
+								}
+							}
+						},
+						{
+							"name": "Create Order",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{riderToken}}"
+									}
+								],
+								"url": {
+									"raw": "{{riderBaseUrl}}/graphql",
+									"host": ["{{riderBaseUrl}}"],
+									"path": ["graphql"]
+								},
+								"body": {
+									"mode": "raw",
+									"raw": "{\"query\":\"mutation CreateOrder($input: CreateOrderInput!) { createOrder(input: $input) { id status costBest currency addresses points } }\",\"variables\":{\"input\":{\"points\":[{\"lat\":0,\"lng\":0},{\"lat\":0,\"lng\":0}],\"serviceId\":1,\"optionIds\":[1]}}}"
+								}
+							}
+						},
+						{
+							"name": "Cancel Order",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{riderToken}}"
+									}
+								],
+								"url": {
+									"raw": "{{riderBaseUrl}}/graphql",
+									"host": ["{{riderBaseUrl}}"],
+									"path": ["graphql"]
+								},
+								"body": {
+									"mode": "raw",
+									"raw": "{\"query\":\"mutation { cancelOrder { id status } }\"}"
+								}
+							}
+						},
+						{
+							"name": "Submit Review",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{riderToken}}"
+									}
+								],
+								"url": {
+									"raw": "{{riderBaseUrl}}/graphql",
+									"host": ["{{riderBaseUrl}}"],
+									"path": ["graphql"]
+								},
+								"body": {
+									"mode": "raw",
+									"raw": "{\"query\":\"mutation SubmitReview($review: SubmitFeedbackInput!) { submitReview(review: $review) { id status } }\",\"variables\":{\"review\":{\"requestId\":1,\"rating\":5,\"description\":\"Great service!\"}}}"
+								}
+							}
+						},
+						{
+							"name": "SOS Signal",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{riderToken}}"
+									}
+								],
+								"url": {
+									"raw": "{{riderBaseUrl}}/graphql",
+									"host": ["{{riderBaseUrl}}"],
+									"path": ["graphql"]
+								},
+								"body": {
+									"mode": "raw",
+									"raw": "{\"query\":\"mutation SOS($orderId: ID!, $location: Point) { sosSignal(orderId: $orderId, location: $location) { id } }\",\"variables\":{\"orderId\":1,\"location\":{\"lat\":0,\"lng\":0}}}"
+								}
+							}
+						}
+					]
+				},
+				{
+					"name": "Rider",
+					"item": [
+						{
+							"name": "Update Profile",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{riderToken}}"
+									}
+								],
+								"url": {
+									"raw": "{{riderBaseUrl}}/graphql",
+									"host": ["{{riderBaseUrl}}"],
+									"path": ["graphql"]
+								},
+								"body": {
+									"mode": "raw",
+									"raw": "{\"query\":\"mutation UpdateRider($input: UpdateRiderInput!) { updateOneRider(input: { id: 1, update: $input }) { id firstName lastName email } }\",\"variables\":{\"input\":{\"firstName\":\"John\",\"lastName\":\"Doe\",\"email\":\"john@example.com\"}}}"
+								}
+							}
+						},
+						{
+							"name": "Get Profile",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{riderToken}}"
+									}
+								],
+								"url": {
+									"raw": "{{riderBaseUrl}}/graphql",
+									"host": ["{{riderBaseUrl}}"],
+									"path": ["graphql"]
+								},
+								"body": {
+									"mode": "raw",
+									"raw": "{\"query\":\"query { rider { id firstName lastName email mobileNumber } }\"}"
+								}
+							}
+						}
+					]
+				},
+				{
+					"name": "Address",
+					"item": [
+						{
+							"name": "Create Address",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{riderToken}}"
+									}
+								],
+								"url": {
+									"raw": "{{riderBaseUrl}}/graphql",
+									"host": ["{{riderBaseUrl}}"],
+									"path": ["graphql"]
+								},
+								"body": {
+									"mode": "raw",
+									"raw": "{\"query\":\"mutation CreateAddress($input: CreateRiderAddressInput!) { createOneRiderAddress(input: { riderAddress: $input }) { id title details location } }\",\"variables\":{\"input\":{\"title\":\"Home\",\"details\":\"123 Main St\",\"location\":{\"lat\":0,\"lng\":0}}}}"
+								}
+							}
+						},
+						{
+							"name": "Get Addresses",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{riderToken}}"
+									}
+								],
+								"url": {
+									"raw": "{{riderBaseUrl}}/graphql",
+									"host": ["{{riderBaseUrl}}"],
+									"path": ["graphql"]
+								},
+								"body": {
+									"mode": "raw",
+									"raw": "{\"query\":\"query { riderAddresses { id title details location } }\"}"
+								}
+							}
+						}
+					]
+				},
+				{
+					"name": "Wallet",
+					"item": [
+						{
+							"name": "Get Wallet",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{riderToken}}"
+									}
+								],
+								"url": {
+									"raw": "{{riderBaseUrl}}/graphql",
+									"host": ["{{riderBaseUrl}}"],
+									"path": ["graphql"]
+								},
+								"body": {
+									"mode": "raw",
+									"raw": "{\"query\":\"query { riderWallet { id balance currency } }\"}"
+								}
+							}
+						},
+						{
+							"name": "Get Transactions",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{riderToken}}"
+									}
+								],
+								"url": {
+									"raw": "{{riderBaseUrl}}/graphql",
+									"host": ["{{riderBaseUrl}}"],
+									"path": ["graphql"]
+								},
+								"body": {
+									"mode": "raw",
+									"raw": "{\"query\":\"query { riderTransactions { id createdAt action amount currency } }\"}"
+								}
+							}
+						},
+						{
+							"name": "Top Up Wallet",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{riderToken}}"
+									}
+								],
+								"url": {
+									"raw": "{{riderBaseUrl}}/graphql",
+									"host": ["{{riderBaseUrl}}"],
+									"path": ["graphql"]
+								},
+								"body": {
+									"mode": "raw",
+									"raw": "{\"query\":\"mutation TopUpWallet($input: TopUpWalletInput!) { topUpWallet(input: $input) { status url } }\",\"variables\":{\"input\":{\"amount\":100,\"currency\":\"USD\",\"gatewayId\":1}}}"
+								}
+							}
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "adminBaseUrl",
+			"value": "http://localhost:3000",
+			"type": "string"
+		},
+		{
+			"key": "driverBaseUrl",
+			"value": "http://localhost:3000",
+			"type": "string"
+		},
+		{
+			"key": "riderBaseUrl",
+			"value": "http://localhost:3000",
+			"type": "string"
+		},
+		{
+			"key": "adminToken",
+			"value": "your-admin-jwt-token-here",
+			"type": "string"
+		},
+		{
+			"key": "driverToken",
+			"value": "your-driver-jwt-token-here",
+			"type": "string"
+		},
+		{
+			"key": "riderToken",
+			"value": "your-rider-jwt-token-here",
+			"type": "string"
+		}
+	]
+} 
