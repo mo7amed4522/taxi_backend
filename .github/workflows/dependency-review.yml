@@ -3,14 +3,17 @@ name: Dependency Review
 on:
   pull_request:
     branches: [master, main]
+  merge_group:
 
 permissions:
   contents: read
+  pull-requests: write
 
 jobs:
   dependency-review:
     name: Dependency Review
     runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
