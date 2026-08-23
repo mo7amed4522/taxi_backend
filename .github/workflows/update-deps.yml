@@ -35,9 +35,9 @@ jobs:
       - name: Update dependencies
         if: steps.outdated.outputs.has_updates == 'true'
         run: |
-          npm update
-          npm audit fix --production
-          npm audit fix --dev
+          npm install --legacy-peer-deps
+          npm audit fix --production --legacy-peer-deps
+          npm audit fix --dev --legacy-peer-deps
 
       - name: Create Pull Request
         if: steps.outdated.outputs.has_updates == 'true'

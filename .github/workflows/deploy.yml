@@ -35,7 +35,7 @@ jobs:
           script: |
             cd /opt/taxi-backend
             git pull origin ${{ github.ref_name }}
-            npm ci --production
+            npm ci --production --legacy-peer-deps
             npm run migration:run
             pm2 restart all || pm2 start npm --name "taxi-backend" -- start:prod
             pm2 save
