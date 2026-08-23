@@ -1,4 +1,12 @@
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany, JoinColumn, OneToOne, DeleteDateColumn } from 'typeorm';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  OneToMany,
+  JoinColumn,
+  OneToOne,
+  DeleteDateColumn,
+} from 'typeorm';
 import { RequestEntity } from './request.entity';
 import { RiderTransactionEntity } from './rider-transaction.entity';
 import { PaymentGatewayType } from './enums/payment-gateway-type.enum';
@@ -11,7 +19,7 @@ export class PaymentGatewayEntity {
   id!: number;
 
   @Column({
-    default: true
+    default: true,
   })
   enabled!: boolean;
 
@@ -19,13 +27,13 @@ export class PaymentGatewayEntity {
   title!: string;
 
   @Column('enum', {
-    enum: PaymentGatewayType
+    enum: PaymentGatewayType,
   })
   type!: PaymentGatewayType;
 
   @Column({
     nullable: true,
-    length: 1000
+    length: 1000,
   })
   publicKey?: string;
 
@@ -36,14 +44,16 @@ export class PaymentGatewayEntity {
   saltKey?: string;
 
   @Column({
-    nullable: true
+    nullable: true,
   })
   merchantId?: string;
 
   @DeleteDateColumn()
   deletedAt?: Date;
 
-  @OneToOne(() => MediaEntity, media => media.paymentGateway, { nullable: true })
+  @OneToOne(() => MediaEntity, (media) => media.paymentGateway, {
+    nullable: true,
+  })
   @JoinColumn()
   media?: MediaEntity;
 
@@ -53,9 +63,15 @@ export class PaymentGatewayEntity {
   @OneToMany(() => RequestEntity, (order) => order.paymentGateway)
   orders?: RequestEntity[];
 
-  @OneToMany(() => RiderTransactionEntity, (userTransaction) => userTransaction.paymentGateway)
+  @OneToMany(
+    () => RiderTransactionEntity,
+    (userTransaction) => userTransaction.paymentGateway,
+  )
   riderTransactions?: RiderTransactionEntity[];
 
-  @OneToMany(() => ProviderTransactionEntity, (adminTransaction) => adminTransaction.paymentGateway)
+  @OneToMany(
+    () => ProviderTransactionEntity,
+    (adminTransaction) => adminTransaction.paymentGateway,
+  )
   adminTransactions?: ProviderTransactionEntity[];
 }

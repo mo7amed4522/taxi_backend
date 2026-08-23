@@ -1,35 +1,41 @@
-import { Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
-import { SOSActivityAction } from "./enums/sos-activity-action.enum";
-import { OperatorEntity } from "./operator.entity";
-import { SOSEntity } from "./sos.entity";
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
+import { SOSActivityAction } from './enums/sos-activity-action.enum';
+import { OperatorEntity } from './operator.entity';
+import { SOSEntity } from './sos.entity';
 
 @Entity('sos_activity')
 export class SOSActivityEntity {
-    @PrimaryGeneratedColumn()
-    id!: number;
+  @PrimaryGeneratedColumn()
+  id!: number;
 
-    @CreateDateColumn()
-    createdAt!: Date;
+  @CreateDateColumn()
+  createdAt!: Date;
 
-    @Column('enum', {
-        enum: SOSActivityAction,
-    })
-    action!: SOSActivityAction;
+  @Column('enum', {
+    enum: SOSActivityAction,
+  })
+  action!: SOSActivityAction;
 
-    @Column({
-        length: 2000
-    })
-    note?: string;
+  @Column({
+    length: 2000,
+  })
+  note?: string;
 
-    @ManyToOne(() => OperatorEntity, operator => operator.sosActivities)
-    operator?: OperatorEntity;
-    
-    @Column({nullable: true})
-    operatorId?: number;
+  @ManyToOne(() => OperatorEntity, (operator) => operator.sosActivities)
+  operator?: OperatorEntity;
 
-    @ManyToOne(() => SOSEntity, sos => sos.activities)
-    sos!: SOSEntity;
+  @Column({ nullable: true })
+  operatorId?: number;
 
-    @Column()
-    sosId!: number;
+  @ManyToOne(() => SOSEntity, (sos) => sos.activities)
+  sos!: SOSEntity;
+
+  @Column()
+  sosId!: number;
 }

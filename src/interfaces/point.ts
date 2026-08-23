@@ -1,10 +1,10 @@
-import { Field, Float, InputType, ObjectType } from "@nestjs/graphql";
+import { Field, Float, InputType, ObjectType } from '@nestjs/graphql';
 
 @ObjectType()
 @InputType('PointInput')
 export class Point {
   type: 'Point' = 'Point';
-  
+
   @Field(() => [Float])
   coordinates!: [number, number];
 

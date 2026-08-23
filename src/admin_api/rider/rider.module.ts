@@ -1,4 +1,7 @@
-import { NestjsQueryGraphQLModule, PagingStrategies } from '@nestjs-query/query-graphql';
+import {
+  NestjsQueryGraphQLModule,
+  PagingStrategies,
+} from '@nestjs-query/query-graphql';
 import { NestjsQueryTypeOrmModule } from '@nestjs-query/query-typeorm';
 import { Module } from '@nestjs/common';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
@@ -15,52 +18,59 @@ import { RiderAddressEntity } from 'src/entities/rider-address.entity';
 import { SharedRiderService } from 'src/order/shared-rider.service';
 
 @Module({
-    imports: [
-        NestjsQueryGraphQLModule.forFeature({
-            imports: [NestjsQueryTypeOrmModule.forFeature([RiderEntity, RiderWalletEntity, RiderTransactionEntity, RiderAddressEntity])],
-            resolvers: [
-                {
-                    EntityClass: RiderEntity,
-                    DTOClass: RiderDTO,
-                    create: { many: { disabled: true }},
-                    update: { many: { disabled: true }},
-                    delete: { disabled: true },
-                    pagingStrategy: PagingStrategies.OFFSET,
-                    enableTotalCount: true,
-                    guards: [JwtAuthGuard]
-                },
-                {
-                    EntityClass: RiderWalletEntity,
-                    DTOClass: RiderWalletDTO,
-                    create: { disabled: true },
-                    update: { disabled: true },
-                    delete: { disabled: true },
-                    pagingStrategy: PagingStrategies.OFFSET,
-                    enableTotalCount: true,
-                    guards: [JwtAuthGuard]
-                },
-                {
-                    EntityClass: RiderTransactionEntity,
-                    DTOClass: RiderTransactionDTO,
-                    create: { many: { disabled: true }},
-                    update: { disabled: true },
-                    delete: { disabled: true },
-                    pagingStrategy: PagingStrategies.OFFSET,
-                    enableTotalCount: true,
-                    guards: [JwtAuthGuard]
-                },
-                {
-                    EntityClass: RiderAddressEntity,
-                    DTOClass: RiderAddressDTO,
-                    create: { many: { disabled: true }},
-                    delete: { disabled: true },
-                    pagingStrategy: PagingStrategies.OFFSET,
-                    enableTotalCount: true,
-                    guards: [JwtAuthGuard]
-                }
-            ]
-        })
-    ],
-    providers: [RiderResolver, SharedRiderService]
+  imports: [
+    NestjsQueryGraphQLModule.forFeature({
+      imports: [
+        NestjsQueryTypeOrmModule.forFeature([
+          RiderEntity,
+          RiderWalletEntity,
+          RiderTransactionEntity,
+          RiderAddressEntity,
+        ]),
+      ],
+      resolvers: [
+        {
+          EntityClass: RiderEntity,
+          DTOClass: RiderDTO,
+          create: { many: { disabled: true } },
+          update: { many: { disabled: true } },
+          delete: { disabled: true },
+          pagingStrategy: PagingStrategies.OFFSET,
+          enableTotalCount: true,
+          guards: [JwtAuthGuard],
+        },
+        {
+          EntityClass: RiderWalletEntity,
+          DTOClass: RiderWalletDTO,
+          create: { disabled: true },
+          update: { disabled: true },
+          delete: { disabled: true },
+          pagingStrategy: PagingStrategies.OFFSET,
+          enableTotalCount: true,
+          guards: [JwtAuthGuard],
+        },
+        {
+          EntityClass: RiderTransactionEntity,
+          DTOClass: RiderTransactionDTO,
+          create: { many: { disabled: true } },
+          update: { disabled: true },
+          delete: { disabled: true },
+          pagingStrategy: PagingStrategies.OFFSET,
+          enableTotalCount: true,
+          guards: [JwtAuthGuard],
+        },
+        {
+          EntityClass: RiderAddressEntity,
+          DTOClass: RiderAddressDTO,
+          create: { many: { disabled: true } },
+          delete: { disabled: true },
+          pagingStrategy: PagingStrategies.OFFSET,
+          enableTotalCount: true,
+          guards: [JwtAuthGuard],
+        },
+      ],
+    }),
+  ],
+  providers: [RiderResolver, SharedRiderService],
 })
 export class RiderModule {}

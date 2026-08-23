@@ -10,20 +10,25 @@ export class AuthService {
   constructor(
     private driverService: DriverService,
     private jwtService: JwtService,
-    private firebaseAuth: FirebaseAuthenticationService
+    private firebaseAuth: FirebaseAuthenticationService,
   ) {}
 
   async validateUser(firebaseToken: string): Promise<DriverEntity> {
-    const decodedToken = await this.firebaseAuth.app.auth().verifyIdToken(firebaseToken);
-    const number = (decodedToken.firebase.identities.phone[0] as string).substring(1);
-    const user = await this.driverService.findOrCreateUserWithMobileNumber(number);
+    const decodedToken = await this.firebaseAuth.app
+      .auth()
+      .verifyIdToken(firebaseToken);
+    const number = (
+      decodedToken.firebase.identities.phone[0] as string
+    ).substring(1);
+    const user =
+      await this.driverService.findOrCreateUserWithMobileNumber(number);
     return user;
   }
 
   async loginUser(user: DriverEntity): Promise<TokenObject> {
     const payload = { id: user.id };
     return {
-      token: this.jwtService.sign(payload)
+      token: this.jwtService.sign(payload),
     };
   }
 }

@@ -1,36 +1,35 @@
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
-import { ComplaintEntity } from "./complaint.entity";
-import { ComplaintActivityType } from "./enums/complaint-activity-type.enum";
-import { OperatorEntity } from "./operator.entity";
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { ComplaintEntity } from './complaint.entity';
+import { ComplaintActivityType } from './enums/complaint-activity-type.enum';
+import { OperatorEntity } from './operator.entity';
 
 @Entity('complaint_activity')
 export class ComplaintActivityEntity {
-    @PrimaryGeneratedColumn()
-    id!: number;
+  @PrimaryGeneratedColumn()
+  id!: number;
 
-    @Column('enum', {
-        enum: ComplaintActivityType
-    })
-    type!: ComplaintActivityType;
+  @Column('enum', {
+    enum: ComplaintActivityType,
+  })
+  type!: ComplaintActivityType;
 
-    @ManyToOne(() => OperatorEntity, operator => operator.complaintActivities)
-    actor!: OperatorEntity;
+  @ManyToOne(() => OperatorEntity, (operator) => operator.complaintActivities)
+  actor!: OperatorEntity;
 
-    actorId!: string;
+  actorId!: string;
 
-    @ManyToOne(() => OperatorEntity)
-    assignedTo?: OperatorEntity;
+  @ManyToOne(() => OperatorEntity)
+  assignedTo?: OperatorEntity;
 
-    @Column({ nullable: true })
-    assignedToId?: number;
+  @Column({ nullable: true })
+  assignedToId?: number;
 
-    @Column({ nullable: true })
-    comment?: string;
+  @Column({ nullable: true })
+  comment?: string;
 
-    @ManyToOne(() => ComplaintEntity, complaint => complaint.activities)
-    complaint!: ComplaintEntity;
+  @ManyToOne(() => ComplaintEntity, (complaint) => complaint.activities)
+  complaint!: ComplaintEntity;
 
-    @Column()
-    complaintId!: number;
-
+  @Column()
+  complaintId!: number;
 }

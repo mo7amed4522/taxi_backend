@@ -9,7 +9,9 @@ import { DriverEntity } from 'src/entities/driver.entity';
 @Module({
   imports: [
     NestjsQueryGraphQLModule.forFeature({
-      imports: [NestjsQueryTypeOrmModule.forFeature([MediaEntity, DriverEntity])],
+      imports: [
+        NestjsQueryTypeOrmModule.forFeature([MediaEntity, DriverEntity]),
+      ],
       resolvers: [
         {
           EntityClass: MediaEntity,
@@ -17,12 +19,12 @@ import { DriverEntity } from 'src/entities/driver.entity';
           create: { disabled: true },
           read: { disabled: true },
           delete: { disabled: true },
-          update: { disabled: true }
-        }
-      ]
-    })
+          update: { disabled: true },
+        },
+      ],
+    }),
   ],
   providers: [UploadService],
-  exports: [UploadService, NestjsQueryGraphQLModule]
+  exports: [UploadService, NestjsQueryGraphQLModule],
 })
 export class UploadModule {}

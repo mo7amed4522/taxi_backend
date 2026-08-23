@@ -1,36 +1,36 @@
-import { Column, PrimaryGeneratedColumn } from "typeorm";
-import { Entity } from "typeorm/decorator/entity/Entity";
-import { PaymentStatus } from "./enums/payment-status.enum";
+import { Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity } from 'typeorm/decorator/entity/Entity';
+import { PaymentStatus } from './enums/payment-status.enum';
 
 @Entity('payment')
 export class PaymentEntity {
-    @PrimaryGeneratedColumn()
-    id!: number;
+  @PrimaryGeneratedColumn()
+  id!: number;
 
-    @Column('enum', {
-        enum: PaymentStatus,
-        default: PaymentStatus.Processing
-    })
-    status!: PaymentStatus;
+  @Column('enum', {
+    enum: PaymentStatus,
+    default: PaymentStatus.Processing,
+  })
+  status!: PaymentStatus;
 
-    @Column()
-    amount!: number;
+  @Column()
+  amount!: number;
 
-    @Column()
-    currency!: string;
+  @Column()
+  currency!: string;
 
-    @Column()
-    transactionNumber!: string;
-    
-    @Column()
-    userType!: string;
+  @Column()
+  transactionNumber!: string;
 
-    @Column()
-    userId!: string;
+  @Column()
+  userType!: string;
 
-    @Column('int')
-    gatewayId!: number;
+  @Column()
+  userId!: string;
 
-    @Column()
-    returnUrl!: string;
+  @Column('int')
+  gatewayId!: number;
+
+  @Column()
+  returnUrl!: string;
 }

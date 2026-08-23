@@ -1,15 +1,15 @@
 import {
-    Column,
-    CreateDateColumn,
-    DeleteDateColumn,
-    Entity,
-    JoinColumn,
-    JoinTable,
-    ManyToMany,
-    ManyToOne,
-    OneToMany,
-    OneToOne,
-    PrimaryGeneratedColumn,
+  Column,
+  CreateDateColumn,
+  DeleteDateColumn,
+  Entity,
+  JoinColumn,
+  JoinTable,
+  ManyToMany,
+  ManyToOne,
+  OneToMany,
+  OneToOne,
+  PrimaryGeneratedColumn,
 } from 'typeorm';
 
 import { CarColorEntity } from './car-color.entity';
@@ -27,169 +27,181 @@ import { ServiceEntity } from './service.entity';
 
 @Entity('driver')
 export class DriverEntity {
-    @PrimaryGeneratedColumn()
-    id!: number;
+  @PrimaryGeneratedColumn()
+  id!: number;
 
-    @Column({
-        nullable: true
-    })
-    firstName?: string;
+  @Column({
+    nullable: true,
+  })
+  firstName?: string;
 
-    @Column({
-        nullable: true
-    })
-    lastName?: string;
+  @Column({
+    nullable: true,
+  })
+  lastName?: string;
 
-    @Column("bigint", {
-        unique: true,
-    })
-    mobileNumber!: string;
+  @Column('bigint', {
+    unique: true,
+  })
+  mobileNumber!: string;
 
-    @Column({
-        nullable: true
-    })
-    certificateNumber?: string;
+  @Column({
+    nullable: true,
+  })
+  certificateNumber?: string;
 
-    @Column({
-        nullable: true
-    })
-    email?: string;
+  @Column({
+    nullable: true,
+  })
+  email?: string;
 
-    @ManyToOne(() => CarModelEntity, car => car.drivers, { onDelete: 'SET NULL' })
-    car?: CarModelEntity;
+  @ManyToOne(() => CarModelEntity, (car) => car.drivers, {
+    onDelete: 'SET NULL',
+  })
+  car?: CarModelEntity;
 
-    @Column({ nullable: true })
-    carId?: number;
+  @Column({ nullable: true })
+  carId?: number;
 
-    @Column("varchar", {
-        nullable: true,
-        name: 'carColor'
-    })
-    carColorLegacy?: string;
+  @Column('varchar', {
+    nullable: true,
+    name: 'carColor',
+  })
+  carColorLegacy?: string;
 
-    @ManyToOne(() => CarColorEntity, carColor => carColor.drivers)
-    carColor?: CarColorEntity;
+  @ManyToOne(() => CarColorEntity, (carColor) => carColor.drivers)
+  carColor?: CarColorEntity;
 
-    @Column({ nullable: true })
-    carColorId?: number;
+  @Column({ nullable: true })
+  carColorId?: number;
 
-    @Column('int', {
-        nullable: true
-    })
-    carProductionYear?: number;
+  @Column('int', {
+    nullable: true,
+  })
+  carProductionYear?: number;
 
-    @Column({
-        nullable: true
-    })
-    carPlate?: string;
+  @Column({
+    nullable: true,
+  })
+  carPlate?: string;
 
-    @Column('int', { nullable: true })
-    searchDistance?: number;
+  @Column('int', { nullable: true })
+  searchDistance?: number;
 
-    @Column("enum", {
-        default: DriverStatus.WaitingDocuments,
-        enum: DriverStatus
-    })
-    status!: DriverStatus;
+  @Column('enum', {
+    default: DriverStatus.WaitingDocuments,
+    enum: DriverStatus,
+  })
+  status!: DriverStatus;
 
-    @Column("enum", {
-        nullable: true,
-        enum: Gender
-    })
-    gender?: Gender;
+  @Column('enum', {
+    nullable: true,
+    enum: Gender,
+  })
+  gender?: Gender;
 
-    @CreateDateColumn()
-    registrationTimestamp!: Date;
+  @CreateDateColumn()
+  registrationTimestamp!: Date;
 
-    @Column('smallint', { nullable: true })
-    rating?: number;
+  @Column('smallint', { nullable: true })
+  rating?: number;
 
-    @Column('smallint', { default: 0 })
-    reviewCount!:number;
+  @Column('smallint', { default: 0 })
+  reviewCount!: number;
 
-    @Column({
-        nullable: true
-    })
-    lastSeenTimestamp?: Date;
+  @Column({
+    nullable: true,
+  })
+  lastSeenTimestamp?: Date;
 
-    @ManyToMany(() => ServiceEntity, service => service.drivers)
-    @JoinTable({name: 'driver_services_service'})
-    enabledServices!: ServiceEntity[];
+  @ManyToMany(() => ServiceEntity, (service) => service.drivers)
+  @JoinTable({ name: 'driver_services_service' })
+  enabledServices!: ServiceEntity[];
 
-    @OneToMany(() => MediaEntity, media => media.driverDocument)
-    documents!: MediaEntity[];
+  @OneToMany(() => MediaEntity, (media) => media.driverDocument)
+  documents!: MediaEntity[];
 
-    @Column({
-        nullable: true
-    })
-    accountNumber?: string;
+  @Column({
+    nullable: true,
+  })
+  accountNumber?: string;
 
-    @Column({
-        nullable: true
-    })
-    bankName?: string;
+  @Column({
+    nullable: true,
+  })
+  bankName?: string;
 
-    @Column({
-        nullable: true
-    })
-    bankRoutingNumber?: string;
+  @Column({
+    nullable: true,
+  })
+  bankRoutingNumber?: string;
 
-    @Column({ nullable: true })
-    bankSwift?: string;
+  @Column({ nullable: true })
+  bankSwift?: string;
 
-    @Column({ nullable: true })
-    address?: string;
+  @Column({ nullable: true })
+  address?: string;
 
-    @Column({ nullable: true })
-    notificationPlayerId?: string;
+  @Column({ nullable: true })
+  notificationPlayerId?: string;
 
-    @Column({ nullable: true, name: 'documentsNote' })
-    softRejectionNote?: string;
+  @Column({ nullable: true, name: 'documentsNote' })
+  softRejectionNote?: string;
 
-    @DeleteDateColumn()
-    deletedAt?: Date;
+  @DeleteDateColumn()
+  deletedAt?: Date;
 
-    @OneToOne(() => MediaEntity, media => media.driver)
-    @JoinColumn()
-    media?: MediaEntity;
+  @OneToOne(() => MediaEntity, (media) => media.driver)
+  @JoinColumn()
+  media?: MediaEntity;
 
-    @Column({ nullable: true })
-    mediaId?: number;
+  @Column({ nullable: true })
+  mediaId?: number;
 
-    // @Column('varchar', {
-    //     nullable: true
-    // })
-    // referralCode?: string;
+  // @Column('varchar', {
+  //     nullable: true
+  // })
+  // referralCode?: string;
 
-    // @ManyToOne(() => DriverEntity, driver => driver.referees)
-    // referrer?: DriverEntity;
+  // @ManyToOne(() => DriverEntity, driver => driver.referees)
+  // referrer?: DriverEntity;
 
-    // @Column({
-    //     nullable: true
-    // })
-    // referrerId?: number;
+  // @Column({
+  //     nullable: true
+  // })
+  // referrerId?: number;
 
-    // @OneToMany(() => DriverEntity, driver => driver.referrer)
-    // referees!: DriverEntity[];
+  // @OneToMany(() => DriverEntity, driver => driver.referrer)
+  // referees!: DriverEntity[];
 
-    @OneToMany(() => FeedbackEntity, feedback => feedback.driver)
-    feedbacks!: FeedbackEntity[];
+  @OneToMany(() => FeedbackEntity, (feedback) => feedback.driver)
+  feedbacks!: FeedbackEntity[];
 
-    @ManyToOne(() => FleetEntity, (fleet: FleetEntity) => fleet.drivers)
-    fleet?: FleetEntity;
+  @ManyToOne(() => FleetEntity, (fleet: FleetEntity) => fleet.drivers)
+  fleet?: FleetEntity;
 
-    @Column({ nullable: true })
-    fleetId?: number;
+  @Column({ nullable: true })
+  fleetId?: number;
 
-    @OneToMany(() => DriverWalletEntity, wallet => wallet.driver)
-    wallet!: DriverWalletEntity[];
+  @OneToMany(() => DriverWalletEntity, (wallet) => wallet.driver)
+  wallet!: DriverWalletEntity[];
 
-    @OneToMany(() => DriverTransactionEntity, driverTransaction => driverTransaction.driver, { onDelete: 'CASCADE', onUpdate: 'RESTRICT' })
-    transactions!: DriverTransactionEntity[];
+  @OneToMany(
+    () => DriverTransactionEntity,
+    (driverTransaction) => driverTransaction.driver,
+    { onDelete: 'CASCADE', onUpdate: 'RESTRICT' },
+  )
+  transactions!: DriverTransactionEntity[];
 
-    @OneToMany(() => RequestEntity, order => order.driver, { onDelete: 'SET NULL', onUpdate: 'CASCADE' })
-    orders!: RequestEntity[];
+  @OneToMany(() => RequestEntity, (order) => order.driver, {
+    onDelete: 'SET NULL',
+    onUpdate: 'CASCADE',
+  })
+  orders!: RequestEntity[];
 
-    @OneToMany(() => FleetTransactionEntity, fleetTransaction => fleetTransaction.driver)
-    fleetTransactions!: FleetTransactionEntity[];
+  @OneToMany(
+    () => FleetTransactionEntity,
+    (fleetTransaction) => fleetTransaction.driver,
+  )
+  fleetTransactions!: FleetTransactionEntity[];
 }

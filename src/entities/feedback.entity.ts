@@ -1,34 +1,46 @@
-import { Column, CreateDateColumn, Entity, JoinColumn, ManyToMany, ManyToOne, OneToOne, PrimaryGeneratedColumn } from "typeorm";
-import { DriverEntity } from "./driver.entity";
-import { FeedbackParameterEntity } from "./feedback-parameter.entity";
-import { RequestEntity } from "./request.entity";
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  JoinColumn,
+  ManyToMany,
+  ManyToOne,
+  OneToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
+import { DriverEntity } from './driver.entity';
+import { FeedbackParameterEntity } from './feedback-parameter.entity';
+import { RequestEntity } from './request.entity';
 
 @Entity('request_review')
 export class FeedbackEntity {
-    @PrimaryGeneratedColumn()
-    id!: number;
+  @PrimaryGeneratedColumn()
+  id!: number;
 
-    @CreateDateColumn()
-    reviewTimestamp!: Date;
+  @CreateDateColumn()
+  reviewTimestamp!: Date;
 
-    @Column('smallint')
-    score!: number;
+  @Column('smallint')
+  score!: number;
 
-    @Column({ name:'review', nullable: true })
-    description?: string;
+  @Column({ name: 'review', nullable: true })
+  description?: string;
 
-    @ManyToOne(() => DriverEntity, driver => driver.feedbacks)
-    driver!: DriverEntity;
+  @ManyToOne(() => DriverEntity, (driver) => driver.feedbacks)
+  driver!: DriverEntity;
 
-    @Column()
-    driverId!: number;
+  @Column()
+  driverId!: number;
 
-    @OneToOne(() => RequestEntity, order => order.review)
-    request!: RequestEntity;
-    
-    @Column()
-    requestId!: number;
-    
-    @ManyToMany(() => FeedbackParameterEntity, feedbackParameter => feedbackParameter.feedbacks)
-    parameters!: FeedbackParameterEntity[];
+  @OneToOne(() => RequestEntity, (order) => order.review)
+  request!: RequestEntity;
+
+  @Column()
+  requestId!: number;
+
+  @ManyToMany(
+    () => FeedbackParameterEntity,
+    (feedbackParameter) => feedbackParameter.feedbacks,
+  )
+  parameters!: FeedbackParameterEntity[];
 }

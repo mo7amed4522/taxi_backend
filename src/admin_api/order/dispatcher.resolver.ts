@@ -14,36 +14,42 @@ export class DispatcherResolver {
   constructor(
     @Inject(CONTEXT) private context: UserContext,
     private sharedOrderService: SharedOrderService,
-    private orderService: OrderService
+    private orderService: OrderService,
   ) {}
 
   @Query(() => CalculateFareDTO)
   async calculateFare(
-    @Args('input', { type: () => CalculateFareInput }) input: CalculateFareInput
+    @Args('input', { type: () => CalculateFareInput })
+    input: CalculateFareInput,
   ): Promise<CalculateFareDTO> {
-    return this.sharedOrderService.calculateFare({...input, twoWay: false});
+    return this.sharedOrderService.calculateFare({ ...input, twoWay: false });
   }
 
   @Mutation(() => OrderDTO)
   @UseGuards(JwtAuthGuard)
   async createOrder(
-    @Args('input', { type: () => CreateOrderInput }) input: CreateOrderInput
+    @Args('input', { type: () => CreateOrderInput }) input: CreateOrderInput,
   ): Promise<OrderDTO> {
     return this.sharedOrderService.createOrder({
       ...input,
       operatorId: this.context.req.user.id,
       twoWay: false,
-      optionIds: []
+      optionIds: [],
     });
   }
 
   @Mutation(() => OrderDTO)
-  async cancelOrder(@Args('orderId', { type: () => ID }) orderId: number): Promise<OrderDTO> {
+  async cancelOrder(
+    @Args('orderId', { type: () => ID }) orderId: number,
+  ): Promise<OrderDTO> {
     return this.orderService.cancelOrder(orderId);
   }
 
   @Mutation(() => OrderDTO)
-  async assignDriverToOrder(@Args('orderId', { type: () => ID }) orderId: number, @Args('driverId',{ type: () => ID }) driverId: number): Promise<OrderDTO> {
+  async assignDriverToOrder(
+    @Args('orderId', { type: () => ID }) orderId: number,
+    @Args('driverId', { type: () => ID }) driverId: number,
+  ): Promise<OrderDTO> {
     return this.sharedOrderService.assignOrderToDriver(orderId, driverId);
   }
 }

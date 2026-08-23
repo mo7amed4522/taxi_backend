@@ -1,4 +1,7 @@
-import { NestjsQueryGraphQLModule, PagingStrategies } from '@nestjs-query/query-graphql';
+import {
+  NestjsQueryGraphQLModule,
+  PagingStrategies,
+} from '@nestjs-query/query-graphql';
 import { NestjsQueryTypeOrmModule } from '@nestjs-query/query-typeorm';
 import { Module } from '@nestjs/common';
 
@@ -16,34 +19,34 @@ import { RedisPubSubProvider } from 'src/redis-pub-sub.provider';
 import { RequestEntity } from 'src/entities/request.entity';
 
 @Module({
-    imports: [
-        OrderModule,
-        FirebaseNotificationModule,
-        NestjsQueryGraphQLModule.forFeature({
-            imports: [
-        NestjsQueryTypeOrmModule.forFeature([OrderMessageEntity, RequestEntity]),
-            ],
-            services: [ChatService, DriverNotificationService],
-            pubSub: RedisPubSubProvider.provider(),
-            resolvers: [
-                {
-                    EntityClass: OrderMessageEntity,
-                    DTOClass: OrderMessageDTO,
-                    CreateDTOClass: OrderMessageInput,
-                    ServiceClass: ChatService,
-                    pagingStrategy: PagingStrategies.NONE,
-                    create: { many: { disabled: true }},
-                    read: { one: { disabled: true }},
-                    update: { disabled: true },
-                    delete: { disabled: true },
-                    guards: [GqlAuthGuard]
-                }
-            ]
-        })
-    ],
-    providers: [
-        ChatSubscriptionService,
-        RedisPubSubProvider.provider(),
-    ]
+  imports: [
+    OrderModule,
+    FirebaseNotificationModule,
+    NestjsQueryGraphQLModule.forFeature({
+      imports: [
+        NestjsQueryTypeOrmModule.forFeature([
+          OrderMessageEntity,
+          RequestEntity,
+        ]),
+      ],
+      services: [ChatService, DriverNotificationService],
+      pubSub: RedisPubSubProvider.provider(),
+      resolvers: [
+        {
+          EntityClass: OrderMessageEntity,
+          DTOClass: OrderMessageDTO,
+          CreateDTOClass: OrderMessageInput,
+          ServiceClass: ChatService,
+          pagingStrategy: PagingStrategies.NONE,
+          create: { many: { disabled: true } },
+          read: { one: { disabled: true } },
+          update: { disabled: true },
+          delete: { disabled: true },
+          guards: [GqlAuthGuard],
+        },
+      ],
+    }),
+  ],
+  providers: [ChatSubscriptionService, RedisPubSubProvider.provider()],
 })
 export class ChatModule {}

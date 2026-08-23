@@ -10,13 +10,13 @@ export class RedisPubSubProvider {
       useFactory: () => {
         const options = {
           host: process.env.REDIS_HOST || 'localhost',
-          port: 6379
+          port: 6379,
         };
         return new RedisPubSub({
           publisher: new Redis(options),
           subscriber: new Redis(options),
-        })
-      } ,
+        });
+      },
     };
   }
 }

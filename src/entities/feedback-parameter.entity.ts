@@ -1,18 +1,24 @@
-import { Column, Entity, JoinTable, ManyToMany, PrimaryGeneratedColumn } from "typeorm";
-import { FeedbackEntity } from "./feedback.entity";
+import {
+  Column,
+  Entity,
+  JoinTable,
+  ManyToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
+import { FeedbackEntity } from './feedback.entity';
 
 @Entity('review_parameter')
 export class FeedbackParameterEntity {
-    @PrimaryGeneratedColumn()
-    id!: number;
+  @PrimaryGeneratedColumn()
+  id!: number;
 
-    @Column()
-    title!: string;
+  @Column()
+  title!: string;
 
-    @Column()
-    isGood!: boolean;
+  @Column()
+  isGood!: boolean;
 
-    @ManyToMany(() => FeedbackEntity, feedback => feedback.parameters)
-    @JoinTable()
-    feedbacks!: FeedbackEntity[];
+  @ManyToMany(() => FeedbackEntity, (feedback) => feedback.parameters)
+  @JoinTable()
+  feedbacks!: FeedbackEntity[];
 }

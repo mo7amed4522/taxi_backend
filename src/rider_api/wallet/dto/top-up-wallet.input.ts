@@ -1,8 +1,14 @@
-import { Field, ID, InputType, ObjectType, registerEnumType } from '@nestjs/graphql';
+import {
+  Field,
+  ID,
+  InputType,
+  ObjectType,
+  registerEnumType,
+} from '@nestjs/graphql';
 
 export enum TopUpWalletStatus {
   OK = 'ok',
-  Redirect = 'redirect'
+  Redirect = 'redirect',
 }
 registerEnumType(TopUpWalletStatus, { name: 'TopUpWalletStatus' });
 

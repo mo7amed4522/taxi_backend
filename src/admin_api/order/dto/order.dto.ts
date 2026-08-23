@@ -1,6 +1,10 @@
-import { FilterableField, IDField, Relation, UnPagedRelation } from '@nestjs-query/query-graphql';
+import {
+  FilterableField,
+  IDField,
+  Relation,
+  UnPagedRelation,
+} from '@nestjs-query/query-graphql';
 import { Field, ID, Int, ObjectType } from '@nestjs/graphql';
-
 
 import { ProviderTransactionDTO } from '../../accounting/dto/provider-transaction.dto';
 import { ComplaintDTO } from '../../complaint/dto/complaint.dto';
@@ -22,34 +26,39 @@ import { Point } from 'typeorm';
 @Relation('service', () => ServiceDTO, { nullable: true })
 @Relation('coupon', () => CouponDTO, { nullable: true })
 @UnPagedRelation('complaints', () => ComplaintDTO)
-@UnPagedRelation('conversation', () => OrderMessageDTO, { relationName: 'conversation'})
+@UnPagedRelation('conversation', () => OrderMessageDTO, {
+  relationName: 'conversation',
+})
 @UnPagedRelation('riderTransactions', () => RiderTransactionDTO)
 @UnPagedRelation('driverTransactions', () => DriverTransactionDTO)
 @UnPagedRelation('fleetTransactions', () => FleetTransactionDTO)
 @UnPagedRelation('providerTransactions', () => ProviderTransactionDTO)
-@UnPagedRelation('activities', () => RequestActivityDTO, {disableUpdate: true, disableRemove: true})
+@UnPagedRelation('activities', () => RequestActivityDTO, {
+  disableUpdate: true,
+  disableRemove: true,
+})
 export class OrderDTO {
-    @IDField(() => ID)
-    id!: number;
-    @FilterableField()
-    createdOn!: Date;
-    startTimestamp?: Date;
-    finishTimestamp?: Date;
-    @FilterableField(() => OrderStatus)
-    status: OrderStatus;
-    @Field(() => Int)
-    distanceBest: number;
-    @Field(() => Int)
-    durationBest: number;
-    costBest: number;
-    costAfterCoupon: number;
-    currency: string;
-    waitMinutes!: number;
-    addresses: string[];
-    points: Point[];
-    expectedTimestamp?: Date;
-    @FilterableField(() => ID)
-    riderId: number;
-    @FilterableField(() => ID)
-    driverId?: number;
+  @IDField(() => ID)
+  id!: number;
+  @FilterableField()
+  createdOn!: Date;
+  startTimestamp?: Date;
+  finishTimestamp?: Date;
+  @FilterableField(() => OrderStatus)
+  status: OrderStatus;
+  @Field(() => Int)
+  distanceBest: number;
+  @Field(() => Int)
+  durationBest: number;
+  costBest: number;
+  costAfterCoupon: number;
+  currency: string;
+  waitMinutes!: number;
+  addresses: string[];
+  points: Point[];
+  expectedTimestamp?: Date;
+  @FilterableField(() => ID)
+  riderId: number;
+  @FilterableField(() => ID)
+  driverId?: number;
 }

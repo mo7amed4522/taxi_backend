@@ -22,9 +22,12 @@ async function getFirebaseConfig() {
   const configAddress = `${process.cwd()}/config/config.${process.env.NODE_ENV}.json`;
   if (existsSync(configAddress)) {
     const file = await fs.readFile(configAddress, { encoding: 'utf-8' });
-    const config = JSON.parse(file as string);
+    const config = JSON.parse(file);
     const firebaseKeyFileAddress = `${process.cwd()}/config/${config.firebaseProjectPrivateKey}`;
-    if (config.firebaseProjectPrivateKey != null && existsSync(firebaseKeyFileAddress)) {
+    if (
+      config.firebaseProjectPrivateKey != null &&
+      existsSync(firebaseKeyFileAddress)
+    ) {
       return {
         credential: admin.credential.cert(firebaseKeyFileAddress),
       };
@@ -53,7 +56,9 @@ const PubSubProvider = {
       useFactory: async () => {
         const config = await getFirebaseConfig();
         if (!config) {
-          Logger.warn('Firebase configuration not found, notifications will be disabled');
+          Logger.warn(
+            'Firebase configuration not found, notifications will be disabled',
+          );
           return {
             credential: admin.credential.applicationDefault(),
           };
@@ -73,7 +78,7 @@ const PubSubProvider = {
       imports: [
         NestjsQueryTypeOrmModule.forFeature([
           OrderMessageEntity,
-          RequestEntity
+          RequestEntity,
         ]),
         RedisHelpersModule,
         RedisModule.forRoot({
@@ -98,10 +103,6 @@ const PubSubProvider = {
       pubSub: PubSubProvider,
     }),
   ],
-  providers: [
-    ChatService,
-    RiderNotificationService,
-    PubSubProvider,
-  ],
+  providers: [ChatService, RiderNotificationService, PubSubProvider],
 })
 export class ChatModule {}

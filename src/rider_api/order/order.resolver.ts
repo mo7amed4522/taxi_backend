@@ -37,12 +37,10 @@ export class OrderResolver {
   @Query(() => OrderDTO)
   @UseGuards(GqlAuthGuard)
   async currentOrder(): Promise<OrderDTO> {
-    const order = await this.riderOrderService.getCurrentOrder(this.context.req.user!.id, [
-      'driver',
-      'driver.carColor',
-      'driver.car',
-      'conversation',
-    ]);
+    const order = await this.riderOrderService.getCurrentOrder(
+      this.context.req.user!.id,
+      ['driver', 'driver.carColor', 'driver.car', 'conversation'],
+    );
     if (!order) throw new ForbiddenError('No active order found');
     return order;
   }

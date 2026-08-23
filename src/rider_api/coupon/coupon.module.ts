@@ -11,9 +11,9 @@ import { CouponEntity } from 'src/entities/coupon.entity';
 @Module({
   imports: [
     forwardRef(() => OrderModule),
-      SharedOrderModule,
-      CommonCouponModule,
-      TypeOrmModule.forFeature([RequestEntity, CouponEntity]),
+    SharedOrderModule,
+    CommonCouponModule,
+    TypeOrmModule.forFeature([RequestEntity, CouponEntity]),
     // NestjsQueryGraphQLModule.forFeature({
     //   imports: [NestjsQueryTypeOrmModule.forFeature([CouponEntity])],
     //   resolvers: [
@@ -31,6 +31,6 @@ import { CouponEntity } from 'src/entities/coupon.entity';
     // }),
   ],
   providers: [CouponService, CouponResolver],
-  exports: [CouponService]
+  exports: [CouponService],
 })
 export class CouponModule {}

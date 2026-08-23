@@ -6,25 +6,25 @@ import { ServiceEntity } from './service.entity';
 
 @Entity('region')
 export class RegionEntity {
-    @PrimaryGeneratedColumn()
-    id!: number;
+  @PrimaryGeneratedColumn()
+  id!: number;
 
-    @Column()
-    name!: string;
+  @Column()
+  name!: string;
 
-    @Column('char', { length: 3 })
-    currency!: string;
+  @Column('char', { length: 3 })
+  currency!: string;
 
-    @Column({
-        default: true
-    })
-    enabled!: boolean;
+  @Column({
+    default: true,
+  })
+  enabled!: boolean;
 
-    @Column("polygon", {
-        transformer: new PolygonTransformer()
-    })
-    location!: Point[][];
+  @Column('polygon', {
+    transformer: new PolygonTransformer(),
+  })
+  location!: Point[][];
 
-    @ManyToMany(() => ServiceEntity, service => service.regions)
-    services!:ServiceEntity[];
+  @ManyToMany(() => ServiceEntity, (service) => service.regions)
+  services!: ServiceEntity[];
 }

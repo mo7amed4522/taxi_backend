@@ -9,19 +9,27 @@ import { Repository } from 'typeorm';
 export class SharedRiderService {
   constructor(
     @InjectRepository(RiderEntity) private repo: Repository<RiderEntity>,
-    @InjectRepository(RiderWalletEntity) private riderWalletRepo: Repository<RiderWalletEntity>,
-    @InjectRepository(RiderTransactionEntity) private riderTransactionRepo: Repository<RiderTransactionEntity>,
-  ) { }
+    @InjectRepository(RiderWalletEntity)
+    private riderWalletRepo: Repository<RiderWalletEntity>,
+    @InjectRepository(RiderTransactionEntity)
+    private riderTransactionRepo: Repository<RiderTransactionEntity>,
+  ) {}
 
   async findById(id: number): Promise<RiderEntity> {
     return this.repo.findOneOrFail({ where: { id }, withDeleted: true });
   }
 
-  private async findUserByMobileNumber(mobileNumber: string): Promise<RiderEntity | undefined> {
-    return this.repo.findOne({ where: { mobileNumber }, withDeleted: true }).then(result => result ?? undefined);
+  private async findUserByMobileNumber(
+    mobileNumber: string,
+  ): Promise<RiderEntity | undefined> {
+    return this.repo
+      .findOne({ where: { mobileNumber }, withDeleted: true })
+      .then((result) => result ?? undefined);
   }
 
-  private async createUserWithMobileNumber(mobileNumber: string): Promise<RiderEntity> {
+  private async createUserWithMobileNumber(
+    mobileNumber: string,
+  ): Promise<RiderEntity> {
     const addResult = await this.repo.save({
       mobileNumber: mobileNumber,
     });
@@ -29,10 +37,10 @@ export class SharedRiderService {
   }
 
   async findOrCreateUserWithMobileNumber(
-    mobileNumber: string
+    mobileNumber: string,
   ): Promise<RiderEntity> {
     const findResult = await this.findUserByMobileNumber(mobileNumber);
-    if(findResult?.deletedAt != null) {
+    if (findResult?.deletedAt != null) {
       await this.repo.restore(findResult?.id);
     }
     if (findResult == null) {
@@ -49,20 +57,46 @@ export class SharedRiderService {
   }
 
   async getRiderCreditInCurrency(riderId: number, currency: string) {
-    const wallet = await this.riderWalletRepo.findOne({ where: { riderId, currency } });
-    return (wallet?.balance ?? 0);
+    const wallet = await this.riderWalletRepo.findOne({
+      where: { riderId, currency },
+    });
+    return wallet?.balance ?? 0;
   }
 
-  async rechargeWallet(transaction: Pick<RiderTransactionEntity, 'status' | 'action' | 'rechargeType' | 'deductType' | 'amount' | 'currency' | 'riderId' | 'requestId' | 'operatorId' | 'paymentGatewayId' | 'refrenceNumber' | 'description' | 'giftCardId'>): Promise<RiderWalletEntity> {
-    let wallet = await this.riderWalletRepo.findOne({ where: { riderId: transaction.riderId, currency: transaction.currency } });
+  async rechargeWallet(
+    transaction: Pick<
+      RiderTransactionEntity,
+      | 'status'
+      | 'action'
+      | 'rechargeType'
+      | 'deductType'
+      | 'amount'
+      | 'currency'
+      | 'riderId'
+      | 'requestId'
+      | 'operatorId'
+      | 'paymentGatewayId'
+      | 'refrenceNumber'
+      | 'description'
+      | 'giftCardId'
+    >,
+  ): Promise<RiderWalletEntity> {
+    let wallet = await this.riderWalletRepo.findOne({
+      where: { riderId: transaction.riderId, currency: transaction.currency },
+    });
     if (wallet == null) {
-      wallet = await this.riderWalletRepo.save({ balance: transaction.amount, currency: transaction.currency, riderId: transaction.riderId });
+      wallet = await this.riderWalletRepo.save({
+        balance: transaction.amount,
+        currency: transaction.currency,
+        riderId: transaction.riderId,
+      });
     } else {
-      await this.riderWalletRepo.update(wallet.id, { balance: transaction.amount + wallet.balance });
+      await this.riderWalletRepo.update(wallet.id, {
+        balance: transaction.amount + wallet.balance,
+      });
       wallet.balance += transaction.amount;
     }
     this.riderTransactionRepo.save(transaction);
     return wallet;
   }
 }
-

@@ -74,7 +74,7 @@ export class RiderOrderService {
   }
 
   async cancelRiderLastOrder(riderId: number) {
-    let order = await this.getCurrentOrder(riderId);
+    const order = await this.getCurrentOrder(riderId);
     if (!order) throw new ForbiddenError('No active order found');
     return this.cancelOrder(order.id);
   }

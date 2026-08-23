@@ -1,17 +1,23 @@
-import { Column, DeleteDateColumn, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
-import { ServiceEntity } from "./service.entity";
+import {
+  Column,
+  DeleteDateColumn,
+  Entity,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
+import { ServiceEntity } from './service.entity';
 
 @Entity('service_category')
 export class ServiceCategoryEntity {
-    @PrimaryGeneratedColumn()
-    id!: number;
+  @PrimaryGeneratedColumn()
+  id!: number;
 
-    @Column({name: 'title'})
-    name!: string;
+  @Column({ name: 'title' })
+  name!: string;
 
-    @OneToMany(() => ServiceEntity, service => service.category)
-    services!: ServiceEntity[];
+  @OneToMany(() => ServiceEntity, (service) => service.category)
+  services!: ServiceEntity[];
 
-    @DeleteDateColumn()
-    deletedAt?: Date;
+  @DeleteDateColumn()
+  deletedAt?: Date;
 }

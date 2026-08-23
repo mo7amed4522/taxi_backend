@@ -1,8 +1,8 @@
-import { registerEnumType } from "@nestjs/graphql";
+import { registerEnumType } from '@nestjs/graphql';
 
 export enum RewardAppType {
-    Driver = 'Driver',
-    Rider = 'Rider'
+  Driver = 'Driver',
+  Rider = 'Rider',
 }
 
 registerEnumType(RewardAppType, { name: 'RewardAppType' });

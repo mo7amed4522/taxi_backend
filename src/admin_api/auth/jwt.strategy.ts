@@ -9,7 +9,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     super({
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
       ignoreExpiration: false,
-      secretOrKey: 'secret'
+      secretOrKey: 'secret',
     });
   }
 
@@ -20,9 +20,11 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
 
 export type AuthenticatedUser = { id: number };
 
-export async function validateToken(token: string): Promise<Record<string, unknown>> {
-  const res: any = jwtDecode(token)
+export async function validateToken(
+  token: string,
+): Promise<Record<string, unknown>> {
+  const res: any = jwtDecode(token);
   return {
-    id: res.id
+    id: res.id,
   };
 }

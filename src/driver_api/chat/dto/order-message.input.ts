@@ -1,8 +1,8 @@
-import { Field, ID, InputType } from "@nestjs/graphql";
+import { Field, ID, InputType } from '@nestjs/graphql';
 
 @InputType()
 export class OrderMessageInput {
-    @Field(() => ID)
-    requestId: number;
-    content: string;
+  @Field(() => ID)
+  requestId: number;
+  content: string;
 }

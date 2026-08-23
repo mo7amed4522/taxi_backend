@@ -1,4 +1,7 @@
-import { NestjsQueryGraphQLModule, PagingStrategies } from '@nestjs-query/query-graphql';
+import {
+  NestjsQueryGraphQLModule,
+  PagingStrategies,
+} from '@nestjs-query/query-graphql';
 import { NestjsQueryTypeOrmModule } from '@nestjs-query/query-typeorm';
 import { Module } from '@nestjs/common';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
@@ -11,33 +14,39 @@ import { OperatorRoleEntity } from 'src/entities/operator-role.entity';
 import { OperatorEntity } from 'src/entities/operator.entity';
 
 @Module({
-    imports: [NestjsQueryGraphQLModule.forFeature({
-        imports: [NestjsQueryTypeOrmModule.forFeature([OperatorEntity, OperatorRoleEntity])],
-        resolvers: [
-            {
-                EntityClass: OperatorRoleEntity,
-                DTOClass: OperatorRoleDTO,
-                create: { many: { disabled: true }},
-                update: { many: { disabled: true }},
-                delete: { disabled: true },
-                pagingStrategy: PagingStrategies.NONE,
-                guards: [JwtAuthGuard]
-            },
-            {
-                EntityClass: OperatorEntity,
-                DTOClass: OperatorDTO,
-                CreateDTOClass: CreateOperatorInput,
-                create: { many: { disabled: true }},
-                update: { many: { disabled: true}},
-                delete: { disabled: true },
-                pagingStrategy: PagingStrategies.OFFSET,
-                enableTotalCount: true,
-                guards: [JwtAuthGuard]
-            }
-        ]
-    })],
-    providers: [OperatorService, OperatorResolver],
-    exports: [OperatorService],
-
+  imports: [
+    NestjsQueryGraphQLModule.forFeature({
+      imports: [
+        NestjsQueryTypeOrmModule.forFeature([
+          OperatorEntity,
+          OperatorRoleEntity,
+        ]),
+      ],
+      resolvers: [
+        {
+          EntityClass: OperatorRoleEntity,
+          DTOClass: OperatorRoleDTO,
+          create: { many: { disabled: true } },
+          update: { many: { disabled: true } },
+          delete: { disabled: true },
+          pagingStrategy: PagingStrategies.NONE,
+          guards: [JwtAuthGuard],
+        },
+        {
+          EntityClass: OperatorEntity,
+          DTOClass: OperatorDTO,
+          CreateDTOClass: CreateOperatorInput,
+          create: { many: { disabled: true } },
+          update: { many: { disabled: true } },
+          delete: { disabled: true },
+          pagingStrategy: PagingStrategies.OFFSET,
+          enableTotalCount: true,
+          guards: [JwtAuthGuard],
+        },
+      ],
+    }),
+  ],
+  providers: [OperatorService, OperatorResolver],
+  exports: [OperatorService],
 })
 export class OperatorModule {}

@@ -1,25 +1,27 @@
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
-import { DriverEntity } from "./driver.entity";
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { DriverEntity } from './driver.entity';
 
 @Entity('driver_wallet')
 export class DriverWalletEntity {
-    @PrimaryGeneratedColumn()
-    id!: number;
+  @PrimaryGeneratedColumn()
+  id!: number;
 
-    @Column('numeric', {
-        default: 0.0,
-        name: 'amount',
-        precision: 10,
-        scale: 2
-    })
-    balance!: number;
+  @Column('numeric', {
+    default: 0.0,
+    name: 'amount',
+    precision: 10,
+    scale: 2,
+  })
+  balance!: number;
 
-    @Column('char', { length: 3 })
-    currency!: string;
+  @Column('char', { length: 3 })
+  currency!: string;
 
-    @ManyToOne(() => DriverEntity, driver => driver.wallet, { onDelete: 'CASCADE' })
-    driver!: DriverEntity;
+  @ManyToOne(() => DriverEntity, (driver) => driver.wallet, {
+    onDelete: 'CASCADE',
+  })
+  driver!: DriverEntity;
 
-    @Column()
-    driverId!: number;
+  @Column()
+  driverId!: number;
 }

@@ -11,14 +11,18 @@ import { JwtAuthGuard } from './jwt-auth.guard';
 export class AuthResolver {
   constructor(
     private authService: AuthService,
-    @Inject(CONTEXT) private context: UserContext) {}
+    @Inject(CONTEXT) private context: UserContext,
+  ) {}
 
   //@UseGuards(LocalAdminAuthGuard)
   @Query(() => TokenObject)
-  async login(@Args('userName', { type: () => String}) userName: string, @Args('password', { type: () => String}) password: string): Promise<TokenObject> {
-    const token = await this.authService.loginAdmin({userName, password});
+  async login(
+    @Args('userName', { type: () => String }) userName: string,
+    @Args('password', { type: () => String }) password: string,
+  ): Promise<TokenObject> {
+    const token = await this.authService.loginAdmin({ userName, password });
     return {
-      token
+      token,
     };
   }
 

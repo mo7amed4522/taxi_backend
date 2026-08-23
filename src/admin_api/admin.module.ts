@@ -30,9 +30,7 @@ import { SOSModule } from './sos/sos.module';
 import { RewardModule } from './reward/reward.module';
 import { AppController } from './admin.controller';
 
-@Module({
-
-})
+@Module({})
 export class AdminAPIModule {
   static async register(): Promise<DynamicModule> {
     const configAddress = `${process.cwd()}/config/config.${
@@ -40,7 +38,7 @@ export class AdminAPIModule {
     }.json`;
     if (existsSync(configAddress)) {
       const file = await fs.readFile(configAddress, { encoding: 'utf-8' });
-      const config = JSON.parse(file as string);
+      const config = JSON.parse(file);
       const firebaseKeyFileAddress = `${process.cwd()}/config/${
         config.firebaseProjectPrivateKey
       }`;
@@ -64,8 +62,7 @@ export class AdminAPIModule {
                     }
                     throw new Error('Missing auth token!');
                   },
-                  onDisconnect: () => {
-                  },
+                  onDisconnect: () => {},
                 },
               },
               autoSchemaFile: join(process.cwd(), 'admin.schema.gql'),
@@ -96,7 +93,7 @@ export class AdminAPIModule {
               closeClient: true,
               commonOptions: { db: 2 },
               config: {
-                host: process.env.REDIS_HOST ?? 'localhost'
+                host: process.env.REDIS_HOST ?? 'localhost',
               },
             }),
           ],

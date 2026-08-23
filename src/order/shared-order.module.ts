@@ -32,8 +32,8 @@ import { RedisPubSubProvider } from 'src/redis-pub-sub.provider';
 
 @Module({
   imports: [
-      RedisHelpersModule,
-      CommonCouponModule,
+    RedisHelpersModule,
+    CommonCouponModule,
     TypeOrmModule.forFeature([
       ServiceCategoryEntity,
       ServiceOptionEntity,
@@ -51,7 +51,6 @@ import { RedisPubSubProvider } from 'src/redis-pub-sub.provider';
       RiderTransactionEntity,
       RequestEntity,
       RequestActivityEntity,
-      
     ]),
     RegionModule,
     GoogleServicesModule,
@@ -65,7 +64,7 @@ import { RedisPubSubProvider } from 'src/redis-pub-sub.provider';
     SharedOrderService,
     SharedProviderService,
     SharedRiderService,
-    SharedConfigurationService
+    SharedConfigurationService,
   ],
   exports: [
     SharedDriverService,

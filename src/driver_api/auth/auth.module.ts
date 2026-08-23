@@ -19,27 +19,29 @@ export class AuthModule {
       OrderModule,
       PassportModule,
       JwtModule.register({
-        secret: 'secret_driver'
-      })
+        secret: 'secret_driver',
+      }),
     ];
     let providers: any[] = [];
     const configAddress = `${process.cwd()}/config/config.${process.env.NODE_ENV}.json`;
     if (existsSync(configAddress)) {
       const file = await fs.readFile(configAddress, { encoding: 'utf-8' });
-      const config = JSON.parse(file as string);
+      const config = JSON.parse(file);
       if (
         config.firebaseProjectPrivateKey != null &&
-        existsSync(`${process.cwd()}/config/${config.firebaseProjectPrivateKey}`)
+        existsSync(
+          `${process.cwd()}/config/${config.firebaseProjectPrivateKey}`,
+        )
       ) {
         Logger.log('Firebase Auth Module initialized');
         modules.push(
           FirebaseAdminModule.forRootAsync({
             useFactory: () => ({
               credential: admin.credential.cert(
-                `${process.cwd()}/config/${config.firebaseProjectPrivateKey}`
-              )
-            })
-          })
+                `${process.cwd()}/config/${config.firebaseProjectPrivateKey}`,
+              ),
+            }),
+          }),
         );
         providers = [AuthService, JwtStrategy, AuthResolver];
       }
@@ -47,7 +49,7 @@ export class AuthModule {
     return {
       module: AuthModule,
       imports: modules,
-      providers: providers
+      providers: providers,
     };
   }
 }

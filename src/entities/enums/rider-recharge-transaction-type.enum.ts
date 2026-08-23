@@ -1,10 +1,12 @@
-import { registerEnumType } from "@nestjs/graphql";
+import { registerEnumType } from '@nestjs/graphql';
 
 export enum RiderRechargeTransactionType {
-    BankTransfer = 'BankTransfer',
-    Gift = 'Gift',
-    Correction = 'Correction',
-    InAppPayment = 'InAppPayment'
+  BankTransfer = 'BankTransfer',
+  Gift = 'Gift',
+  Correction = 'Correction',
+  InAppPayment = 'InAppPayment',
 }
 
-registerEnumType(RiderRechargeTransactionType, { name: 'RiderRechargeTransactionType'});
+registerEnumType(RiderRechargeTransactionType, {
+  name: 'RiderRechargeTransactionType',
+});

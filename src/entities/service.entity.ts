@@ -1,4 +1,15 @@
-import { Column, DeleteDateColumn, Entity, JoinColumn, JoinTable, ManyToMany, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  DeleteDateColumn,
+  Entity,
+  JoinColumn,
+  JoinTable,
+  ManyToMany,
+  ManyToOne,
+  OneToMany,
+  OneToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 
 import { DistanceMultiplier } from '../interfaces/distance-multiplier.dto';
 import { TimeMultiplier } from '../interfaces/time-multiplier.dto';
@@ -16,170 +27,171 @@ import { ServiceOptionEntity } from './service-option.entity';
 
 @Entity('service')
 export class ServiceEntity {
-    @PrimaryGeneratedColumn()
-    id!: number;
+  @PrimaryGeneratedColumn()
+  id!: number;
 
-    @ManyToOne(() => ServiceCategoryEntity, category => category.services, { onDelete: 'CASCADE' })
-    category!: ServiceCategoryEntity;
+  @ManyToOne(() => ServiceCategoryEntity, (category) => category.services, {
+    onDelete: 'CASCADE',
+  })
+  category!: ServiceCategoryEntity;
 
-    @Column()
-    categoryId!: number;
+  @Column()
+  categoryId!: number;
 
-    @Column({name: 'title'})
-    name!: string;
+  @Column({ name: 'title' })
+  name!: string;
 
-    @Column({ nullable: true })
-    description?: string;
+  @Column({ nullable: true })
+  description?: string;
 
-    @Column('smallint', { nullable: true })
-    personCapacity?: number;
+  @Column('smallint', { nullable: true })
+  personCapacity?: number;
 
-    @Column('numeric', {
-        default: '0.00',
-        precision: 12,
-        scale: 2,
-    })
-    baseFare!: number;
+  @Column('numeric', {
+    default: '0.00',
+    precision: 12,
+    scale: 2,
+  })
+  baseFare!: number;
 
-    @Column('numeric', {
-        default: '0.00',
-        precision: 12,
-        scale: 2,
-    })
-    perHundredMeters!: number;
+  @Column('numeric', {
+    default: '0.00',
+    precision: 12,
+    scale: 2,
+  })
+  perHundredMeters!: number;
 
-    @Column('numeric', {
-        default: '0.00',
-        precision: 12,
-        scale: 2,
-    })
-    perMinuteDrive!: number;
+  @Column('numeric', {
+    default: '0.00',
+    precision: 12,
+    scale: 2,
+  })
+  perMinuteDrive!: number;
 
-    @Column('numeric', {
-        default: '0.00',
-        precision: 12,
-        scale: 2,
-    })
-    perMinuteWait!: number;
+  @Column('numeric', {
+    default: '0.00',
+    precision: 12,
+    scale: 2,
+  })
+  perMinuteWait!: number;
 
-    @Column('numeric', {
-        default: '0.00',
-        precision: 10,
-        scale: 2,
-    })
-    minimumFee!: number;
-    
-    @Column('int', {
-        default: 10000
-    })
-    searchRadius!: number;
+  @Column('numeric', {
+    default: '0.00',
+    precision: 10,
+    scale: 2,
+  })
+  minimumFee!: number;
 
-    @Column({
-        type: 'enum',
-        enum: ServicePaymentMethod,
-        default: ServicePaymentMethod.CashCredit
-    })
-    paymentMethod!: ServicePaymentMethod;
+  @Column('int', {
+    default: 10000,
+  })
+  searchRadius!: number;
 
-    @Column('enum', {
-        enum: ServiceDistanceFeeMode,
-        default: ServiceDistanceFeeMode.PickupToDestination
-    })
-    distanceFeeMode!: ServiceDistanceFeeMode;
+  @Column({
+    type: 'enum',
+    enum: ServicePaymentMethod,
+    default: ServicePaymentMethod.CashCredit,
+  })
+  paymentMethod!: ServicePaymentMethod;
 
-    @Column('time', {
-        default: '00:00'
-    })
-    availableTimeFrom!: string;
+  @Column('enum', {
+    enum: ServiceDistanceFeeMode,
+    default: ServiceDistanceFeeMode.PickupToDestination,
+  })
+  distanceFeeMode!: ServiceDistanceFeeMode;
 
+  @Column('time', {
+    default: '00:00',
+  })
+  availableTimeFrom!: string;
 
-    @Column('time', {
-        default: '23:59'
-    })
-    availableTimeTo!: string;
+  @Column('time', {
+    default: '23:59',
+  })
+  availableTimeTo!: string;
 
-    @Column('int', { default: 0, name: 'maxDestinationDistance' })
-    maximumDestinationDistance!: number;
+  @Column('int', { default: 0, name: 'maxDestinationDistance' })
+  maximumDestinationDistance!: number;
 
-    @Column('smallint')
-    prepayPercent!: number;
+  @Column('smallint')
+  prepayPercent!: number;
 
-    @Column({default: false})
-    twoWayAvailable!: boolean;
+  @Column({ default: false })
+  twoWayAvailable!: boolean;
 
-    @Column('numeric', {
-        default: '0.00',
-        precision: 10,
-        scale: 2
-    })
-    cancellationTotalFee!: number;
+  @Column('numeric', {
+    default: '0.00',
+    precision: 10,
+    scale: 2,
+  })
+  cancellationTotalFee!: number;
 
-    @Column('numeric', { 
-        default: '0.00',
-        precision: 10,
-        scale: 2,
-     })
-    cancellationDriverShare!: number;
+  @Column('numeric', {
+    default: '0.00',
+    precision: 10,
+    scale: 2,
+  })
+  cancellationDriverShare!: number;
 
-    @Column('smallint')
-    providerSharePercent!: number;
+  @Column('smallint')
+  providerSharePercent!: number;
 
-    @Column('numeric', { 
-        default: '0.00',
-        precision: 10,
-        scale: 2,
-     })
-    providerShareFlat!: number;
+  @Column('numeric', {
+    default: '0.00',
+    precision: 10,
+    scale: 2,
+  })
+  providerShareFlat!: number;
 
-    @Column('numeric', {
-        nullable: true,
-        precision: 10,
-        scale: 2,
-    })
-    roundingFactor?: number;
+  @Column('numeric', {
+    nullable: true,
+    precision: 10,
+    scale: 2,
+  })
+  roundingFactor?: number;
 
-    @OneToOne(() => MediaEntity, media => media.service)
-    @JoinColumn()
-    media!: MediaEntity;
+  @OneToOne(() => MediaEntity, (media) => media.service)
+  @JoinColumn()
+  media!: MediaEntity;
 
-    @Column()
-    mediaId!: number;
+  @Column()
+  mediaId!: number;
 
-    @Column('simple-array', {
-        nullable: true,
-        transformer: new TimeMultiplierTransformer()
-    })
-    timeMultipliers!: TimeMultiplier[];
+  @Column('simple-array', {
+    nullable: true,
+    transformer: new TimeMultiplierTransformer(),
+  })
+  timeMultipliers!: TimeMultiplier[];
 
-    @Column('simple-array', {
-        nullable: true,
-        transformer: new DistanceMultiplierTransformer()
-    })
-    distanceMultipliers!: DistanceMultiplier[];
+  @Column('simple-array', {
+    nullable: true,
+    transformer: new DistanceMultiplierTransformer(),
+  })
+  distanceMultipliers!: DistanceMultiplier[];
 
-    @DeleteDateColumn()
-    deletedAt?: Date;
+  @DeleteDateColumn()
+  deletedAt?: Date;
 
-    @Column('numeric', { default: 1.0, precision: 10, scale: 2 })
-    touristMultiplier!: number;
+  @Column('numeric', { default: 1.0, precision: 10, scale: 2 })
+  touristMultiplier!: number;
 
-    @ManyToMany(() => DriverEntity, driver => driver.enabledServices)
-    drivers!: DriverEntity[];
-    
-    @ManyToMany(() => CouponEntity, coupon => coupon.allowedServices)
-    allowedCoupons!: CouponEntity[];
+  @ManyToMany(() => DriverEntity, (driver) => driver.enabledServices)
+  drivers!: DriverEntity[];
 
-    @ManyToMany(() => RegionEntity, region => region.services)
-    @JoinTable()
-    regions!: RegionEntity[];
+  @ManyToMany(() => CouponEntity, (coupon) => coupon.allowedServices)
+  allowedCoupons!: CouponEntity[];
 
-    @OneToMany(() => RequestEntity, order => order.service)
-    requests!: RequestEntity[];
+  @ManyToMany(() => RegionEntity, (region) => region.services)
+  @JoinTable()
+  regions!: RegionEntity[];
 
-    @ManyToMany(() => ServiceOptionEntity, serviceOption => serviceOption.services)
-    @JoinTable()
-    options!: ServiceOptionEntity[];
+  @OneToMany(() => RequestEntity, (order) => order.service)
+  requests!: RequestEntity[];
+
+  @ManyToMany(
+    () => ServiceOptionEntity,
+    (serviceOption) => serviceOption.services,
+  )
+  @JoinTable()
+  options!: ServiceOptionEntity[];
 }
-
-
-

@@ -16,12 +16,12 @@ import { MediaEntity } from 'src/entities/media.entity';
           create: { disabled: true },
           read: { disabled: true },
           delete: { disabled: true },
-          update: { disabled: true }
-        }
-      ]
-    })
+          update: { disabled: true },
+        },
+      ],
+    }),
   ],
   providers: [UploadService],
-  exports: [UploadService]
+  exports: [UploadService],
 })
 export class UploadModule {}

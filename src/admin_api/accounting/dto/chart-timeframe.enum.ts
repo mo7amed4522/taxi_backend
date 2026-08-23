@@ -1,10 +1,10 @@
-import { registerEnumType } from "@nestjs/graphql";
+import { registerEnumType } from '@nestjs/graphql';
 
 export enum ChartTimeframe {
-    Daily = 'Daily',
-    Weekly = 'Weekly',
-    Monthly = 'Monthly',
-    Yearly = 'Yearly'
+  Daily = 'Daily',
+  Weekly = 'Weekly',
+  Monthly = 'Monthly',
+  Yearly = 'Yearly',
 }
 
-registerEnumType(ChartTimeframe, { name: 'ChartTimeframe'});
+registerEnumType(ChartTimeframe, { name: 'ChartTimeframe' });

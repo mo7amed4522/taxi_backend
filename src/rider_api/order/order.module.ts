@@ -1,4 +1,7 @@
-import { NestjsQueryGraphQLModule, PagingStrategies } from '@nestjs-query/query-graphql';
+import {
+  NestjsQueryGraphQLModule,
+  PagingStrategies,
+} from '@nestjs-query/query-graphql';
 import { NestjsQueryTypeOrmModule } from '@nestjs-query/query-typeorm';
 import { forwardRef, Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
@@ -46,7 +49,6 @@ import { OrderRedisService } from 'src/redis/order-redis.service';
 import { RedisHelpersModule } from 'src/redis/redis-helper.module';
 import { FeedbackParameterDTO } from './dto/feedback-parameter.dto';
 
-
 @Module({
   imports: [
     TypeOrmModule.forFeature([
@@ -60,7 +62,7 @@ import { FeedbackParameterDTO } from './dto/feedback-parameter.dto';
       RequestActivityEntity,
       FeedbackParameterEntity,
       ServiceOptionEntity,
-      SOSEntity
+      SOSEntity,
     ]),
     CommonCouponModule,
     GoogleServicesModule,
@@ -82,13 +84,18 @@ import { FeedbackParameterDTO } from './dto/feedback-parameter.dto';
           MediaEntity,
           FeedbackParameterEntity,
           RequestActivityEntity,
-          FeedbackEntity
+          FeedbackEntity,
         ]),
         CommonCouponModule,
-        SharedOrderModule
+        SharedOrderModule,
       ],
       pubSub: RedisPubSubProvider.provider(),
-      services: [RiderOrderQueryService, RiderOrderService, OrderRedisService, DriverNotificationService],
+      services: [
+        RiderOrderQueryService,
+        RiderOrderService,
+        OrderRedisService,
+        DriverNotificationService,
+      ],
       resolvers: [
         {
           EntityClass: RequestEntity,
@@ -99,7 +106,7 @@ import { FeedbackParameterDTO } from './dto/feedback-parameter.dto';
           create: { disabled: true },
           update: { many: { disabled: true } },
           delete: { disabled: true },
-          guards: [GqlAuthGuard]
+          guards: [GqlAuthGuard],
         },
         {
           EntityClass: DriverEntity,
@@ -133,7 +140,7 @@ import { FeedbackParameterDTO } from './dto/feedback-parameter.dto';
           update: { disabled: true },
           delete: { disabled: true },
           read: { one: { disabled: true } },
-        }
+        },
       ],
     }),
   ],
@@ -148,6 +155,6 @@ import { FeedbackParameterDTO } from './dto/feedback-parameter.dto';
     RiderNotificationService,
     RedisPubSubProvider.provider(),
   ],
-  exports: [RiderOrderService]
+  exports: [RiderOrderService],
 })
 export class OrderModule {}

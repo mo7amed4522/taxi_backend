@@ -5,7 +5,6 @@ import {
 import { NestjsQueryTypeOrmModule } from '@nestjs-query/query-typeorm';
 import { Module } from '@nestjs/common';
 
-
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { OperatorModule } from '../operator/operator.module';
 import { ServiceCategoryDTO } from './dto/service-category.dto';
@@ -25,11 +24,15 @@ import { ServiceOptionEntity } from 'src/entities/service-option.entity';
         NestjsQueryTypeOrmModule.forFeature([
           ServiceCategoryEntity,
           ServiceEntity,
-          ServiceOptionEntity
+          ServiceOptionEntity,
         ]),
         OperatorModule,
       ],
-      services: [ServiceQueryService, ServiceCategoryQueryService, ServiceOptionQueryService],
+      services: [
+        ServiceQueryService,
+        ServiceCategoryQueryService,
+        ServiceOptionQueryService,
+      ],
       resolvers: [
         {
           EntityClass: ServiceEntity,
@@ -59,8 +62,8 @@ import { ServiceOptionEntity } from 'src/entities/service-option.entity';
           update: { many: { disabled: true } },
           delete: { many: { disabled: true } },
           pagingStrategy: PagingStrategies.NONE,
-          guards: [JwtAuthGuard]
-        }
+          guards: [JwtAuthGuard],
+        },
       ],
     }),
   ],

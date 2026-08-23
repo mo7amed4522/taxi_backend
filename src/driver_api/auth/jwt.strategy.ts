@@ -10,19 +10,23 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     super({
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
       ignoreExpiration: false,
-      secretOrKey: 'secret_driver'
+      secretOrKey: 'secret_driver',
     });
   }
 
-  async validate(payload: AuthenticatedDriverDTO): Promise<AuthenticatedDriverDTO> {
+  async validate(
+    payload: AuthenticatedDriverDTO,
+  ): Promise<AuthenticatedDriverDTO> {
     return { id: payload.id };
   }
 }
 
-export async function validateToken(token: string): Promise<Record<string, unknown>> {
-  const res = jwtDecode(token) as { id: number };
+export async function validateToken(
+  token: string,
+): Promise<Record<string, unknown>> {
+  const res: any = jwtDecode(token);
   Logger.log(`validated driver socket: ${res.id}`);
   return {
-    id: res.id
+    id: res.id,
   };
 }

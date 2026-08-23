@@ -1,6 +1,6 @@
-import { InputType } from "@nestjs/graphql";
+import { InputType } from '@nestjs/graphql';
 
 @InputType()
 export class LoginInput {
-    firebaseToken: string;
+  firebaseToken: string;
 }

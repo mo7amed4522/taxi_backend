@@ -1,34 +1,43 @@
-import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from "typeorm";
-import { RiderTransactionEntity } from "./rider-transaction.entity";
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  OneToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
+import { RiderTransactionEntity } from './rider-transaction.entity';
 
 @Entity('gift_card')
 export class GiftCardEntity {
-    @PrimaryGeneratedColumn()
-    id!: number;
+  @PrimaryGeneratedColumn()
+  id!: number;
 
-    @Column()
-    code!: string;
-    
-    @Column('varchar', {
-        length: 3
-    })
-    currency!: string;
+  @Column()
+  code!: string;
 
-    @Column('numeric', {
-        precision: 10,
-        scale: 2
-    })
-    amount!: number;
+  @Column('varchar', {
+    length: 3,
+  })
+  currency!: string;
 
-    @Column()
-    isUsed!: boolean;
+  @Column('numeric', {
+    precision: 10,
+    scale: 2,
+  })
+  amount!: number;
 
-    @Column()
-    availableTimestamp?: Date;
+  @Column()
+  isUsed!: boolean;
 
-    @Column()
-    expirationTimestamp?: Date;
+  @Column()
+  availableTimestamp?: Date;
 
-    @OneToOne(() => RiderTransactionEntity, riderTransaction => riderTransaction.giftCard)
-    riderTransaction?: RiderTransactionEntity;
+  @Column()
+  expirationTimestamp?: Date;
+
+  @OneToOne(
+    () => RiderTransactionEntity,
+    (riderTransaction) => riderTransaction.giftCard,
+  )
+  riderTransaction?: RiderTransactionEntity;
 }
