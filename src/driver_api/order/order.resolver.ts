@@ -1,8 +1,17 @@
 import { CRUDResolver, InjectPubSub } from '@nestjs-query/query-graphql';
 import { Inject, UseGuards } from '@nestjs/common';
-import { Args, CONTEXT, Float, ID, Int, Mutation, Query, Resolver } from '@nestjs/graphql';
+import {
+  Args,
+  CONTEXT,
+  Float,
+  ID,
+  Int,
+  Mutation,
+  Query,
+  Resolver,
+} from '@nestjs/graphql';
 import { InjectRepository } from '@nestjs/typeorm';
-import {Point} from '../../index';
+import { Point } from '../../index';
 import { RedisPubSub } from 'graphql-redis-subscriptions';
 import { Repository } from 'typeorm';
 import { UserContext } from '../auth/authenticated-user';
@@ -16,7 +25,6 @@ import { OrderService } from './order.service';
 import { DriverRedisService } from 'src/redis/driver-redis.service';
 import { SOSEntity } from 'src/entities/sos.entity';
 
-
 @Resolver(() => OrderDTO)
 @UseGuards(GqlAuthGuard)
 export class OrderResolver extends CRUDResolver(OrderDTO, {
@@ -24,7 +32,7 @@ export class OrderResolver extends CRUDResolver(OrderDTO, {
   create: { disabled: true },
   update: { many: { disabled: true } },
   delete: { disabled: true },
-  enableAggregate: true
+  enableAggregate: true,
 }) {
   constructor(
     public readonly driverOrderService: DriverOrderQueryService,
@@ -34,7 +42,7 @@ export class OrderResolver extends CRUDResolver(OrderDTO, {
     @InjectPubSub()
     private redisPubSub: RedisPubSub,
     @InjectRepository(SOSEntity)
-    private sosRepo: Repository<SOSEntity>
+    private sosRepo: Repository<SOSEntity>,
   ) {
     super(driverOrderService);
   }
@@ -50,19 +58,27 @@ export class OrderResolver extends CRUDResolver(OrderDTO, {
   }
 
   @Mutation(() => [OrderDTO])
-  async updateDriversLocationNew(@Args('point', { type: () => Point }) point: Point): Promise<AvailableOrderDTO[]> {
-    this.redisPubSub.publish('driverLocationUpdated', { driverId: this.context.req.user.id, point });
+  async updateDriversLocationNew(
+    @Args('point', { type: () => Point }) point: Point,
+  ): Promise<AvailableOrderDTO[]> {
+    this.redisPubSub.publish('driverLocationUpdated', {
+      driverId: this.context.req.user.id,
+      point,
+    });
     await this.driverRedisService.setLocation(this.context.req.user.id, point);
     return this.orderService.getOrdersForDriver(this.context.req.user.id);
   }
 
   @Mutation(() => SOSDTO)
   @UseGuards(GqlAuthGuard)
-  async sosSignal(@Args('orderId', { type: () => ID }) requestId: number, @Args('location', { type: () => Point, nullable: true }) location?: Point): Promise<SOSDTO> {
+  async sosSignal(
+    @Args('orderId', { type: () => ID }) requestId: number,
+    @Args('location', { type: () => Point, nullable: true }) location?: Point,
+  ): Promise<SOSDTO> {
     return this.sosRepo.save({
       submittedByRider: false,
       location,
-      requestId
+      requestId,
     });
   }
 }

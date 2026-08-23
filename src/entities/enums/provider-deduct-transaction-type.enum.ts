@@ -1,7 +1,9 @@
-import { registerEnumType } from "@nestjs/graphql";
+import { registerEnumType } from '@nestjs/graphql';
 
 export enum ProviderDeductTransactionType {
-    Withdraw = "Withdraw"
+  Withdraw = 'Withdraw',
 }
 
-registerEnumType(ProviderDeductTransactionType, { name: 'ProviderDeductTransactionType' });
+registerEnumType(ProviderDeductTransactionType, {
+  name: 'ProviderDeductTransactionType',
+});

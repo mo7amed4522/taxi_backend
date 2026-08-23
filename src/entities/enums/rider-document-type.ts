@@ -1,10 +1,10 @@
-import { registerEnumType } from "@nestjs/graphql";
+import { registerEnumType } from '@nestjs/graphql';
 
 export enum RiderDocumentType {
-    ID = "ID",
-    Passport = "Passport",
-    DriverLicense = "DriverLicense",
-    ResidentPermitID = "ResidentPermitID"
+  ID = 'ID',
+  Passport = 'Passport',
+  DriverLicense = 'DriverLicense',
+  ResidentPermitID = 'ResidentPermitID',
 }
 
-registerEnumType(RiderDocumentType, { name: 'RiderDocumentType' })
+registerEnumType(RiderDocumentType, { name: 'RiderDocumentType' });

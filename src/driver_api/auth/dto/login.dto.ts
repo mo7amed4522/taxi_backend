@@ -1,7 +1,7 @@
-import { Field, ObjectType } from "@nestjs/graphql";
+import { Field, ObjectType } from '@nestjs/graphql';
 
 @ObjectType('Login')
 export class LoginDTO {
-    @Field()
-    jwtToken: string;
+  @Field()
+  jwtToken: string;
 }

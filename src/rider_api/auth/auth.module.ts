@@ -28,7 +28,7 @@ export class AuthModule {
     const configAddress = `${process.cwd()}/config/config.${process.env.NODE_ENV}.json`;
     if (existsSync(configAddress)) {
       const file = await fs.readFile(configAddress, { encoding: 'utf-8' });
-      const config = JSON.parse(file as string);
+      const config = JSON.parse(file);
       if (
         config.firebaseProjectPrivateKey != null &&
         existsSync(

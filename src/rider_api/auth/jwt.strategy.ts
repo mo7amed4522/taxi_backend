@@ -3,14 +3,13 @@ import { PassportStrategy } from '@nestjs/passport';
 import { Injectable, Logger } from '@nestjs/common';
 const jwtDecode = require('jwt-decode');
 
-
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {
   constructor() {
     super({
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
       ignoreExpiration: false,
-      secretOrKey: 'secret_rider'
+      secretOrKey: 'secret_rider',
     });
   }
 
@@ -21,10 +20,12 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
 
 export type AuthenticatedUser = { id: number };
 
-export async function validateToken(token: string): Promise<Record<string, any>> {
+export async function validateToken(
+  token: string,
+): Promise<Record<string, any>> {
   const res: any = jwtDecode(token);
   Logger.log(`validated rider socket: ${res.id}`);
   return {
-    id: res.id
+    id: res.id,
   };
 }

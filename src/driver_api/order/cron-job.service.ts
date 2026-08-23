@@ -94,7 +94,7 @@ export class CronJobService {
         return !driversNotified.includes(x.driverId);
       });
       if (closeDrivers.length > 0) {
-        let driverIds = closeDrivers.map((x) => x.driverId);
+        const driverIds = closeDrivers.map((x) => x.driverId);
         const order = await this.orderService.orderRepository.findOne({
           where: { id: waitingRequest },
         });

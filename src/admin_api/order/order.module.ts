@@ -27,7 +27,7 @@ import { RedisPubSubProvider } from 'src/redis/redis-pubsub.provider';
       imports: [
         NestjsQueryTypeOrmModule.forFeature([
           RequestEntity,
-          OrderMessageEntity
+          OrderMessageEntity,
         ]),
       ],
       pubSub: RedisPubSubProvider.provider(),

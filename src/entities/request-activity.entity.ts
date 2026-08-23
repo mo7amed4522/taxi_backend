@@ -1,23 +1,29 @@
-import { Column, CreateDateColumn, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
-import { RequestActivityType } from "./enums/request-activity-type.enum";
-import { RequestEntity } from "./request.entity";
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
+import { RequestActivityType } from './enums/request-activity-type.enum';
+import { RequestEntity } from './request.entity';
 
 @Entity('request_activity')
 export class RequestActivityEntity {
-    @PrimaryGeneratedColumn()
-    id!: number;
+  @PrimaryGeneratedColumn()
+  id!: number;
 
-    @Column('enum', {
-        enum: RequestActivityType
-    })
-    type!: RequestActivityType;
+  @Column('enum', {
+    enum: RequestActivityType,
+  })
+  type!: RequestActivityType;
 
-    @CreateDateColumn()
-    createdAt!: Date;
+  @CreateDateColumn()
+  createdAt!: Date;
 
-    @ManyToOne(() => RequestEntity, (request) => request.activities)
-    request!: RequestEntity;
+  @ManyToOne(() => RequestEntity, (request) => request.activities)
+  request!: RequestEntity;
 
-    @Column()
-    requestId!: number;
+  @Column()
+  requestId!: number;
 }

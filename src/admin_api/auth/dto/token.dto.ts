@@ -1,6 +1,6 @@
-import { ObjectType } from "@nestjs/graphql";
+import { ObjectType } from '@nestjs/graphql';
 
 @ObjectType()
 export class TokenObject {
-    token: string;
+  token: string;
 }

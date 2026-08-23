@@ -21,20 +21,21 @@ export class AuthResolver {
     private riderService: SharedRiderService,
     private jwtService: JwtService,
     @Inject(CONTEXT)
-    private userContext: UserContext
-  ) { }
+    private userContext: UserContext,
+  ) {}
 
   @Mutation(() => LoginDTO)
   async login(
-    @Args('input', { type: () => LoginInput }) input: LoginInput
+    @Args('input', { type: () => LoginInput }) input: LoginInput,
   ): Promise<LoginDTO> {
     const decodedToken = await this.firebaseAuth.app
       .auth()
       .verifyIdToken(input.firebaseToken);
-    const number = (decodedToken.firebase.identities.phone[0] as string).substring(1);
-    const user = await this.riderService.findOrCreateUserWithMobileNumber(
-      number
-    );
+    const number = (
+      decodedToken.firebase.identities.phone[0] as string
+    ).substring(1);
+    const user =
+      await this.riderService.findOrCreateUserWithMobileNumber(number);
     const payload = { id: user.id };
     return {
       jwtToken: this.jwtService.sign(payload),
@@ -42,11 +43,19 @@ export class AuthResolver {
   }
 
   @Query(() => VersionStatus)
-  async requireUpdate(@Args('versionCode', { type: () => Int }) versionCode: number) {
-    if (process.env.MANDATORY_VERSION_CODE != null && versionCode < parseInt(process.env.MANDATORY_VERSION_CODE)) {
+  async requireUpdate(
+    @Args('versionCode', { type: () => Int }) versionCode: number,
+  ) {
+    if (
+      process.env.MANDATORY_VERSION_CODE != null &&
+      versionCode < parseInt(process.env.MANDATORY_VERSION_CODE)
+    ) {
       return VersionStatus.MandatoryUpdate;
     }
-    if (process.env.OPTIONAL_VERSION_CODE != null && versionCode < parseInt(process.env.OPTIONAL_VERSION_CODE)) {
+    if (
+      process.env.OPTIONAL_VERSION_CODE != null &&
+      versionCode < parseInt(process.env.OPTIONAL_VERSION_CODE)
+    ) {
       return VersionStatus.OptionalUpdate;
     }
     return VersionStatus.Latest;

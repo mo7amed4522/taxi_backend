@@ -1,15 +1,21 @@
-import { FilterableField, IDField, OffsetConnection, Relation, UnPagedRelation } from "@nestjs-query/query-graphql";
-import { Field, ID, Int, ObjectType } from "@nestjs/graphql";
+import {
+  FilterableField,
+  IDField,
+  OffsetConnection,
+  Relation,
+  UnPagedRelation,
+} from '@nestjs-query/query-graphql';
+import { Field, ID, Int, ObjectType } from '@nestjs/graphql';
 
-import { FeedbackDTO } from "../../feedback/dto/feedback.dto";
-import { numberMasker } from "../../number.masker.middleware";
-import { OrderDTO } from "../../order/dto/order.dto";
-import { ServiceDTO } from "../../service/dto/service.dto";
-import { MediaDTO } from "../../upload/media.dto";
-import { DriverTransactionDTO } from "./driver-transaction.dto";
-import { DriverWalletDTO } from "./driver-wallet.dto";
-import { DriverStatus } from "src/entities/enums/driver-status.enum";
-import { Gender } from "src/entities/enums/gender.enum";
+import { FeedbackDTO } from '../../feedback/dto/feedback.dto';
+import { numberMasker } from '../../number.masker.middleware';
+import { OrderDTO } from '../../order/dto/order.dto';
+import { ServiceDTO } from '../../service/dto/service.dto';
+import { MediaDTO } from '../../upload/media.dto';
+import { DriverTransactionDTO } from './driver-transaction.dto';
+import { DriverWalletDTO } from './driver-wallet.dto';
+import { DriverStatus } from 'src/entities/enums/driver-status.enum';
+import { Gender } from 'src/entities/enums/gender.enum';
 
 @ObjectType('AdminDriver')
 @OffsetConnection('feedbacks', () => FeedbackDTO, { enableAggregate: true })
@@ -20,38 +26,37 @@ import { Gender } from "src/entities/enums/gender.enum";
 @OffsetConnection('orders', () => OrderDTO)
 @Relation('media', () => MediaDTO, { nullable: true })
 export class DriverDTO {
-    @IDField(() => ID)
-    id!: number;
-    @FilterableField(() => ID)
-    fleetId?: number;
-    firstName?: string;
-    @FilterableField(() => String)
-    lastName?: string;
-    @FilterableField(() => String, { middleware: [numberMasker]})
-    mobileNumber: string;
-    certificateNumber?: string;
-    email?: string;
-    @Field(() => Int)
-    carProductionYear?: number;
-    @Field(() => ID)
-    carId?: number;
-    @Field(() => ID)
-    carColorId?: number;
-    carPlate?: string;
-    @FilterableField(() => DriverStatus)
-    status!: DriverStatus;
-    gender?: Gender;
-    rating?: number;
-    reviewCount: number;
-    registrationTimestamp!: Date;
-    lastSeenTimestamp?: Date;
-    accountNumber?: string;
-    bankName?: string;
-    bankRoutingNumber?: string;
-    bankSwift?: string;
-    address?: string;
-    softRejectionNote?: string;
-    @Field(() => ID)
-    mediaId?: number;
-
+  @IDField(() => ID)
+  id!: number;
+  @FilterableField(() => ID)
+  fleetId?: number;
+  firstName?: string;
+  @FilterableField(() => String)
+  lastName?: string;
+  @FilterableField(() => String, { middleware: [numberMasker] })
+  mobileNumber: string;
+  certificateNumber?: string;
+  email?: string;
+  @Field(() => Int)
+  carProductionYear?: number;
+  @Field(() => ID)
+  carId?: number;
+  @Field(() => ID)
+  carColorId?: number;
+  carPlate?: string;
+  @FilterableField(() => DriverStatus)
+  status!: DriverStatus;
+  gender?: Gender;
+  rating?: number;
+  reviewCount: number;
+  registrationTimestamp!: Date;
+  lastSeenTimestamp?: Date;
+  accountNumber?: string;
+  bankName?: string;
+  bankRoutingNumber?: string;
+  bankSwift?: string;
+  address?: string;
+  softRejectionNote?: string;
+  @Field(() => ID)
+  mediaId?: number;
 }

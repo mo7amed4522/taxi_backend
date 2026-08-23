@@ -18,21 +18,27 @@ export class CouponResolver {
     private couponService: CouponService,
     private riderOrderService: RiderOrderService,
     @Inject(CONTEXT)
-    private context: UserContext
-  ) { }
+    private context: UserContext,
+  ) {}
 
   @Mutation(() => OrderDTO)
   async applyCoupon(
-    @Args('code', { type: () => String }) code: string
+    @Args('code', { type: () => String }) code: string,
   ): Promise<OrderDTO> {
-    const currentOrder = await this.riderOrderService.getCurrentOrder(this.context.req.user.id);
+    const currentOrder = await this.riderOrderService.getCurrentOrder(
+      this.context.req.user.id,
+    );
     if (!currentOrder) throw new ForbiddenError('No active order found');
-    return this.commonCouponService.applyCoupon(code, currentOrder.id, this.context.req.user.id);
+    return this.commonCouponService.applyCoupon(
+      code,
+      currentOrder.id,
+      this.context.req.user.id,
+    );
   }
 
   @Mutation(() => RiderWalletDTO)
   async redeemGiftCard(
-    @Args('code', { type: () => String }) code: string
+    @Args('code', { type: () => String }) code: string,
   ): Promise<RiderWalletDTO> {
     return this.couponService.redeemGiftCard(code, this.context.req.user.id);
   }

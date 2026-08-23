@@ -10,7 +10,7 @@ import { RequestEntity } from 'src/entities/request.entity';
 export class OrderSubscriptionService {
   constructor(
     @InjectPubSub()
-    private pubSub: RedisPubSub
+    private pubSub: RedisPubSub,
   ) {}
 
   @Subscription(() => OrderDTO, {
@@ -18,9 +18,11 @@ export class OrderSubscriptionService {
       this: OrderSubscriptionService,
       payload: { orderUpdated: RequestEntity },
       variables,
-      context
+      context,
     ) {
-      Logger.log(`validating order update on rider side: ${payload.orderUpdated.riderId == context.id}`);
+      Logger.log(
+        `validating order update on rider side: ${payload.orderUpdated.riderId == context.id}`,
+      );
       return context.id == payload.orderUpdated.riderId;
     },
   })
@@ -31,14 +33,16 @@ export class OrderSubscriptionService {
   @Subscription(() => Point, {
     filter(
       this: OrderSubscriptionService,
-      payload: { driverLocationUpdated: { driverId: number, point: Point } },
+      payload: { driverLocationUpdated: { driverId: number; point: Point } },
       variables: { driverId: number },
-      context
+      context,
     ) {
       return variables.driverId == payload.driverLocationUpdated.driverId;
-    }
+    },
   })
-  driverLocationUpdated(@Args('driverId', {type: () => ID! }) driverId: number) {
+  driverLocationUpdated(
+    @Args('driverId', { type: () => ID }) driverId: number,
+  ) {
     return this.pubSub.asyncIterator('driverLocationUpdated');
   }
 }

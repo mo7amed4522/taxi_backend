@@ -9,7 +9,7 @@ import { RequestEntity } from 'src/entities/request.entity';
 export class OrderSubscriptionService {
   constructor(
     @InjectPubSub()
-    private pubSub: RedisPubSub
+    private pubSub: RedisPubSub,
   ) {}
 
   @Subscription(() => OrderDTO, {
@@ -17,11 +17,9 @@ export class OrderSubscriptionService {
       this: OrderSubscriptionService,
       payload: { orderUpdated: RequestEntity },
       variables: { orderId: number },
-      context
+      context,
     ) {
-      return (
-        variables.orderId == payload.orderUpdated.id
-      );
+      return variables.orderId == payload.orderUpdated.id;
     },
   })
   orderUpdated(@Args('orderId', { type: () => ID }) orderId: number) {

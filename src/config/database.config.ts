@@ -40,15 +40,16 @@ import { config } from 'dotenv';
 
 config();
 
-export const getDatabaseConfig = async (
+export const getDatabaseConfig = (
   configService: ConfigService,
-): Promise<TypeOrmModuleOptions> => ({
+): TypeOrmModuleOptions => ({
   type: 'postgres',
   host: configService.get<string>('config.database.host') || 'localhost',
   port: configService.get<number>('config.database.port') || 5432,
   username: configService.get<string>('config.database.username') || 'postgres',
   password: configService.get<string>('config.database.password') || '2521',
-  database: configService.get<string>('config.database.database') || 'taxi_backend',
+  database:
+    configService.get<string>('config.database.database') || 'taxi_backend',
   entities: [
     // Load FeedbackParameterEntity first to resolve circular dependency
     FeedbackParameterEntity,
@@ -86,28 +87,30 @@ export const getDatabaseConfig = async (
     SOSEntity,
     SOSActivityEntity,
     AnnouncementEntity,
-    RequestActivityEntity
+    RequestActivityEntity,
   ],
   synchronize: true,
   logging: process.env.NODE_ENV !== 'production',
-  ssl: process.env.NODE_ENV === 'production' ? {
-    rejectUnauthorized: false
-  } : false,
+  ssl:
+    process.env.NODE_ENV === 'production'
+      ? {
+          rejectUnauthorized: false,
+        }
+      : false,
   extra: {
     max: 20,
     connectionTimeoutMillis: 5000,
-  }
+  },
 });
 
 export default new DataSource({
-    type: 'postgres',
-    host: process.env.DB_HOST || 'localhost',
-    port: parseInt(process.env.DB_PORT || '5432'),
-    username: process.env.DB_USERNAME || 'postgres',
-    password: process.env.DB_PASSWORD || 'postgres',
-    database: process.env.DB_DATABASE || 'taxi',
-    entities: ['src/entities/*.entity.ts', 'src/entities/*-entity.ts'],
-    migrations: ['src/migrations/*.ts'],
-    synchronize: false,
+  type: 'postgres',
+  host: process.env.DB_HOST || 'localhost',
+  port: parseInt(process.env.DB_PORT || '5432'),
+  username: process.env.DB_USERNAME || 'postgres',
+  password: process.env.DB_PASSWORD || 'postgres',
+  database: process.env.DB_DATABASE || 'taxi',
+  entities: ['src/entities/*.entity.ts', 'src/entities/*-entity.ts'],
+  migrations: ['src/migrations/*.ts'],
+  synchronize: false,
 });
-

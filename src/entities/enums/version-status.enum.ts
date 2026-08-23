@@ -1,9 +1,9 @@
-import { registerEnumType } from "@nestjs/graphql";
+import { registerEnumType } from '@nestjs/graphql';
 
 export enum VersionStatus {
-    Latest = 'Latest',
-    MandatoryUpdate = 'MandatoryUpdate',
-    OptionalUpdate = 'OptionalUpdate'
+  Latest = 'Latest',
+  MandatoryUpdate = 'MandatoryUpdate',
+  OptionalUpdate = 'OptionalUpdate',
 }
 
-registerEnumType(VersionStatus, { name: 'VersionStatus'});
+registerEnumType(VersionStatus, { name: 'VersionStatus' });

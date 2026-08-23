@@ -1,9 +1,9 @@
-import { registerEnumType } from "@nestjs/graphql";
+import { registerEnumType } from '@nestjs/graphql';
 
 export enum ComplaintStatus {
-    Submitted = 'Submitted',
-    UnderInvestigation = 'UnderInvestigation', 
-    Resolved = 'Resolved'
+  Submitted = 'Submitted',
+  UnderInvestigation = 'UnderInvestigation',
+  Resolved = 'Resolved',
 }
 
-registerEnumType(ComplaintStatus, { name: 'ComplaintStatus'});
+registerEnumType(ComplaintStatus, { name: 'ComplaintStatus' });

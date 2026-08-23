@@ -83,7 +83,7 @@ export class OrderService {
       },
       relations: ['service'],
     });
-    for (let order of orders) {
+    for (const order of orders) {
       const fleetIds = await this.sharedFleetService.getFleetIdsInPoint(
         order.points[0],
       );
@@ -94,7 +94,7 @@ export class OrderService {
         orders = orders.filter((_order) => _order.id != order.id);
       }
     }
-    Logger.log(`found ${JSON.stringify(orders)}`); 
+    Logger.log(`found ${JSON.stringify(orders)}`);
 
     return orders;
   }

@@ -3,8 +3,8 @@ import { IDField } from '@nestjs-query/query-graphql';
 
 @ObjectType('DriverCarColor')
 export class CarColorDTO {
-    @IDField(() => ID)
-    id: number;
-    @Field()
-    name: string;
+  @IDField(() => ID)
+  id: number;
+  @Field()
+  name: string;
 }

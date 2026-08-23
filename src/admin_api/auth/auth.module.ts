@@ -8,17 +8,13 @@ import { AuthService } from './auth.service';
 import { JwtStrategy } from './jwt.strategy';
 
 @Module({
-    imports: [
-        OperatorModule,
-        PassportModule,
-        JwtModule.register({
-            secret: 'secret'
-        })
-    ],
-    providers: [
-        JwtStrategy,
-        AuthService,
-        AuthResolver
-    ]
+  imports: [
+    OperatorModule,
+    PassportModule,
+    JwtModule.register({
+      secret: 'secret',
+    }),
+  ],
+  providers: [JwtStrategy, AuthService, AuthResolver],
 })
-export class AuthModule { }
+export class AuthModule {}

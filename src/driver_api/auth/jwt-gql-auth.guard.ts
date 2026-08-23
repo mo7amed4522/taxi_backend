@@ -5,7 +5,6 @@ import { AuthenticationError } from 'apollo-server-fastify';
 
 @Injectable()
 export class GqlAuthGuard extends AuthGuard('jwt') {
-
   getRequest(context: ExecutionContext) {
     const ctx = GqlExecutionContext.create(context).getContext();
     //const { req, connection } = ctx.getContext();
@@ -13,7 +12,7 @@ export class GqlAuthGuard extends AuthGuard('jwt') {
   }
 
   canActivate(context: ExecutionContext) {
-    if(context.getArgs()[2].id != null) {
+    if (context.getArgs()[2].id != null) {
       return true;
     }
     /*const ctx = GqlExecutionContext.create(context);

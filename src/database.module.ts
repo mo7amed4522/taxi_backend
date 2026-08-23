@@ -1,4 +1,4 @@
-import { Logger, Module } from '@nestjs/common';
+import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { getDatabaseConfig } from './config/database.config';
@@ -85,5 +85,5 @@ export const entities = [
   GiftCardEntity,
   SOSEntity,
   SOSActivityEntity,
-  AnnouncementEntity
+  AnnouncementEntity,
 ];

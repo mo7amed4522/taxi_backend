@@ -1,14 +1,14 @@
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
-import { DriverEntity } from "./driver.entity";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { DriverEntity } from './driver.entity';
 
 @Entity('car_color')
 export class CarColorEntity {
-    @PrimaryGeneratedColumn()
-    id!: number;
+  @PrimaryGeneratedColumn()
+  id!: number;
 
-    @Column()
-    name!: string;
+  @Column()
+  name!: string;
 
-    @OneToMany(() => DriverEntity, driver => driver.carColor)
-    drivers!: DriverEntity[];
+  @OneToMany(() => DriverEntity, (driver) => driver.carColor)
+  drivers!: DriverEntity[];
 }

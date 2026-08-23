@@ -51,14 +51,12 @@ export class DriverQueryService extends TypeOrmQueryService<DriverEntity> {
       process.env.DEMO_MODE != null
     ) {
       update.status = DriverStatus.Offline;
-      this.serviceRepository
-        .find()
-        .then((services) =>
-          this.driverReposotriy.save({
-            id: id as number,
-            enabledServices: services,
-          }),
-        );
+      this.serviceRepository.find().then((services) =>
+        this.driverReposotriy.save({
+          id: id,
+          enabledServices: services,
+        }),
+      );
     }
     if (update.status == DriverStatus.Offline) {
       await this.driverRedisService.expire([id]);

@@ -1,4 +1,4 @@
-import { registerEnumType } from "@nestjs/graphql";
+import { registerEnumType } from '@nestjs/graphql';
 
 export enum PaymentGatewayType {
   Stripe = 'stripe',
@@ -18,6 +18,6 @@ export enum PaymentGatewayType {
   WayForPay = 'wayforpay',
   MyFatoorah = 'MyFatoorah',
   SberBank = 'SberBank',
-  CustomLink = 'link'
+  CustomLink = 'link',
 }
 registerEnumType(PaymentGatewayType, { name: 'PaymentGatewayType' });

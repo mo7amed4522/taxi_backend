@@ -1,9 +1,9 @@
-import { registerEnumType } from "@nestjs/graphql";
+import { registerEnumType } from '@nestjs/graphql';
 
 export enum ComplaintActivityType {
-    AssignToOperator = 'AssignedToOperator',
-    Update = 'Update',
-    Resolved = 'Resolved',
+  AssignToOperator = 'AssignedToOperator',
+  Update = 'Update',
+  Resolved = 'Resolved',
 }
 
 registerEnumType(ComplaintActivityType, { name: 'ComplaintActivityType' });

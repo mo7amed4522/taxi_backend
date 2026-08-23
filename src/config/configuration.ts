@@ -1,8 +1,8 @@
 import { registerAs } from '@nestjs/config';
 
 export default registerAs('config', () => ({
-  port: (process.env.PORT ?? "3000", 10) || 3000,
- 
+  port: Number(process.env.PORT) || 3000,
+
   database: {
     host: process.env.DB_HOST,
     port: parseInt(process.env.DB_PORT!, 10) || 5432,
@@ -22,6 +22,6 @@ export default registerAs('config', () => ({
     from: process.env.EMAIL_FROM,
   },
   otp: {
-    expiryMinutes: parseInt(process.env.OTP_EXPIRY_MINUTES!,  10) || 5,
+    expiryMinutes: parseInt(process.env.OTP_EXPIRY_MINUTES!, 10) || 5,
   },
 }));

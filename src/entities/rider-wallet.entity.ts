@@ -1,25 +1,25 @@
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
-import { RiderEntity } from "./rider-entity";
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { RiderEntity } from './rider-entity';
 
 @Entity('rider_wallet')
 export class RiderWalletEntity {
-    @PrimaryGeneratedColumn()
-    id!: number;
+  @PrimaryGeneratedColumn()
+  id!: number;
 
-    @Column('numeric', {
-        default: 0.0,
-        name: 'amount',
-        precision: 10,
-        scale: 2
-    })
-    balance!: number;
+  @Column('numeric', {
+    default: 0.0,
+    name: 'amount',
+    precision: 10,
+    scale: 2,
+  })
+  balance!: number;
 
-    @Column('char', { length: 3 })
-    currency!: string;
+  @Column('char', { length: 3 })
+  currency!: string;
 
-    @ManyToOne(() => RiderEntity, rider => rider.wallets)
-    rider!: RiderEntity;
+  @ManyToOne(() => RiderEntity, (rider) => rider.wallets)
+  rider!: RiderEntity;
 
-    @Column()
-    riderId!: number;
+  @Column()
+  riderId!: number;
 }

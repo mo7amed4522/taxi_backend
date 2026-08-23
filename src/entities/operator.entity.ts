@@ -1,4 +1,12 @@
-import { Column, Entity, JoinColumn, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  OneToMany,
+  OneToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 
 import { ComplaintActivityEntity } from './complaint-activity.entity';
 import { DriverTransactionEntity } from './driver-transaction.entity';
@@ -13,67 +21,82 @@ import { SOSActivityEntity } from './sos-activity.entity';
 
 @Entity('operator')
 export class OperatorEntity {
-    @PrimaryGeneratedColumn()
-    id!: number;
+  @PrimaryGeneratedColumn()
+  id!: number;
 
-    @Column({ nullable: true })
-    firstName?: string;
+  @Column({ nullable: true })
+  firstName?: string;
 
-    @Column({ nullable: true })
-    lastName?: string;
+  @Column({ nullable: true })
+  lastName?: string;
 
-    @Column({ unique: true })
-    userName!: string;
+  @Column({ unique: true })
+  userName!: string;
 
-    @Column({ default: 'admin' })
-    password!: string;
+  @Column({ default: 'admin' })
+  password!: string;
 
-    @Column('bigint', {
-        nullable: true,
-        unique: true
-    })
-    mobileNumber?: string;
+  @Column('bigint', {
+    nullable: true,
+    unique: true,
+  })
+  mobileNumber?: string;
 
-    @Column({ nullable: true })
-    email?: string;
+  @Column({ nullable: true })
+  email?: string;
 
-    @Column({ nullable: true })
-    address?: string;
+  @Column({ nullable: true })
+  address?: string;
 
-    @OneToOne(() => MediaEntity, media => media.operator)
-    @JoinColumn()
-    media?: MediaEntity;
+  @OneToOne(() => MediaEntity, (media) => media.operator)
+  @JoinColumn()
+  media?: MediaEntity;
 
-    @Column({ nullable: true })
-    mediaId?: number;
+  @Column({ nullable: true })
+  mediaId?: number;
 
-    @ManyToOne(() => OperatorRoleEntity, role => role.operators)
-    role?: OperatorRoleEntity;
+  @ManyToOne(() => OperatorRoleEntity, (role) => role.operators)
+  role?: OperatorRoleEntity;
 
-    @Column({ nullable: true })
-    roleId?: number;
+  @Column({ nullable: true })
+  roleId?: number;
 
-    @ManyToOne(() => FleetEntity, fleet => fleet.operators)
-    fleet?: FleetEntity;
+  @ManyToOne(() => FleetEntity, (fleet) => fleet.operators)
+  fleet?: FleetEntity;
 
-    @OneToMany(() => RequestEntity, request => request.operator, { onDelete: 'RESTRICT', onUpdate: 'RESTRICT' })
-    requests!: RequestEntity[];
+  @OneToMany(() => RequestEntity, (request) => request.operator, {
+    onDelete: 'RESTRICT',
+    onUpdate: 'RESTRICT',
+  })
+  requests!: RequestEntity[];
 
-    @OneToMany(() => ComplaintActivityEntity, activity => activity.actor)
-    complaintActivities!: ComplaintActivityEntity[];
+  @OneToMany(() => ComplaintActivityEntity, (activity) => activity.actor)
+  complaintActivities!: ComplaintActivityEntity[];
 
-    @OneToMany(() => RiderTransactionEntity, riderTransaction => riderTransaction.operator)
-    riderTransactions!: RiderTransactionEntity[];
+  @OneToMany(
+    () => RiderTransactionEntity,
+    (riderTransaction) => riderTransaction.operator,
+  )
+  riderTransactions!: RiderTransactionEntity[];
 
-    @OneToMany(() => DriverTransactionEntity, driverTransaction => driverTransaction.operator)
-    driverTransactions!: DriverTransactionEntity[];
+  @OneToMany(
+    () => DriverTransactionEntity,
+    (driverTransaction) => driverTransaction.operator,
+  )
+  driverTransactions!: DriverTransactionEntity[];
 
-    @OneToMany(() => FleetTransactionEntity, fleetTransaction => fleetTransaction.operator)
-    fleetTransactions!: FleetTransactionEntity[];
+  @OneToMany(
+    () => FleetTransactionEntity,
+    (fleetTransaction) => fleetTransaction.operator,
+  )
+  fleetTransactions!: FleetTransactionEntity[];
 
-    @OneToMany(() => ProviderTransactionEntity, providerTransaction => providerTransaction.operator)
-    providerTransactions!: ProviderTransactionEntity[];
+  @OneToMany(
+    () => ProviderTransactionEntity,
+    (providerTransaction) => providerTransaction.operator,
+  )
+  providerTransactions!: ProviderTransactionEntity[];
 
-    @OneToMany(() => SOSActivityEntity, sosActivity => sosActivity.operator)
-    sosActivities!: SOSActivityEntity[];
+  @OneToMany(() => SOSActivityEntity, (sosActivity) => sosActivity.operator)
+  sosActivities!: SOSActivityEntity[];
 }
