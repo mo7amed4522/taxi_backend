@@ -1,0 +1,54 @@
+name: Deploy Production
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Deployment environment'
+        required: true
+        default: 'production'
+        type: choice
+        options:
+          - production
+          - staging
+
+jobs:
+  deploy:
+    name: Deploy to ${{ github.event.inputs.environment || 'production' }}
+    runs-on: ubuntu-latest
+    environment:
+      name: ${{ github.event.inputs.environment || 'production' }}
+      url: ${{ steps.deploy.outputs.url }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USER }}
+          key: ${{ secrets.DEPLOY_SSH_KEY }}
+          script: |
+            cd /opt/taxi-backend
+            git pull origin ${{ github.ref_name }}
+            npm ci --production
+            npm run migration:run
+            pm2 restart all || pm2 start npm --name "taxi-backend" -- start:prod
+            pm2 save
+
+      - name: Health check
+        run: |
+          for i in {1..10}; do
+            if curl -f "${{ secrets.DEPLOY_URL }}/health" > /dev/null; then
+              echo "Health check passed"
+              exit 0
+            fi
+            sleep 5
+          done
+          echo "Health check failed"
+          exit 1
+        continue-on-error: true

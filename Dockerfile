@@ -1,10 +1,9 @@
 # Stage 1: Build the application
-FROM node:18-alpine as builder
+FROM node:24-alpine as builder
 
 WORKDIR /app
 
 COPY package*.json ./
-COPY prisma ./prisma
 
 RUN npm install
 
@@ -13,7 +12,7 @@ COPY . .
 RUN npm run build
 
 # Stage 2: Run the application
-FROM node:18-alpine
+FROM node:24-alpine
 
 WORKDIR /app
 
