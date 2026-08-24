@@ -4,8 +4,8 @@ import { UserContext } from '../auth/authenticated-admin';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { FleetTransactionInput } from './dto/fleet-transaction.input';
 import { FleetWalletDTO } from './dto/fleet-wallet.dto';
-import { TransactionAction } from 'src/entities/enums/transaction-action.enum';
-import { SharedFleetService } from 'src/order/shared-fleet.service';
+import { TransactionAction } from './../../entities/enums/transaction-action.enum';
+import { SharedFleetService } from './../../order/shared-fleet.service';
 
 @Resolver()
 @UseGuards(JwtAuthGuard)

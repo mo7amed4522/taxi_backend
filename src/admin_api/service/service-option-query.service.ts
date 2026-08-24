@@ -9,8 +9,8 @@ import { Repository } from 'typeorm';
 import { UserContext } from '../auth/authenticated-admin';
 import { OperatorService } from '../operator/operator.service';
 import { ServiceOptionDTO } from './dto/service-option.dto';
-import { ServiceOptionEntity } from 'src/entities/service-option.entity';
-import { OperatorPermission } from 'src/entities/enums/operator-permission.enum';
+import { ServiceOptionEntity } from './../../entities/service-option.entity';
+import { OperatorPermission } from './../../entities/enums/operator-permission.enum';
 
 @QueryService(ServiceOptionDTO)
 export class ServiceOptionQueryService extends TypeOrmQueryService<ServiceOptionDTO> {

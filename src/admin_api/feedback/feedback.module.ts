@@ -8,8 +8,8 @@ import { Module } from '@nestjs/common';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { FeedbackParameterDTO } from './dto/feedback-parameter.dto';
 import { FeedbackDTO } from './dto/feedback.dto';
-import { FeedbackEntity } from 'src/entities/feedback.entity';
-import { FeedbackParameterEntity } from 'src/entities/feedback-parameter.entity';
+import { FeedbackEntity } from './../../entities/feedback.entity';
+import { FeedbackParameterEntity } from './../../entities/feedback-parameter.entity';
 
 @Module({
   imports: [

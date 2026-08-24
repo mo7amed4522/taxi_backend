@@ -3,7 +3,7 @@ import { NestjsQueryTypeOrmModule } from '@nestjs-query/query-typeorm';
 import { Module } from '@nestjs/common';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { AddressDTO } from './dto/address.dto';
-import { RiderAddressEntity } from 'src/entities/rider-address.entity';
+import { RiderAddressEntity } from './../../entities/rider-address.entity';
 
 @Module({
   imports: [

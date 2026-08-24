@@ -2,17 +2,17 @@ import { Injectable, Logger } from '@nestjs/common';
 import { Interval } from '@nestjs/schedule';
 import { RedisService } from '@liaoliaots/nestjs-redis';
 import { Redis } from 'ioredis';
-import { Point } from 'src/interfaces/point';
+import { Point } from './../../interfaces/point';
 
 import { DriverService } from '../driver/driver.service';
 import { OrderService } from './order.service';
 import { Between, IsNull, Not } from 'typeorm';
-import { OrderRedisService } from 'src/redis/order-redis.service';
-import { DriverRedisService } from 'src/redis/driver-redis.service';
-import { DriverNotificationService } from 'src/order/firebase-notification-service/driver-notification.service';
-import { SharedDriverService } from 'src/order/shared-driver.service';
-import { SharedFleetService } from 'src/order/shared-fleet.service';
-import { DriverStatus } from 'src/entities/enums/driver-status.enum';
+import { OrderRedisService } from './../../redis/order-redis.service';
+import { DriverRedisService } from './../../redis/driver-redis.service';
+import { DriverNotificationService } from './../../order/firebase-notification-service/driver-notification.service';
+import { SharedDriverService } from './../../order/shared-driver.service';
+import { SharedFleetService } from './../../order/shared-fleet.service';
+import { DriverStatus } from './../../entities/enums/driver-status.enum';
 
 @Injectable()
 export class CronJobService {

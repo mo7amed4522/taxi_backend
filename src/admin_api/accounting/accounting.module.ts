@@ -10,9 +10,9 @@ import { AccountingService } from './accounting.service';
 import { ProviderTransactionDTO } from './dto/provider-transaction.dto';
 import { ProviderWalletDTO } from './dto/provider-wallet.dto';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
-import { ProviderTransactionEntity } from 'src/entities/provider-transaction.entity';
-import { RequestEntity } from 'src/entities/request.entity';
-import { ProviderWalletEntity } from 'src/entities/provider-wallet.entity';
+import { ProviderTransactionEntity } from './../../entities/provider-transaction.entity';
+import { RequestEntity } from './../../entities/request.entity';
+import { ProviderWalletEntity } from './../../entities/provider-wallet.entity';
 
 @Module({
   imports: [

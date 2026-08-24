@@ -3,7 +3,7 @@ import { NestjsQueryTypeOrmModule } from '@nestjs-query/query-typeorm';
 import { Module } from '@nestjs/common';
 
 import { AnnouncementDTO } from './dto/announcement.dto';
-import { AnnouncementEntity } from 'src/entities/announcement.entity';
+import { AnnouncementEntity } from './../../entities/announcement.entity';
 
 @Module({
   imports: [

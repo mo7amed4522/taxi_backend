@@ -7,8 +7,8 @@ import { ID, ObjectType } from '@nestjs/graphql';
 
 import { OrderDTO } from '../../order/dto/order.dto';
 import { SOSActivityDTO } from './sos-activity.dto';
-import { SOSStatus } from 'src/entities/enums/sos-status.enum';
-import { Point } from 'src/interfaces/point';
+import { SOSStatus } from './../../../entities/enums/sos-status.enum';
+import { Point } from './../../../interfaces/point';
 
 @ObjectType('DistressSignal')
 @UnPagedRelation('activities', () => SOSActivityDTO)

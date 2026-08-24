@@ -12,9 +12,9 @@ import { RegionDTO } from '../../region/dto/region.dto';
 import { MediaDTO } from '../../upload/media.dto';
 import { ServiceOptionDTO } from './service-option.dto';
 import { ServiceAuthorizer } from './service.authorizer';
-import { ServicePaymentMethod } from 'src/entities/enums/service-payment-method.enum';
-import { TimeMultiplier } from 'src/interfaces/time-multiplier.dto';
-import { DistanceMultiplier } from 'src/interfaces/distance-multiplier.dto';
+import { ServicePaymentMethod } from './../../../entities/enums/service-payment-method.enum';
+import { TimeMultiplier } from './../../../interfaces/time-multiplier.dto';
+import { DistanceMultiplier } from './../../../interfaces/distance-multiplier.dto';
 
 @ObjectType('AdminService')
 @UnPagedRelation('regions', () => RegionDTO, {

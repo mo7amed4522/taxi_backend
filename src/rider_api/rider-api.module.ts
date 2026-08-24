@@ -19,10 +19,10 @@ import { ChatModule } from './chat/chat.module';
 import { ComplaintModule } from './complaint/complaint.module';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { ConfigModule } from '@nestjs/config';
-import { CryptoService } from 'src/crypto.service';
-import { DatabaseModule, entities } from 'src/database.module';
-import { SharedOrderModule } from 'src/order/shared-order.module';
-import { RedisPubSubProvider } from 'src/redis-pub-sub.provider';
+import { CryptoService } from './../crypto.service';
+import { DatabaseModule, entities } from './../database.module';
+import { SharedOrderModule } from './../order/shared-order.module';
+import { RedisPubSubProvider } from './../redis-pub-sub.provider';
 
 @Module({
   imports: [

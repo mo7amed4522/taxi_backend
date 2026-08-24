@@ -5,7 +5,7 @@ import {
 } from '@nestjs-query/query-graphql';
 import { ID, ObjectType, Field } from '@nestjs/graphql';
 import { AnnouncementAuthorizer } from './announcement.authorizer';
-import { AnnouncementUserType } from 'src/entities/enums/anouncement-user-type.enum';
+import { AnnouncementUserType } from './../../../entities/enums/anouncement-user-type.enum';
 
 @ObjectType('AdminAnnouncement')
 @Authorize(AnnouncementAuthorizer)

@@ -6,7 +6,7 @@ import {
 import { Field, ID, Int, ObjectType } from '@nestjs/graphql';
 import { MediaDTO } from '../../upload/media.dto';
 import { ServiceOptionDTO } from './service-option.dto';
-import { ServicePaymentMethod } from 'src/entities/enums/service-payment-method.enum';
+import { ServicePaymentMethod } from './../../../entities/enums/service-payment-method.enum';
 
 @ObjectType('Service')
 @Relation('media', () => MediaDTO, { disableRemove: true, disableUpdate: true })

@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
-import { DriverRedisService } from 'src/redis/driver-redis.service';
-import { DriverEntity } from 'src/entities/driver.entity';
-import { DriverStatus } from 'src/entities/enums/driver-status.enum';
+import { DriverRedisService } from './../../redis/driver-redis.service';
+import { DriverEntity } from './../../entities/driver.entity';
+import { DriverStatus } from './../../entities/enums/driver-status.enum';
 import { In } from 'typeorm';
 
 @Injectable()

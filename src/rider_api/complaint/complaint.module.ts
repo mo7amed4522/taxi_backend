@@ -4,7 +4,7 @@ import { Module } from '@nestjs/common';
 import { GqlAuthGuard } from '../auth/jwt-gql-auth.guard';
 import { ComplaintDTO } from './dto/complaint.dto';
 import { ComplaintInput } from './dto/complaint.input';
-import { ComplaintEntity } from 'src/entities/complaint.entity';
+import { ComplaintEntity } from './../../entities/complaint.entity';
 
 @Module({
   imports: [

@@ -1,8 +1,8 @@
 import { FirebaseAuthenticationService } from '@aginix/nestjs-firebase-admin';
 import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import { RiderEntity } from 'src/entities/rider-entity';
-import { SharedRiderService } from 'src/order/shared-rider.service';
+import { RiderEntity } from './../../entities/rider-entity';
+import { SharedRiderService } from './../../order/shared-rider.service';
 
 @Injectable()
 export class AuthService {

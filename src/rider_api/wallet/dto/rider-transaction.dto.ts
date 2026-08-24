@@ -6,9 +6,9 @@ import {
 import { Field, GraphQLTimestamp, ID, ObjectType } from '@nestjs/graphql';
 
 import { UserContext } from '../../auth/authenticated-user';
-import { RiderDeductTransactionType } from 'src/entities/enums/rider-deduct-transaction-type.enum';
-import { RiderRechargeTransactionType } from 'src/entities/enums/rider-recharge-transaction-type.enum';
-import { TransactionAction } from 'src/entities/enums/transaction-action.enum';
+import { RiderDeductTransactionType } from './../../../entities/enums/rider-deduct-transaction-type.enum';
+import { RiderRechargeTransactionType } from './../../../entities/enums/rider-recharge-transaction-type.enum';
+import { TransactionAction } from './../../../entities/enums/transaction-action.enum';
 
 @ObjectType('RiderTransacion')
 @Authorize({

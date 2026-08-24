@@ -7,10 +7,10 @@ import { Module } from '@nestjs/common';
 import { UploadModule } from '../upload/upload.module';
 import { ServiceCategoryDTO } from './dto/service-category.dto';
 import { ServiceDTO } from './dto/service.dto';
-import { MediaEntity } from 'src/entities/media.entity';
-import { ServiceCategoryEntity } from 'src/entities/service-category.entity';
-import { ServiceEntity } from 'src/entities/service.entity';
-import { ServiceService } from 'src/order/service.service';
+import { MediaEntity } from './../../entities/media.entity';
+import { ServiceCategoryEntity } from './../../entities/service-category.entity';
+import { ServiceEntity } from './../../entities/service.entity';
+import { ServiceService } from './../../order/service.service';
 
 @Module({
   imports: [

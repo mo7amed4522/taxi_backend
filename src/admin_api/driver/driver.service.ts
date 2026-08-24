@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Point } from 'src/interfaces/point';
+import { Point } from './../../interfaces/point';
 import { OnlineDriver, OnlineDriverWithData } from './dto/driver-location.dto';
-import { DriverEntity } from 'src/entities/driver.entity';
-import { DriverRedisService } from 'src/redis/driver-redis.service';
+import { DriverEntity } from './../../entities/driver.entity';
+import { DriverRedisService } from './../../redis/driver-redis.service';
 
 @Injectable()
 export class DriverService {

@@ -8,7 +8,7 @@ import {
 import { ID, ObjectType } from '@nestjs/graphql';
 import { Point } from '../../../index';
 import { UserContext } from '../../auth/authenticated-user';
-import { RiderAddressType } from 'src/entities/enums/rider-address-type.enum';
+import { RiderAddressType } from './../../../entities/enums/rider-address-type.enum';
 
 @ObjectType('RiderAddress')
 @Authorize({

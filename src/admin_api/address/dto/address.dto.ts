@@ -1,6 +1,6 @@
 import { IDField } from '@nestjs-query/query-graphql';
 import { ID, ObjectType } from '@nestjs/graphql';
-import { Point } from 'src/interfaces/point';
+import { Point } from './../../../interfaces/point';
 
 @ObjectType('Address')
 export class AddressDTO {

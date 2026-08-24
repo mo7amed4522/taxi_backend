@@ -22,20 +22,20 @@ import { SharedDriverService } from './shared-driver.service';
 import { SharedFleetService } from './shared-fleet.service';
 import { SharedProviderService } from './shared-provider.service';
 import { SharedRiderService } from './shared-rider.service';
-import { RequestActivityEntity } from 'src/entities/request-activity.entity';
-import { ServiceOptionEntity } from 'src/entities/service-option.entity';
-import { CommonCouponService } from 'src/coupon/common-coupon.service';
-import { CouponEntity } from 'src/entities/coupon.entity';
-import { ServiceOptionType } from 'src/entities/enums/service-option-type.enum';
-import { RequestActivityType } from 'src/entities/enums/request-activity-type.enum';
-import { ServicePaymentMethod } from 'src/entities/enums/service-payment-method.enum';
-import { TransactionStatus } from 'src/entities/enums/transaction-status.enum';
-import { TransactionAction } from 'src/entities/enums/transaction-action.enum';
-import { DriverDeductTransactionType } from 'src/entities/enums/driver-deduct-transaction-type.enum';
-import { ProviderRechargeTransactionType } from 'src/entities/enums/provider-recharge-transaction-type.enum';
-import { DriverRechargeTransactionType } from 'src/entities/enums/driver-recharge-transaction-type.enum';
-import { RiderDeductTransactionType } from 'src/entities/enums/rider-deduct-transaction-type.enum';
-import { DriverStatus } from 'src/entities/enums/driver-status.enum';
+import { RequestActivityEntity } from './../entities/request-activity.entity';
+import { ServiceOptionEntity } from './../entities/service-option.entity';
+import { CommonCouponService } from './../coupon/common-coupon.service';
+import { CouponEntity } from './../entities/coupon.entity';
+import { ServiceOptionType } from './../entities/enums/service-option-type.enum';
+import { RequestActivityType } from './../entities/enums/request-activity-type.enum';
+import { ServicePaymentMethod } from './../entities/enums/service-payment-method.enum';
+import { TransactionStatus } from './../entities/enums/transaction-status.enum';
+import { TransactionAction } from './../entities/enums/transaction-action.enum';
+import { DriverDeductTransactionType } from './../entities/enums/driver-deduct-transaction-type.enum';
+import { ProviderRechargeTransactionType } from './../entities/enums/provider-recharge-transaction-type.enum';
+import { DriverRechargeTransactionType } from './../entities/enums/driver-recharge-transaction-type.enum';
+import { RiderDeductTransactionType } from './../entities/enums/rider-deduct-transaction-type.enum';
+import { DriverStatus } from './../entities/enums/driver-status.enum';
 
 @Injectable()
 export class SharedOrderService {

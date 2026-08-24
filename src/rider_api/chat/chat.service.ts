@@ -8,9 +8,9 @@ import { Repository } from 'typeorm';
 
 import { OrderMessageDTO } from './dto/order-message.dto';
 import { OrderMessageInput } from './dto/order-message.input';
-import { OrderMessageEntity } from 'src/entities/request-message.entity';
-import { RequestEntity } from 'src/entities/request.entity';
-import { DriverNotificationService } from 'src/order/firebase-notification-service/driver-notification.service';
+import { OrderMessageEntity } from './../../entities/request-message.entity';
+import { RequestEntity } from './../../entities/request.entity';
+import { DriverNotificationService } from './../../order/firebase-notification-service/driver-notification.service';
 
 @QueryService(OrderMessageEntity)
 export class ChatService extends TypeOrmQueryService<OrderMessageEntity> {

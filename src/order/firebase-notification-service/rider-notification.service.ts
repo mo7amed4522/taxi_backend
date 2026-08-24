@@ -1,7 +1,7 @@
 import { FirebaseMessagingService } from '@aginix/nestjs-firebase-admin';
 import { Injectable } from '@nestjs/common';
-import { OrderMessageEntity } from 'src/entities/request-message.entity';
-import { RiderEntity } from 'src/entities/rider-entity';
+import { OrderMessageEntity } from './../../entities/request-message.entity';
+import { RiderEntity } from './../../entities/rider-entity';
 
 @Injectable()
 export class RiderNotificationService {

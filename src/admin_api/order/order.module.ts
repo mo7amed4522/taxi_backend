@@ -11,12 +11,12 @@ import { OrderMessageDTO } from './dto/order-message.dto';
 import { OrderDTO } from './dto/order.dto';
 import { OrderSubscriptionService } from './order-subscription.service';
 import { OrderService } from './order.service';
-import { RequestActivityEntity } from 'src/entities/request-activity.entity';
-import { RequestEntity } from 'src/entities/request.entity';
-import { OrderMessageEntity } from 'src/entities/request-message.entity';
-import { SharedOrderModule } from 'src/order/shared-order.module';
-import { RedisHelpersModule } from 'src/redis/redis-helper.module';
-import { RedisPubSubProvider } from 'src/redis/redis-pubsub.provider';
+import { RequestActivityEntity } from './../../entities/request-activity.entity';
+import { RequestEntity } from './../../entities/request.entity';
+import { OrderMessageEntity } from './../../entities/request-message.entity';
+import { SharedOrderModule } from './../../order/shared-order.module';
+import { RedisHelpersModule } from './../../redis/redis-helper.module';
+import { RedisPubSubProvider } from './../../redis/redis-pubsub.provider';
 
 @Module({
   imports: [

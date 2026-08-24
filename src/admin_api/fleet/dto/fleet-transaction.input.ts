@@ -1,7 +1,7 @@
 import { Field, ID, InputType } from '@nestjs/graphql';
-import { ProviderDeductTransactionType } from 'src/entities/enums/provider-deduct-transaction-type.enum';
-import { ProviderRechargeTransactionType } from 'src/entities/enums/provider-recharge-transaction-type.enum';
-import { TransactionAction } from 'src/entities/enums/transaction-action.enum';
+import { ProviderDeductTransactionType } from './../../../entities/enums/provider-deduct-transaction-type.enum';
+import { ProviderRechargeTransactionType } from './../../../entities/enums/provider-recharge-transaction-type.enum';
+import { TransactionAction } from './../../../entities/enums/transaction-action.enum';
 
 @InputType()
 export class FleetTransactionInput {

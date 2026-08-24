@@ -3,7 +3,7 @@ import { NestjsQueryTypeOrmModule } from '@nestjs-query/query-typeorm';
 import { Module } from '@nestjs/common';
 import { MediaDTO } from './media.dto';
 import { UploadService } from './upload.service';
-import { MediaEntity } from 'src/entities/media.entity';
+import { MediaEntity } from './../../entities/media.entity';
 
 @Module({
   imports: [

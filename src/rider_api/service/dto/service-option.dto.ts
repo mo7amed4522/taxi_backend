@@ -1,7 +1,7 @@
 import { IDField } from '@nestjs-query/query-graphql';
 import { ID, ObjectType } from '@nestjs/graphql';
-import { ServiceOptionIcon } from 'src/entities/enums/service-option-icon.enum';
-import { ServiceOptionType } from 'src/entities/enums/service-option-type.enum';
+import { ServiceOptionIcon } from './../../../entities/enums/service-option-icon.enum';
+import { ServiceOptionType } from './../../../entities/enums/service-option-type.enum';
 
 @ObjectType('ServiceOption')
 export class ServiceOptionDTO {

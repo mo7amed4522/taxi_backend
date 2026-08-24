@@ -6,7 +6,7 @@ import { NestjsQueryTypeOrmModule } from '@nestjs-query/query-typeorm';
 import { Module } from '@nestjs/common';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { PaymentGatewayDTO } from './dto/payment-gateway.dto';
-import { PaymentGatewayEntity } from 'src/entities/payment-gateway.entity';
+import { PaymentGatewayEntity } from './../../entities/payment-gateway.entity';
 
 @Module({
   imports: [

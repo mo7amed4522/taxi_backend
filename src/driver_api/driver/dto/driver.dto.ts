@@ -19,9 +19,9 @@ import { MediaDTO } from '../../upload/media.dto';
 import { DriverWalletDTO } from '../../wallet/dto/driver-wallet.dto';
 import { ServiceDTO } from '../../service/dto/service.dto';
 import { Logger } from '@nestjs/common';
-import { DriverStatus } from 'src/entities/enums/driver-status.enum';
-import { Gender } from 'src/entities/enums/gender.enum';
-import { OrderStatus } from 'src/entities/enums/order-status.enum';
+import { DriverStatus } from './../../../entities/enums/driver-status.enum';
+import { Gender } from './../../../entities/enums/gender.enum';
+import { OrderStatus } from './../../../entities/enums/order-status.enum';
 
 @ObjectType('Driver')
 @Authorize({

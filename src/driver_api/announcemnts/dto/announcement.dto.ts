@@ -7,7 +7,7 @@ import {
   AuthorizationContext,
 } from '@nestjs-query/query-graphql';
 import { ID, ObjectType, Field } from '@nestjs/graphql';
-import { AnnouncementUserType } from 'src/entities/enums/anouncement-user-type.enum';
+import { AnnouncementUserType } from './../../../entities/enums/anouncement-user-type.enum';
 import { Injectable } from '@nestjs/common';
 import { Filter } from '@nestjs-query/core';
 

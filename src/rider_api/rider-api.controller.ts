@@ -25,15 +25,15 @@ import { RiderOrderService } from './order/rider-order.service';
 import { InjectPubSub } from '@nestjs-query/query-graphql';
 import { RedisPubSub } from 'graphql-redis-subscriptions';
 import { version } from 'package.json';
-import { CryptoService } from 'src/crypto.service';
-import { OrderStatus } from 'src/entities/enums/order-status.enum';
-import { RiderRechargeTransactionType } from 'src/entities/enums/rider-recharge-transaction-type.enum';
-import { TransactionAction } from 'src/entities/enums/transaction-action.enum';
-import { TransactionStatus } from 'src/entities/enums/transaction-status.enum';
-import { MediaEntity } from 'src/entities/media.entity';
-import { RiderEntity } from 'src/entities/rider-entity';
-import { SharedOrderService } from 'src/order/shared-order.service';
-import { SharedRiderService } from 'src/order/shared-rider.service';
+import { CryptoService } from './../crypto.service';
+import { OrderStatus } from './../entities/enums/order-status.enum';
+import { RiderRechargeTransactionType } from './../entities/enums/rider-recharge-transaction-type.enum';
+import { TransactionAction } from './../entities/enums/transaction-action.enum';
+import { TransactionStatus } from './../entities/enums/transaction-status.enum';
+import { MediaEntity } from './../entities/media.entity';
+import { RiderEntity } from './../entities/rider-entity';
+import { SharedOrderService } from './../order/shared-order.service';
+import { SharedRiderService } from './../order/shared-rider.service';
 
 @Controller()
 export class RiderAPIController {

@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { RegionEntity } from 'src/entities/region.entity';
+import { RegionEntity } from './../../entities/region.entity';
 import { Repository } from 'typeorm';
 import { Point } from '../../index';
-import { ServiceEntity } from 'src/entities/service.entity';
+import { ServiceEntity } from './../../entities/service.entity';
 
 @Injectable()
 export class RegionService {

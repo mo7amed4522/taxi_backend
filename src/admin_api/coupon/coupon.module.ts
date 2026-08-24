@@ -6,7 +6,7 @@ import { NestjsQueryTypeOrmModule } from '@nestjs-query/query-typeorm';
 import { Module } from '@nestjs/common';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { CouponDTO } from './dto/coupon.dto';
-import { CouponEntity } from 'src/entities/coupon.entity';
+import { CouponEntity } from './../../entities/coupon.entity';
 
 @Module({
   imports: [

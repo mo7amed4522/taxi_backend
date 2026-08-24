@@ -5,7 +5,7 @@ import {
 import { InputType } from '@nestjs/graphql';
 import { UserContext } from '../../auth/authenticated-user';
 import { Point } from '../../../index';
-import { RiderAddressType } from 'src/entities/enums/rider-address-type.enum';
+import { RiderAddressType } from './../../../entities/enums/rider-address-type.enum';
 
 @InputType()
 @BeforeCreateOne(

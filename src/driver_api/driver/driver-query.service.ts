@@ -10,10 +10,10 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { UserContext } from '../auth/authenticated-user';
 import { UpdateDriverInput } from './dto/update-driver.input';
-import { DriverEntity } from 'src/entities/driver.entity';
-import { ServiceEntity } from 'src/entities/service.entity';
-import { DriverRedisService } from 'src/redis/driver-redis.service';
-import { DriverStatus } from 'src/entities/enums/driver-status.enum';
+import { DriverEntity } from './../../entities/driver.entity';
+import { ServiceEntity } from './../../entities/service.entity';
+import { DriverRedisService } from './../../redis/driver-redis.service';
+import { DriverStatus } from './../../entities/enums/driver-status.enum';
 
 @QueryService(DriverEntity)
 export class DriverQueryService extends TypeOrmQueryService<DriverEntity> {

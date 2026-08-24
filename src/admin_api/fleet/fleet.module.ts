@@ -9,10 +9,10 @@ import { FleetTransactionDTO } from './dto/fleet-transaction.dto';
 import { FleetWalletDTO } from './dto/fleet-wallet.dto';
 import { FleetDTO } from './dto/fleet.dto';
 import { FleetResolver } from './fleet.resolver';
-import { FleetEntity } from 'src/entities/fleet.entity';
-import { FleetTransactionEntity } from 'src/entities/fleet-transaction.entity';
-import { FleetWalletEntity } from 'src/entities/fleet-wallet.entity';
-import { SharedFleetService } from 'src/order/shared-fleet.service';
+import { FleetEntity } from './../../entities/fleet.entity';
+import { FleetTransactionEntity } from './../../entities/fleet-transaction.entity';
+import { FleetWalletEntity } from './../../entities/fleet-wallet.entity';
+import { SharedFleetService } from './../../order/shared-fleet.service';
 
 @Module({
   imports: [

@@ -7,8 +7,8 @@ import { Module } from '@nestjs/common';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { CarColorDTO } from './dto/car-color.dto';
 import { CarModelDTO } from './dto/car-model.dto';
-import { CarColorEntity } from 'src/entities/car-color.entity';
-import { CarModelEntity } from 'src/entities/car-model.entity';
+import { CarColorEntity } from './../../entities/car-color.entity';
+import { CarModelEntity } from './../../entities/car-model.entity';
 
 @Module({
   imports: [

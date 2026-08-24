@@ -13,8 +13,8 @@ import { ServiceDTO } from '../../service/dto/service.dto';
 import { OrderMessageDTO } from '../../chat/dto/order-message.dto';
 import { DriverDTO } from '../../driver/dto/driver.dto';
 import { ServiceOptionDTO } from './service-option.dto';
-import { OrderStatus } from 'src/entities/enums/order-status.enum';
-import { Point } from 'src/interfaces/point';
+import { OrderStatus } from './../../../entities/enums/order-status.enum';
+import { Point } from './../../../interfaces/point';
 import { Filter } from '@nestjs-query/core';
 
 @ObjectType('DriverOrder')

@@ -11,8 +11,8 @@ import { UserContext } from './authenticated-user';
 import { LoginDTO } from './dto/login.dto';
 import { LoginInput } from './dto/login.input';
 import { GqlAuthGuard } from './jwt-gql-auth.guard';
-import { VersionStatus } from 'src/entities/enums/version-status.enum';
-import { SharedRiderService } from 'src/order/shared-rider.service';
+import { VersionStatus } from './../../entities/enums/version-status.enum';
+import { SharedRiderService } from './../../order/shared-rider.service';
 
 @Resolver()
 export class AuthResolver {

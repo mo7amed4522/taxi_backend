@@ -11,8 +11,8 @@ import { ChartTimeframe } from './dto/chart-timeframe.enum';
 import { ExportArgsDTO, ExportResultDTO } from './dto/export.dto';
 import { IncomeResults } from './dto/income-result-item.dto';
 import { RequestsResults } from './dto/request-result-item.dto';
-import { DriverWalletEntity } from 'src/entities/driver-wallet.entity';
-import { RiderWalletEntity } from 'src/entities/rider-wallet.entity';
+import { DriverWalletEntity } from './../../entities/driver-wallet.entity';
+import { RiderWalletEntity } from './../../entities/rider-wallet.entity';
 
 @Resolver()
 export class AccountingResolver {

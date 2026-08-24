@@ -7,7 +7,7 @@ import { CalculateFareInput } from './dto/calculate-fare.input';
 import { CreateOrderInput } from './dto/create-order.input';
 import { OrderDTO } from './dto/order.dto';
 import { OrderService } from './order.service';
-import { SharedOrderService } from 'src/order/shared-order.service';
+import { SharedOrderService } from './../../order/shared-order.service';
 
 @Resolver(() => OrderDTO)
 export class DispatcherResolver {

@@ -4,12 +4,12 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { ForbiddenError } from 'apollo-server-core';
 import { Repository } from 'typeorm';
 import { RiderWalletDTO } from '../wallet/dto/rider-wallet.dto';
-import { CouponEntity } from 'src/entities/coupon.entity';
-import { GiftCardEntity } from 'src/entities/gift-card.entity';
-import { RiderRechargeTransactionType } from 'src/entities/enums/rider-recharge-transaction-type.enum';
-import { TransactionAction } from 'src/entities/enums/transaction-action.enum';
-import { TransactionStatus } from 'src/entities/enums/transaction-status.enum';
-import { SharedRiderService } from 'src/order/shared-rider.service';
+import { CouponEntity } from './../../entities/coupon.entity';
+import { GiftCardEntity } from './../../entities/gift-card.entity';
+import { RiderRechargeTransactionType } from './../../entities/enums/rider-recharge-transaction-type.enum';
+import { TransactionAction } from './../../entities/enums/transaction-action.enum';
+import { TransactionStatus } from './../../entities/enums/transaction-status.enum';
+import { SharedRiderService } from './../../order/shared-rider.service';
 
 @Injectable()
 export class CouponService {

@@ -22,8 +22,8 @@ import { OrderDTO } from './dto/order.dto';
 import { SOSDTO } from './dto/sos.dto';
 import { UpdateOrderInput } from './dto/update-order.input';
 import { OrderService } from './order.service';
-import { DriverRedisService } from 'src/redis/driver-redis.service';
-import { SOSEntity } from 'src/entities/sos.entity';
+import { DriverRedisService } from './../../redis/driver-redis.service';
+import { SOSEntity } from './../../entities/sos.entity';
 
 @Resolver(() => OrderDTO)
 @UseGuards(GqlAuthGuard)

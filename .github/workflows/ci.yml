@@ -106,6 +106,14 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Install PostGIS
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y postgresql-15-postgis-3
+          psql -h localhost -U postgres -d taxi_backend_test -c "CREATE EXTENSION IF NOT EXISTS postgis;"
+        env:
+          PGPASSWORD: postgres
+
       - name: Run unit tests
         run: npm run test
         env:

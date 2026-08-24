@@ -2,10 +2,10 @@ import { FilterableField, Relation } from '@nestjs-query/query-graphql';
 import { Field, ID, ObjectType } from '@nestjs/graphql';
 
 import { OperatorDTO } from '../../operator/dto/operator.dto';
-import { TransactionAction } from 'src/entities/enums/transaction-action.enum';
-import { TransactionStatus } from 'src/entities/enums/transaction-status.enum';
-import { DriverDeductTransactionType } from 'src/entities/enums/driver-deduct-transaction-type.enum';
-import { DriverRechargeTransactionType } from 'src/entities/enums/driver-recharge-transaction-type.enum';
+import { TransactionAction } from './../../../entities/enums/transaction-action.enum';
+import { TransactionStatus } from './../../../entities/enums/transaction-status.enum';
+import { DriverDeductTransactionType } from './../../../entities/enums/driver-deduct-transaction-type.enum';
+import { DriverRechargeTransactionType } from './../../../entities/enums/driver-recharge-transaction-type.enum';
 
 @ObjectType('DriverTransaction')
 @Relation('operator', () => OperatorDTO, { nullable: true })

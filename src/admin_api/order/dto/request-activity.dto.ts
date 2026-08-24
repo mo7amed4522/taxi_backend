@@ -1,6 +1,6 @@
 import { IDField } from '@nestjs-query/query-graphql';
 import { ID, ObjectType } from '@nestjs/graphql';
-import { RequestActivityType } from 'src/entities/enums/request-activity-type.enum';
+import { RequestActivityType } from './../../../entities/enums/request-activity-type.enum';
 
 @ObjectType('RequestActivity')
 export class RequestActivityDTO {

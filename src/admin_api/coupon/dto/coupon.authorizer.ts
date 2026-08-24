@@ -6,8 +6,8 @@ import {
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { getRepository } from 'typeorm';
 import { UserContext } from '../../auth/authenticated-admin';
-import { OperatorEntity } from 'src/entities/operator.entity';
-import { OperatorPermission } from 'src/entities/enums/operator-permission.enum';
+import { OperatorEntity } from './../../../entities/operator.entity';
+import { OperatorPermission } from './../../../entities/enums/operator-permission.enum';
 
 @Injectable()
 export class CouponAuthorizer implements CustomAuthorizer<any> {

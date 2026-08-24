@@ -17,13 +17,13 @@ import { OnlineDriver, OnlineDriverWithData } from './dto/driver-location.dto';
 import { DriverTransactionInput } from './dto/driver-transaction.input';
 import { DriverWalletDTO } from './dto/driver-wallet.dto';
 import { DriverDTO } from './dto/driver.dto';
-import { TransactionAction } from 'src/entities/enums/transaction-action.enum';
-import { OperatorEntity } from 'src/entities/operator.entity';
-import { OperatorPermission } from 'src/entities/enums/operator-permission.enum';
-import { TransactionStatus } from 'src/entities/enums/transaction-status.enum';
-import { SharedDriverService } from 'src/order/shared-driver.service';
-import { GraphQLPoint } from 'src/entities/dto/graphql-point.dto';
-import { Point } from 'src/interfaces/point';
+import { TransactionAction } from './../../entities/enums/transaction-action.enum';
+import { OperatorEntity } from './../../entities/operator.entity';
+import { OperatorPermission } from './../../entities/enums/operator-permission.enum';
+import { TransactionStatus } from './../../entities/enums/transaction-status.enum';
+import { SharedDriverService } from './../../order/shared-driver.service';
+import { GraphQLPoint } from './../../entities/dto/graphql-point.dto';
+import { Point } from './../../interfaces/point';
 
 @Resolver()
 @UseGuards(JwtAuthGuard)

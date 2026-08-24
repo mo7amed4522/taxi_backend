@@ -11,11 +11,11 @@ import { RiderTransactionDTO } from './dto/rider-transaction.dto';
 import { RiderWalletDTO } from './dto/rider-wallet.dto';
 import { RiderDTO } from './dto/rider.dto';
 import { RiderResolver } from './rider.resolver';
-import { RiderEntity } from 'src/entities/rider-entity';
-import { RiderWalletEntity } from 'src/entities/rider-wallet.entity';
-import { RiderTransactionEntity } from 'src/entities/rider-transaction.entity';
-import { RiderAddressEntity } from 'src/entities/rider-address.entity';
-import { SharedRiderService } from 'src/order/shared-rider.service';
+import { RiderEntity } from './../../entities/rider-entity';
+import { RiderWalletEntity } from './../../entities/rider-wallet.entity';
+import { RiderTransactionEntity } from './../../entities/rider-transaction.entity';
+import { RiderAddressEntity } from './../../entities/rider-address.entity';
+import { SharedRiderService } from './../../order/shared-rider.service';
 
 @Module({
   imports: [

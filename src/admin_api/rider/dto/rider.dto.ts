@@ -11,8 +11,8 @@ import { MediaDTO } from '../../upload/media.dto';
 import { RiderAddressDTO } from './rider-address.dto';
 import { RiderTransactionDTO } from './rider-transaction.dto';
 import { RiderWalletDTO } from './rider-wallet.dto';
-import { RiderStatus } from 'src/entities/enums/rider-status.enum';
-import { Gender } from 'src/entities/enums/gender.enum';
+import { RiderStatus } from './../../../entities/enums/rider-status.enum';
+import { Gender } from './../../../entities/enums/gender.enum';
 
 @ObjectType('AdminRider')
 @OffsetConnection('addresses', () => RiderAddressDTO)

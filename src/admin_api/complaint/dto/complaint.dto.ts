@@ -8,7 +8,7 @@ import {
 import { ID, ObjectType, Field } from '@nestjs/graphql';
 import { OrderDTO } from '../../order/dto/order.dto';
 import { ComplaintActivityDTO } from './complaint-activity.dto';
-import { ComplaintStatus } from 'src/entities/enums/complaint-status.enum';
+import { ComplaintStatus } from './../../../entities/enums/complaint-status.enum';
 
 @ObjectType('AdminComplaint')
 @UnPagedRelation('activities', () => ComplaintActivityDTO, {

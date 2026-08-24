@@ -4,7 +4,7 @@ import { Repository } from 'typeorm';
 import { ChartTimeframe } from './dto/chart-timeframe.enum';
 import { IncomeResultItem } from './dto/income-result-item.dto';
 import { RequestResultItem } from './dto/request-result-item.dto';
-import { ProviderTransactionEntity } from 'src/entities/provider-transaction.entity';
+import { ProviderTransactionEntity } from './../../entities/provider-transaction.entity';
 
 @Injectable()
 export class AccountingService {

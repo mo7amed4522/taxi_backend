@@ -1,7 +1,7 @@
 import { ObjectType } from '@nestjs/graphql';
-import { DriverStatus } from 'src/entities/enums/driver-status.enum';
-import { Gender } from 'src/entities/enums/gender.enum';
-import { Point } from 'src/interfaces/point';
+import { DriverStatus } from './../../../entities/enums/driver-status.enum';
+import { Gender } from './../../../entities/enums/gender.enum';
+import { Point } from './../../../interfaces/point';
 
 @ObjectType()
 export class OnlineDriver {

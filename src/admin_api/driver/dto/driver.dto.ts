@@ -14,8 +14,8 @@ import { ServiceDTO } from '../../service/dto/service.dto';
 import { MediaDTO } from '../../upload/media.dto';
 import { DriverTransactionDTO } from './driver-transaction.dto';
 import { DriverWalletDTO } from './driver-wallet.dto';
-import { DriverStatus } from 'src/entities/enums/driver-status.enum';
-import { Gender } from 'src/entities/enums/gender.enum';
+import { DriverStatus } from './../../../entities/enums/driver-status.enum';
+import { Gender } from './../../../entities/enums/gender.enum';
 
 @ObjectType('AdminDriver')
 @OffsetConnection('feedbacks', () => FeedbackDTO, { enableAggregate: true })

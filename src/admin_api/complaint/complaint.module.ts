@@ -7,8 +7,8 @@ import { Module } from '@nestjs/common';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { ComplaintActivityDTO } from './dto/complaint-activity.dto';
 import { ComplaintDTO } from './dto/complaint.dto';
-import { ComplaintEntity } from 'src/entities/complaint.entity';
-import { ComplaintActivityEntity } from 'src/entities/complaint-activity.entity';
+import { ComplaintEntity } from './../../entities/complaint.entity';
+import { ComplaintActivityEntity } from './../../entities/complaint-activity.entity';
 
 @Module({
   imports: [
