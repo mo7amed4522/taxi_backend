@@ -19,7 +19,7 @@ export class PaymentGatewayDTO {
   @Field()
   publicKey?: string;
   @Field()
-  privateKey: string;
+  privateKey?: string;
   merchantId?: string;
   saltKey?: string;
   mediaId?: number;

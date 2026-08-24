@@ -4,7 +4,7 @@ import { Point } from 'src/interfaces/point';
 @InputType()
 export class CreateOrderInput {
   @Field(() => ID)
-  riderId: number;
+  riderId!: number;
   @Field(() => ID)
   serviceId!: number;
   points!: Point[];

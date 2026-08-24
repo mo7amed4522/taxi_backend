@@ -3,7 +3,7 @@ import { InputType, ObjectType, registerEnumType } from '@nestjs/graphql';
 
 @ObjectType('ExportResult')
 export class ExportResultDTO {
-  url: string;
+  url!: string;
 }
 enum ExportTable {
   ProviderWallet = 'ProviderWallet',
@@ -20,21 +20,21 @@ registerEnumType(ExportType, { name: 'ExportType' });
 
 @InputType('ExportArgs')
 export class ExportArgsDTO {
-  table: ExportTable;
+  table!: ExportTable;
   filters?: ExportFilterArg[];
   sort?: ExportSortArg;
   relations?: string[];
-  type: ExportType;
+  type!: ExportType;
 }
 
 @InputType('ExportFilterArg')
 export class ExportFilterArg {
-  field: string;
-  value: string;
+  field!: string;
+  value!: string;
 }
 
 @InputType('ExportSortArg')
 export class ExportSortArg {
-  property: string;
-  direction: SortDirection;
+  property!: string;
+  direction!: SortDirection;
 }

@@ -10,11 +10,11 @@ import { DriverDTO } from './driver.dto';
 @Relation('driver', () => DriverDTO, { nullable: true })
 export class DriverWalletDTO {
   @IDField(() => ID)
-  id: number;
+  id!: number;
   @FilterableField(() => Float)
-  balance: number;
+  balance!: number;
   @FilterableField(() => String)
-  currency: string;
+  currency!: string;
   @FilterableField(() => ID)
   driverId?: number;
 }

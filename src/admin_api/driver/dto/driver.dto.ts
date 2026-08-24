@@ -34,7 +34,7 @@ export class DriverDTO {
   @FilterableField(() => String)
   lastName?: string;
   @FilterableField(() => String, { middleware: [numberMasker] })
-  mobileNumber: string;
+  mobileNumber!: string;
   certificateNumber?: string;
   email?: string;
   @Field(() => Int)
@@ -48,7 +48,7 @@ export class DriverDTO {
   status!: DriverStatus;
   gender?: Gender;
   rating?: number;
-  reviewCount: number;
+  reviewCount!: number;
   registrationTimestamp!: Date;
   lastSeenTimestamp?: Date;
   accountNumber?: string;

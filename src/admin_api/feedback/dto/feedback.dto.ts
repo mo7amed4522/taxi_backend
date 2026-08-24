@@ -15,10 +15,10 @@ export class FeedbackDTO {
   id!: number;
   @Field(() => Int)
   score!: number;
-  reviewTimestamp: Date;
+  reviewTimestamp!: Date;
   description?: string;
   @FilterableField(() => ID)
-  driverId: number;
+  driverId!: number;
   @FilterableField(() => ID)
-  requestId: number;
+  requestId!: number;
 }

@@ -5,11 +5,11 @@ import { TransactionAction } from 'src/entities/enums/transaction-action.enum';
 
 @InputType()
 export class DriverTransactionInput {
-  action: TransactionAction;
+  action!: TransactionAction;
   deductType?: DriverDeductTransactionType;
   rechargeType?: DriverRechargeTransactionType;
-  amount: number;
-  currency: string;
+  amount!: number;
+  currency!: string;
   refrenceNumber?: string;
   @Field(() => ID)
   driverId!: number;

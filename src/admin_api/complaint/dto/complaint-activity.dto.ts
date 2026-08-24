@@ -13,8 +13,8 @@ import { ComplaintActivityType } from 'src/entities/enums/complaint-activity-typ
 export class ComplaintActivityDTO {
   @IDField(() => ID)
   id!: number;
-  type: ComplaintActivityType;
+  type!: ComplaintActivityType;
   comment?: string;
   @FilterableField(() => ID)
-  complaintId: number;
+  complaintId!: number;
 }

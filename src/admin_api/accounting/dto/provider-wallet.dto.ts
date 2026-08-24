@@ -4,9 +4,9 @@ import { Float, ID, ObjectType } from '@nestjs/graphql';
 @ObjectType('ProviderWallet')
 export class ProviderWalletDTO {
   @IDField(() => ID)
-  id: number;
+  id!: number;
   @FilterableField(() => Float)
-  balance: number;
+  balance!: number;
   @FilterableField(() => String)
-  currency: string;
+  currency!: string;
 }

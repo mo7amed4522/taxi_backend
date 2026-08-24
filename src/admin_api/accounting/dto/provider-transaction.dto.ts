@@ -7,13 +7,13 @@ import { TransactionAction } from 'src/entities/enums/transaction-action.enum';
 @ObjectType('ProviderTransaction')
 export class ProviderTransactionDTO {
   @IDField(() => ID)
-  id: number;
+  id!: number;
   createdAt!: Date;
-  action: TransactionAction;
+  action!: TransactionAction;
   deductType?: ProviderDeductTransactionType;
   rechargeType?: ProviderRechargeTransactionType;
-  amount: number;
-  currency: string;
+  amount!: number;
+  currency!: string;
   refrenceNumber?: string;
   description?: string;
   @FilterableField(() => ID)

@@ -21,9 +21,9 @@ export class FleetDTO {
   id!: number;
   @FilterableField()
   name!: string;
-  phoneNumber: string;
-  mobileNumber: string;
-  accountNumber: string;
+  phoneNumber!: string;
+  mobileNumber!: string;
+  accountNumber!: string;
   commissionSharePercent!: number;
   commissionShareFlat!: number;
   feeMultiplier?: number;

@@ -10,7 +10,7 @@ export class CurrentConfiguration {
 
 @ObjectType()
 export class UploadResult {
-  url: string;
+  url!: string;
 }
 
 export enum UpdatePurchaseCodeStatus {
@@ -26,20 +26,20 @@ registerEnumType(UpdatePurchaseCodeStatus, {
 
 @ObjectType()
 export class UpdatePurchaseCodeResult {
-  status: UpdatePurchaseCodeStatus;
+  status!: UpdatePurchaseCodeStatus;
   clients?: UpdatePurchaseCodeClient[];
 }
 
 @ObjectType()
 export class UpdatePurchaseCodeClient {
-  id: number;
-  enabled: number;
-  ip: string;
-  port: number;
-  token: string;
-  purchase_id: number;
-  first_verified_at: string;
-  last_verified_at: string;
+  id!: number;
+  enabled!: number;
+  ip!: string;
+  port!: number;
+  token!: string;
+  purchase_id!: number;
+  first_verified_at!: string;
+  last_verified_at!: string;
 }
 
 export enum UpdateConfigStatus {
@@ -51,6 +51,6 @@ registerEnumType(UpdateConfigStatus, { name: 'UpdateConfigStatus' });
 
 @ObjectType()
 export class UpdateConfigResult {
-  status: UpdateConfigStatus;
+  status!: UpdateConfigStatus;
   message?: string;
 }

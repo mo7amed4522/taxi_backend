@@ -7,8 +7,8 @@ import { RewardEvent } from 'src/entities/enums/reward-event';
 @ObjectType('Reward')
 export class RewardDTO {
   @IDField(() => ID)
-  id: number;
-  title: string;
+  id!: number;
+  title!: string;
   startDate?: Date;
   endDate?: Date;
   appType!: RewardAppType;
