@@ -5,9 +5,9 @@ import {
 } from '@nestjs-query/query-graphql';
 import { ID, ObjectType } from '@nestjs/graphql';
 import { OperatorDTO } from '../../operator/dto/operator.dto';
-import { TransactionAction } from 'src/entities/enums/transaction-action.enum';
-import { ProviderDeductTransactionType } from 'src/entities/enums/provider-deduct-transaction-type.enum';
-import { ProviderRechargeTransactionType } from 'src/entities/enums/provider-recharge-transaction-type.enum';
+import { TransactionAction } from './../../../entities/enums/transaction-action.enum';
+import { ProviderDeductTransactionType } from './../../../entities/enums/provider-deduct-transaction-type.enum';
+import { ProviderRechargeTransactionType } from './../../../entities/enums/provider-recharge-transaction-type.enum';
 
 @ObjectType('FleetTransaction')
 @Relation('operator', () => OperatorDTO, { nullable: true })

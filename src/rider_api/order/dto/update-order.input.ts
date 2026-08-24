@@ -1,5 +1,5 @@
 import { Field, InputType, Int } from '@nestjs/graphql';
-import { OrderStatus } from 'src/entities/enums/order-status.enum';
+import { OrderStatus } from './../../../entities/enums/order-status.enum';
 
 @InputType()
 export class UpdateOrderInput {

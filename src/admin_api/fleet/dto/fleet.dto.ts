@@ -10,7 +10,7 @@ import { ID, ObjectType } from '@nestjs/graphql';
 import { FleetTransactionDTO } from './fleet-transaction.dto';
 import { FleetWalletDTO } from './fleet-wallet.dto';
 import { FleetAuthorizer } from './fleet.authorizer';
-import { Point } from 'src/interfaces/point';
+import { Point } from './../../../interfaces/point';
 
 @ObjectType('Fleet')
 @UnPagedRelation('wallet', () => FleetWalletDTO, { relationName: 'wallet' })

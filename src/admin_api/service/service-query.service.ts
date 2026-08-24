@@ -9,8 +9,8 @@ import { UserContext } from '../auth/authenticated-admin';
 import { OperatorService } from '../operator/operator.service';
 
 import { ServiceDTO } from './dto/service.dto';
-import { ServiceEntity } from 'src/entities/service.entity';
-import { OperatorPermission } from 'src/entities/enums/operator-permission.enum';
+import { ServiceEntity } from './../../entities/service.entity';
+import { OperatorPermission } from './../../entities/enums/operator-permission.enum';
 
 @QueryService(ServiceDTO)
 export class ServiceQueryService extends TypeOrmQueryService<ServiceDTO> {

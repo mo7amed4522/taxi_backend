@@ -5,8 +5,8 @@ import {
 import { InputType } from '@nestjs/graphql';
 
 import { UserContext } from '../../auth/authenticated-user';
-import { Gender } from 'src/entities/enums/gender.enum';
-import { RiderDocumentType } from 'src/entities/enums/rider-document-type';
+import { Gender } from './../../../entities/enums/gender.enum';
+import { RiderDocumentType } from './../../../entities/enums/rider-document-type';
 
 @InputType()
 @BeforeUpdateOne(

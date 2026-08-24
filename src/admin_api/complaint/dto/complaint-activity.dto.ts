@@ -5,7 +5,7 @@ import {
 } from '@nestjs-query/query-graphql';
 import { ID, ObjectType } from '@nestjs/graphql';
 import { OperatorDTO } from '../../operator/dto/operator.dto';
-import { ComplaintActivityType } from 'src/entities/enums/complaint-activity-type.enum';
+import { ComplaintActivityType } from './../../../entities/enums/complaint-activity-type.enum';
 
 @ObjectType('ComplaintActivity')
 @Relation('actor', () => OperatorDTO)

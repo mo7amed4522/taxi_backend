@@ -2,12 +2,12 @@ import { InjectPubSub } from '@nestjs-query/query-graphql';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { RedisPubSub } from 'graphql-redis-subscriptions';
-import { RequestActivityEntity } from 'src/entities/request-activity.entity';
-import { RequestEntity } from 'src/entities/request.entity';
-import { OrderRedisService } from 'src/redis/order-redis.service';
+import { RequestActivityEntity } from './../../entities/request-activity.entity';
+import { RequestEntity } from './../../entities/request.entity';
+import { OrderRedisService } from './../../redis/order-redis.service';
 import { Repository } from 'typeorm';
-import { RequestActivityType } from 'src/entities/enums/request-activity-type.enum';
-import { OrderStatus } from 'src/entities/enums/order-status.enum';
+import { RequestActivityType } from './../../entities/enums/request-activity-type.enum';
+import { OrderStatus } from './../../entities/enums/order-status.enum';
 
 @Injectable()
 export class OrderService {

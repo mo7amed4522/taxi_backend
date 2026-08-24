@@ -6,7 +6,7 @@ import {
 import { NestjsQueryTypeOrmModule } from '@nestjs-query/query-typeorm';
 import { AnnouncementDTO } from './dto/announcement.dto';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
-import { AnnouncementEntity } from 'src/entities/announcement.entity';
+import { AnnouncementEntity } from './../../entities/announcement.entity';
 
 @Module({
   imports: [

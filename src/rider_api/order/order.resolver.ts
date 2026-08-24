@@ -15,11 +15,11 @@ import { OrderDTO } from './dto/order.dto';
 import { SOSDTO } from './dto/sos.dto';
 import { SubmitFeedbackInput } from './dto/submit-feedback.input';
 import { RiderOrderService } from './rider-order.service';
-import { CommonCouponService } from 'src/coupon/common-coupon.service';
-import { RequestEntity } from 'src/entities/request.entity';
-import { SOSEntity } from 'src/entities/sos.entity';
-import { SharedOrderService } from 'src/order/shared-order.service';
-import { DriverRedisService } from 'src/redis/driver-redis.service';
+import { CommonCouponService } from './../../coupon/common-coupon.service';
+import { RequestEntity } from './../../entities/request.entity';
+import { SOSEntity } from './../../entities/sos.entity';
+import { SharedOrderService } from './../../order/shared-order.service';
+import { DriverRedisService } from './../../redis/driver-redis.service';
 import { ForbiddenError } from 'apollo-server-express';
 
 @Resolver(() => OrderDTO)

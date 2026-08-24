@@ -13,9 +13,9 @@ import { ServiceDTO } from './dto/service.dto';
 import { ServiceCategoryQueryService } from './service-category-query.service';
 import { ServiceOptionQueryService } from './service-option-query.service';
 import { ServiceQueryService } from './service-query.service';
-import { ServiceCategoryEntity } from 'src/entities/service-category.entity';
-import { ServiceEntity } from 'src/entities/service.entity';
-import { ServiceOptionEntity } from 'src/entities/service-option.entity';
+import { ServiceCategoryEntity } from './../../entities/service-category.entity';
+import { ServiceEntity } from './../../entities/service.entity';
+import { ServiceOptionEntity } from './../../entities/service-option.entity';
 
 @Module({
   imports: [

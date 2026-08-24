@@ -5,7 +5,7 @@ import {
 import { NestjsQueryTypeOrmModule } from '@nestjs-query/query-typeorm';
 import { Module } from '@nestjs/common';
 import { RewardDTO } from './dto/reward.dto';
-import { RewardEntity } from 'src/entities/reward.entity';
+import { RewardEntity } from './../../entities/reward.entity';
 
 @Module({
   imports: [

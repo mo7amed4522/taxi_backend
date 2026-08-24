@@ -1,5 +1,5 @@
 import { Field, ID, InputType } from '@nestjs/graphql';
-import { SOSActivityAction } from 'src/entities/enums/sos-activity-action.enum';
+import { SOSActivityAction } from './../../../entities/enums/sos-activity-action.enum';
 
 @InputType()
 export class CreateSOSAcitivtyInput {

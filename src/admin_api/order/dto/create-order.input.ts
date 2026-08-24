@@ -1,5 +1,5 @@
 import { Field, ID, InputType, Int } from '@nestjs/graphql';
-import { Point } from 'src/interfaces/point';
+import { Point } from './../../../interfaces/point';
 
 @InputType()
 export class CreateOrderInput {

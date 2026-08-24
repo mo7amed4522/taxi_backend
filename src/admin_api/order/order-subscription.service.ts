@@ -3,7 +3,7 @@ import { Injectable, Logger } from '@nestjs/common';
 import { Args, ID, Subscription } from '@nestjs/graphql';
 import { RedisPubSub } from 'graphql-redis-subscriptions';
 import { OrderDTO } from './dto/order.dto';
-import { RequestEntity } from 'src/entities/request.entity';
+import { RequestEntity } from './../../entities/request.entity';
 
 @Injectable()
 export class OrderSubscriptionService {

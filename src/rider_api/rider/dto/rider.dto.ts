@@ -12,9 +12,9 @@ import { MediaDTO } from '../../upload/media.dto';
 import { CouponDTO } from '../../coupon/dto/coupon.dto';
 import { OrderDTO } from '../../order/dto/order.dto';
 import { SortDirection } from '@nestjs-query/core';
-import { Gender } from 'src/entities/enums/gender.enum';
-import { OrderStatus } from 'src/entities/enums/order-status.enum';
-import { RiderDocumentType } from 'src/entities/enums/rider-document-type';
+import { Gender } from './../../../entities/enums/gender.enum';
+import { OrderStatus } from './../../../entities/enums/order-status.enum';
+import { RiderDocumentType } from './../../../entities/enums/rider-document-type';
 
 @ObjectType('Rider')
 @Authorize({

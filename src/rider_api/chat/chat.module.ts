@@ -12,11 +12,11 @@ import { ChatService } from './chat.service';
 import { ChatSubscriptionService } from './chat.subscription.service';
 import { OrderMessageDTO } from './dto/order-message.dto';
 import { OrderMessageInput } from './dto/order-message.input';
-import { FirebaseNotificationModule } from 'src/order/firebase-notification-service/firebase-notification-service.module';
-import { OrderMessageEntity } from 'src/entities/request-message.entity';
-import { DriverNotificationService } from 'src/order/firebase-notification-service/driver-notification.service';
-import { RedisPubSubProvider } from 'src/redis-pub-sub.provider';
-import { RequestEntity } from 'src/entities/request.entity';
+import { FirebaseNotificationModule } from './../../order/firebase-notification-service/firebase-notification-service.module';
+import { OrderMessageEntity } from './../../entities/request-message.entity';
+import { DriverNotificationService } from './../../order/firebase-notification-service/driver-notification.service';
+import { RedisPubSubProvider } from './../../redis-pub-sub.provider';
+import { RequestEntity } from './../../entities/request.entity';
 
 @Module({
   imports: [

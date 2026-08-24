@@ -11,7 +11,7 @@ import {
   TopUpWalletResponse,
   TopUpWalletStatus,
 } from './dto/top-up-wallet.input';
-import { PaymentGatewayEntity } from 'src/entities/payment-gateway.entity';
+import { PaymentGatewayEntity } from './../../entities/payment-gateway.entity';
 
 @UseGuards(GqlAuthGuard)
 @Resolver()

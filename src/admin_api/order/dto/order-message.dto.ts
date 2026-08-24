@@ -1,6 +1,6 @@
 import { Field, ID, ObjectType } from '@nestjs/graphql';
 import { IDField } from '@nestjs-query/query-graphql';
-import { MessageStatus } from 'src/entities/enums/message-status.enum';
+import { MessageStatus } from './../../../entities/enums/message-status.enum';
 
 @ObjectType('AdminOrderMessage')
 export class OrderMessageDTO {

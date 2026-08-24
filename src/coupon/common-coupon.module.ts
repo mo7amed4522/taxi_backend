@@ -2,8 +2,8 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { CommonCouponService } from './common-coupon.service';
-import { RequestEntity } from 'src/entities/request.entity';
-import { CouponEntity } from 'src/entities/coupon.entity';
+import { RequestEntity } from './../entities/request.entity';
+import { CouponEntity } from './../entities/coupon.entity';
 
 @Module({
   imports: [TypeOrmModule.forFeature([RequestEntity, CouponEntity])],

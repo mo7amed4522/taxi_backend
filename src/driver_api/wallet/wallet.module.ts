@@ -12,10 +12,10 @@ import { DriverWalletDTO } from './dto/driver-wallet.dto';
 import { PaymentGatewayDTO } from './dto/payment-gateway.dto';
 import { EarningsService } from './earnings.service';
 import { WalletResolver } from './wallet-resolver';
-import { RequestEntity } from 'src/entities/request.entity';
-import { DriverTransactionEntity } from 'src/entities/driver-transaction.entity';
-import { DriverWalletEntity } from 'src/entities/driver-wallet.entity';
-import { PaymentGatewayEntity } from 'src/entities/payment-gateway.entity';
+import { RequestEntity } from './../../entities/request.entity';
+import { DriverTransactionEntity } from './../../entities/driver-transaction.entity';
+import { DriverWalletEntity } from './../../entities/driver-wallet.entity';
+import { PaymentGatewayEntity } from './../../entities/payment-gateway.entity';
 
 @Module({
   imports: [

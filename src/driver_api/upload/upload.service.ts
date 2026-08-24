@@ -12,8 +12,8 @@ import { join } from 'path';
 import * as fastify from 'fastify';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { DriverEntity } from 'src/entities/driver.entity';
-import { MediaEntity } from 'src/entities/media.entity';
+import { DriverEntity } from './../../entities/driver.entity';
+import { MediaEntity } from './../../entities/media.entity';
 
 @Injectable()
 export class UploadService {

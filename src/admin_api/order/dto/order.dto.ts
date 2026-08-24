@@ -17,7 +17,7 @@ import { RiderDTO } from '../../rider/dto/rider.dto';
 import { ServiceDTO } from '../../service/dto/service.dto';
 import { OrderMessageDTO } from './order-message.dto';
 import { RequestActivityDTO } from './request-activity.dto';
-import { OrderStatus } from 'src/entities/enums/order-status.enum';
+import { OrderStatus } from './../../../entities/enums/order-status.enum';
 import { Point } from 'typeorm';
 
 @ObjectType('AdminOrder')

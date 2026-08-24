@@ -9,9 +9,9 @@ import { Repository } from 'typeorm';
 
 import { UpdateOrderInput } from './dto/update-order.input';
 import { RiderOrderService } from './rider-order.service';
-import { CommonCouponService } from 'src/coupon/common-coupon.service';
-import { OrderStatus } from 'src/entities/enums/order-status.enum';
-import { RequestEntity } from 'src/entities/request.entity';
+import { CommonCouponService } from './../../coupon/common-coupon.service';
+import { OrderStatus } from './../../entities/enums/order-status.enum';
+import { RequestEntity } from './../../entities/request.entity';
 
 @QueryService(RequestEntity)
 export class RiderOrderQueryService extends TypeOrmQueryService<RequestEntity> {

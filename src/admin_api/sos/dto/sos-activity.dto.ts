@@ -1,7 +1,7 @@
 import { IDField, Relation } from '@nestjs-query/query-graphql';
 import { ID, ObjectType } from '@nestjs/graphql';
 import { OperatorDTO } from '../../operator/dto/operator.dto';
-import { SOSActivityAction } from 'src/entities/enums/sos-activity-action.enum';
+import { SOSActivityAction } from './../../../entities/enums/sos-activity-action.enum';
 
 @ObjectType('SOSActivity')
 @Relation('operator', () => OperatorDTO)

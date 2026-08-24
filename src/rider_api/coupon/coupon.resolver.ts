@@ -8,7 +8,7 @@ import { OrderDTO } from '../order/dto/order.dto';
 import { RiderOrderService } from '../order/rider-order.service';
 import { RiderWalletDTO } from '../wallet/dto/rider-wallet.dto';
 import { CouponService } from './coupon.service';
-import { CommonCouponService } from 'src/coupon/common-coupon.service';
+import { CommonCouponService } from './../../coupon/common-coupon.service';
 
 @Resolver(() => OrderDTO)
 @UseGuards(GqlAuthGuard)

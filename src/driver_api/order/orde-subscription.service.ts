@@ -4,7 +4,7 @@ import { Resolver, Subscription } from '@nestjs/graphql';
 import { RedisPubSub } from 'graphql-redis-subscriptions';
 import { AvailableOrderDTO } from './dto/available-order.dto';
 import { OrderDTO } from './dto/order.dto';
-import { RequestEntity } from 'src/entities/request.entity';
+import { RequestEntity } from './../../entities/request.entity';
 
 @Injectable()
 export class OrderSubscriptionService {

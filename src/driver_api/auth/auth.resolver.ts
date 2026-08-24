@@ -9,8 +9,8 @@ import { DriverDTO } from '../driver/dto/driver.dto';
 import { Inject, UseGuards } from '@nestjs/common';
 import { GqlAuthGuard } from './jwt-gql-auth.guard';
 import { UserContext } from './authenticated-user';
-import { SharedDriverService } from 'src/order/shared-driver.service';
-import { VersionStatus } from 'src/entities/enums/version-status.enum';
+import { SharedDriverService } from './../../order/shared-driver.service';
+import { VersionStatus } from './../../entities/enums/version-status.enum';
 
 @Resolver()
 export class AuthResolver {

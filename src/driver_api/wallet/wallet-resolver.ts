@@ -18,7 +18,7 @@ import {
   TopUpWalletStatus,
 } from './dto/top-up-wallet.input';
 import { EarningsService } from './earnings.service';
-import { PaymentGatewayEntity } from 'src/entities/payment-gateway.entity';
+import { PaymentGatewayEntity } from './../../entities/payment-gateway.entity';
 import { ForbiddenError } from 'apollo-server-express';
 
 @UseGuards(GqlAuthGuard)

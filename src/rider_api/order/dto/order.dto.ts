@@ -15,7 +15,7 @@ import { ServiceOptionDTO } from '../../service/dto/service-option.dto';
 import { ServiceDTO } from '../../service/dto/service.dto';
 import { PaymentGatewayDTO } from '../../wallet/dto/payment-gateway.dto';
 import { DriverDTO } from './driver.dto';
-import { OrderStatus } from 'src/entities/enums/order-status.enum';
+import { OrderStatus } from './../../../entities/enums/order-status.enum';
 
 @ObjectType('Order')
 @Authorize({

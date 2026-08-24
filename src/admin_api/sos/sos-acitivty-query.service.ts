@@ -7,10 +7,10 @@ import { Repository } from 'typeorm';
 import { UserContext } from '../auth/authenticated-admin';
 import { CreateSOSAcitivtyInput } from './dto/create-sos-activity.input';
 import { SOSActivityDTO } from './dto/sos-activity.dto';
-import { SOSActivityEntity } from 'src/entities/sos-activity.entity';
-import { SOSEntity } from 'src/entities/sos.entity';
-import { SOSActivityAction } from 'src/entities/enums/sos-activity-action.enum';
-import { SOSStatus } from 'src/entities/enums/sos-status.enum';
+import { SOSActivityEntity } from './../../entities/sos-activity.entity';
+import { SOSEntity } from './../../entities/sos.entity';
+import { SOSActivityAction } from './../../entities/enums/sos-activity-action.enum';
+import { SOSStatus } from './../../entities/enums/sos-status.enum';
 
 @QueryService(SOSActivityDTO)
 export class SOSActivityQueryService extends TypeOrmQueryService<SOSActivityDTO> {

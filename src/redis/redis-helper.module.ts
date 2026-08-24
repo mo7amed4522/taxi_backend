@@ -2,10 +2,10 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { DriverRedisService } from './driver-redis.service';
 import { OrderRedisService } from './order-redis.service';
-import { DriverEntity } from 'src/entities/driver.entity';
-import { DriverWalletEntity } from 'src/entities/driver-wallet.entity';
-import { DriverTransactionEntity } from 'src/entities/driver-transaction.entity';
-import { SharedDriverService } from 'src/order/shared-driver.service';
+import { DriverEntity } from './../entities/driver.entity';
+import { DriverWalletEntity } from './../entities/driver-wallet.entity';
+import { DriverTransactionEntity } from './../entities/driver-transaction.entity';
+import { SharedDriverService } from './../order/shared-driver.service';
 import { RedisModule, RedisService } from '@liaoliaots/nestjs-redis';
 import { RedisPubSubProvider } from './redis-pubsub.provider';
 

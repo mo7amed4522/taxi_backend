@@ -1,6 +1,6 @@
 import { Field, ID, InputType } from '@nestjs/graphql';
-import { DriverStatus } from 'src/entities/enums/driver-status.enum';
-import { Gender } from 'src/entities/enums/gender.enum';
+import { DriverStatus } from './../../../entities/enums/driver-status.enum';
+import { Gender } from './../../../entities/enums/gender.enum';
 
 @InputType()
 export class UpdateDriverInput {

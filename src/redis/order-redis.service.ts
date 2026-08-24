@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { RequestEntity } from '../entities/request.entity';
 import { Redis } from 'ioredis';
-import { DriverEntity } from 'src/entities/driver.entity';
-import { SharedDriverService } from 'src/order/shared-driver.service';
+import { DriverEntity } from './../entities/driver.entity';
+import { SharedDriverService } from './../order/shared-driver.service';
 import { RedisService } from '@liaoliaots/nestjs-redis';
 
 @Injectable()

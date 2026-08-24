@@ -7,7 +7,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { RegionDTO } from './dto/region.dto';
-import { RegionEntity } from 'src/entities/region.entity';
+import { RegionEntity } from './../../entities/region.entity';
 
 @Module({
   imports: [

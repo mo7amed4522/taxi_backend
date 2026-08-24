@@ -3,7 +3,7 @@ import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 
 import { DriverService } from '../driver/driver.service';
-import { DriverEntity } from 'src/entities/driver.entity';
+import { DriverEntity } from './../../entities/driver.entity';
 
 @Injectable()
 export class AuthService {

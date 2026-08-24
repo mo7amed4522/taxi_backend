@@ -11,18 +11,18 @@ import { Repository } from 'typeorm';
 import { UserContext } from '../auth/authenticated-user';
 import { UpdateOrderInput } from './dto/update-order.input';
 import { OrderService } from './order.service';
-import { RequestEntity } from 'src/entities/request.entity';
-import { RequestActivityEntity } from 'src/entities/request-activity.entity';
-import { SharedDriverService } from 'src/order/shared-driver.service';
-import { ServiceService } from 'src/order/service.service';
-import { OrderRedisService } from 'src/redis/order-redis.service';
-import { DriverRedisService } from 'src/redis/driver-redis.service';
-import { GoogleServicesService } from 'src/order/google-services/google-services.service';
-import { SharedOrderService } from 'src/order/shared-order.service';
-import { RiderNotificationService } from 'src/order/firebase-notification-service/rider-notification.service';
-import { OrderStatus } from 'src/entities/enums/order-status.enum';
-import { RequestActivityType } from 'src/entities/enums/request-activity-type.enum';
-import { DriverStatus } from 'src/entities/enums/driver-status.enum';
+import { RequestEntity } from './../../entities/request.entity';
+import { RequestActivityEntity } from './../../entities/request-activity.entity';
+import { SharedDriverService } from './../../order/shared-driver.service';
+import { ServiceService } from './../../order/service.service';
+import { OrderRedisService } from './../../redis/order-redis.service';
+import { DriverRedisService } from './../../redis/driver-redis.service';
+import { GoogleServicesService } from './../../order/google-services/google-services.service';
+import { SharedOrderService } from './../../order/shared-order.service';
+import { RiderNotificationService } from './../../order/firebase-notification-service/rider-notification.service';
+import { OrderStatus } from './../../entities/enums/order-status.enum';
+import { RequestActivityType } from './../../entities/enums/request-activity-type.enum';
+import { DriverStatus } from './../../entities/enums/driver-status.enum';
 
 @QueryService(RequestEntity)
 export class DriverOrderQueryService extends TypeOrmQueryService<RequestEntity> {

@@ -7,10 +7,10 @@ import { Field, Float, ID, ObjectType } from '@nestjs/graphql';
 import { OperatorDTO } from '../../operator/dto/operator.dto';
 import { PaymentGatewayDTO } from '../../payment-gateway/dto/payment-gateway.dto';
 import { RiderDTO } from './rider.dto';
-import { TransactionAction } from 'src/entities/enums/transaction-action.enum';
-import { RiderDeductTransactionType } from 'src/entities/enums/rider-deduct-transaction-type.enum';
-import { RiderRechargeTransactionType } from 'src/entities/enums/rider-recharge-transaction-type.enum';
-import { TransactionStatus } from 'src/entities/enums/transaction-status.enum';
+import { TransactionAction } from './../../../entities/enums/transaction-action.enum';
+import { RiderDeductTransactionType } from './../../../entities/enums/rider-deduct-transaction-type.enum';
+import { RiderRechargeTransactionType } from './../../../entities/enums/rider-recharge-transaction-type.enum';
+import { TransactionStatus } from './../../../entities/enums/transaction-status.enum';
 
 @ObjectType('RiderTransaction')
 @Relation('operator', () => OperatorDTO, { nullable: true })

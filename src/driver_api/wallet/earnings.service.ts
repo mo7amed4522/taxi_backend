@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Datapoint, StatisticsResult, TimeQuery } from './dto/earnings.dto';
-import { RequestEntity } from 'src/entities/request.entity';
+import { RequestEntity } from './../../entities/request.entity';
 
 @Injectable()
 export class EarningsService {

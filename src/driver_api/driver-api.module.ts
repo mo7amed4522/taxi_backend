@@ -5,7 +5,7 @@ import { ScheduleModule } from '@nestjs/schedule';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { RedisModule } from '@liaoliaots/nestjs-redis';
 import { join } from 'path';
-import { CryptoService } from 'src/crypto.service';
+import { CryptoService } from './../crypto.service';
 
 import { AuthModule } from './auth/auth.module';
 import { validateToken } from './auth/jwt.strategy';
@@ -19,8 +19,8 @@ import { ServiceModule } from './service/service.module';
 import { ChatModule } from './chat/chat.module';
 import { ComplaintModule } from './complaint/complaint.module';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
-import { DatabaseModule, entities } from 'src/database.module';
-import { SharedDriverService } from 'src/order/shared-driver.service';
+import { DatabaseModule, entities } from './../database.module';
+import { SharedDriverService } from './../order/shared-driver.service';
 
 @Module({
   imports: [

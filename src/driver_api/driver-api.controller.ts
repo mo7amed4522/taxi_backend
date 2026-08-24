@@ -19,13 +19,13 @@ import { join } from 'path';
 const pump = promisify(pipeline);
 
 import { version } from 'package.json';
-import { MediaEntity } from 'src/entities/media.entity';
-import { DriverEntity } from 'src/entities/driver.entity';
-import { CryptoService } from 'src/crypto.service';
-import { SharedDriverService } from 'src/order/shared-driver.service';
-import { TransactionAction } from 'src/entities/enums/transaction-action.enum';
-import { DriverRechargeTransactionType } from 'src/entities/enums/driver-recharge-transaction-type.enum';
-import { TransactionStatus } from 'src/entities/enums/transaction-status.enum';
+import { MediaEntity } from './../entities/media.entity';
+import { DriverEntity } from './../entities/driver.entity';
+import { CryptoService } from './../crypto.service';
+import { SharedDriverService } from './../order/shared-driver.service';
+import { TransactionAction } from './../entities/enums/transaction-action.enum';
+import { DriverRechargeTransactionType } from './../entities/enums/driver-recharge-transaction-type.enum';
+import { TransactionStatus } from './../entities/enums/transaction-status.enum';
 
 @Controller()
 export class DriverAPIController {

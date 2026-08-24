@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { ForbiddenError } from 'apollo-server-fastify';
 import { OperatorService } from '../operator/operator.service';
-import { OperatorEntity } from 'src/entities/operator.entity';
+import { OperatorEntity } from './../../entities/operator.entity';
 
 @Injectable()
 export class AuthService {

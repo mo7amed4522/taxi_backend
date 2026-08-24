@@ -9,8 +9,8 @@ import { CreateSOSAcitivtyInput } from './dto/create-sos-activity.input';
 import { SOSActivityDTO } from './dto/sos-activity.dto';
 import { SOSDTO } from './dto/sos.dto';
 import { SOSActivityQueryService } from './sos-acitivty-query.service';
-import { SOSEntity } from 'src/entities/sos.entity';
-import { SOSActivityEntity } from 'src/entities/sos-activity.entity';
+import { SOSEntity } from './../../entities/sos.entity';
+import { SOSActivityEntity } from './../../entities/sos-activity.entity';
 
 @Module({
   imports: [

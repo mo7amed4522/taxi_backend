@@ -9,9 +9,9 @@ import { PaymentGatewayDTO } from './dto/payment-gateway.dto';
 import { RiderTransactionDTO } from './dto/rider-transaction.dto';
 import { RiderWalletDTO } from './dto/rider-wallet.dto';
 import { WalletResolver } from './wallet-resolver';
-import { PaymentGatewayEntity } from 'src/entities/payment-gateway.entity';
-import { RiderTransactionEntity } from 'src/entities/rider-transaction.entity';
-import { RiderWalletEntity } from 'src/entities/rider-wallet.entity';
+import { PaymentGatewayEntity } from './../../entities/payment-gateway.entity';
+import { RiderTransactionEntity } from './../../entities/rider-transaction.entity';
+import { RiderWalletEntity } from './../../entities/rider-wallet.entity';
 
 @Module({
   imports: [

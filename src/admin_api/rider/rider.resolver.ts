@@ -7,11 +7,11 @@ import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { RiderTransactionInput } from './dto/rider-transaction.input';
 import { RiderWalletDTO } from './dto/rider-wallet.dto';
 import { RiderDTO } from './dto/rider.dto';
-import { TransactionAction } from 'src/entities/enums/transaction-action.enum';
-import { TransactionStatus } from 'src/entities/enums/transaction-status.enum';
-import { OperatorEntity } from 'src/entities/operator.entity';
-import { OperatorPermission } from 'src/entities/enums/operator-permission.enum';
-import { SharedRiderService } from 'src/order/shared-rider.service';
+import { TransactionAction } from './../../entities/enums/transaction-action.enum';
+import { TransactionStatus } from './../../entities/enums/transaction-status.enum';
+import { OperatorEntity } from './../../entities/operator.entity';
+import { OperatorPermission } from './../../entities/enums/operator-permission.enum';
+import { SharedRiderService } from './../../order/shared-rider.service';
 
 @Resolver()
 @UseGuards(JwtAuthGuard)

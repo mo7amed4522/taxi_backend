@@ -8,7 +8,7 @@ import { Module } from '@nestjs/common';
 import { GqlAuthGuard } from '../auth/jwt-gql-auth.guard';
 import { CreateRiderAddressInput } from './dto/create-rider-address.input';
 import { RiderAddressDTO } from './dto/rider-address.dto';
-import { RiderAddressEntity } from 'src/entities/rider-address.entity';
+import { RiderAddressEntity } from './../../entities/rider-address.entity';
 
 @Module({
   imports: [

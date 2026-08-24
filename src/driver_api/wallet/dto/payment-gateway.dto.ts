@@ -8,7 +8,6 @@ import {
 import { ID, ObjectType, Field } from '@nestjs/graphql';
 import { UserContext } from '../../auth/authenticated-user';
 import { MediaDTO } from '../../upload/media.dto';
-import { PaymentGatewayType } from 'src/entities/enums/payment-gateway-type.enum';
 
 @ObjectType('DriverPaymentGateway')
 @Authorize({

@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { ForbiddenError } from 'apollo-server-core';
-import { OperatorPermission } from 'src/entities/enums/operator-permission.enum';
-import { OperatorEntity } from 'src/entities/operator.entity';
+import { OperatorPermission } from './../../entities/enums/operator-permission.enum';
+import { OperatorEntity } from './../../entities/operator.entity';
 import { Repository } from 'typeorm';
 
 @Injectable()

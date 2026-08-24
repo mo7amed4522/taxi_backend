@@ -5,7 +5,7 @@ import {
 } from '@nestjs-query/query-graphql';
 import { ID, ObjectType, Field } from '@nestjs/graphql';
 import { OrderDTO } from '../../order/dto/order.dto';
-import { MessageStatus } from 'src/entities/enums/message-status.enum';
+import { MessageStatus } from './../../../entities/enums/message-status.enum';
 
 @ObjectType('DriverOrderMessage')
 @Relation('request', () => OrderDTO, {

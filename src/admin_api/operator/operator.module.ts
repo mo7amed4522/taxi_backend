@@ -10,8 +10,8 @@ import { OperatorDTO } from './dto/operator.dto';
 import { CreateOperatorInput } from './dto/create-operator.input';
 import { OperatorService } from './operator.service';
 import { OperatorResolver } from './operator.resolver';
-import { OperatorRoleEntity } from 'src/entities/operator-role.entity';
-import { OperatorEntity } from 'src/entities/operator.entity';
+import { OperatorRoleEntity } from './../../entities/operator-role.entity';
+import { OperatorEntity } from './../../entities/operator.entity';
 
 @Module({
   imports: [

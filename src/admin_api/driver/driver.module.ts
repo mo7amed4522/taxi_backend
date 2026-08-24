@@ -11,10 +11,10 @@ import { DriverTransactionDTO } from './dto/driver-transaction.dto';
 import { DriverWalletDTO } from './dto/driver-wallet.dto';
 import { DriverDTO } from './dto/driver.dto';
 import { UpdateDriverInput } from './dto/driver.input';
-import { DriverEntity } from 'src/entities/driver.entity';
-import { DriverTransactionEntity } from 'src/entities/driver-transaction.entity';
-import { DriverWalletEntity } from 'src/entities/driver-wallet.entity';
-import { RedisHelpersModule } from 'src/redis/redis-helper.module';
+import { DriverEntity } from './../../entities/driver.entity';
+import { DriverTransactionEntity } from './../../entities/driver-transaction.entity';
+import { DriverWalletEntity } from './../../entities/driver-wallet.entity';
+import { RedisHelpersModule } from './../../redis/redis-helper.module';
 
 @Module({
   imports: [

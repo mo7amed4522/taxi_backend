@@ -13,7 +13,7 @@ import * as fastify from 'fastify';
 import { Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 import { pipeline } from 'stream';
-import { MediaEntity } from 'src/entities/media.entity';
+import { MediaEntity } from './../../entities/media.entity';
 
 const pump = util.promisify(pipeline);
 

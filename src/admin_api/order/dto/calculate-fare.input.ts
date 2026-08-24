@@ -1,5 +1,5 @@
 import { InputType } from '@nestjs/graphql';
-import { Point } from 'src/interfaces/point';
+import { Point } from './../../../interfaces/point';
 
 @InputType()
 export class CalculateFareInput {

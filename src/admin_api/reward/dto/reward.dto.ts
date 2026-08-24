@@ -1,8 +1,8 @@
 import { IDField } from '@nestjs-query/query-graphql';
 import { ID, ObjectType } from '@nestjs/graphql';
-import { RewardAppType } from 'src/entities/enums/reward-app-type';
-import { RewardBeneficiary } from 'src/entities/enums/reward-beneficiary';
-import { RewardEvent } from 'src/entities/enums/reward-event';
+import { RewardAppType } from './../../../entities/enums/reward-app-type';
+import { RewardBeneficiary } from './../../../entities/enums/reward-beneficiary';
+import { RewardEvent } from './../../../entities/enums/reward-event';
 
 @ObjectType('Reward')
 export class RewardDTO {

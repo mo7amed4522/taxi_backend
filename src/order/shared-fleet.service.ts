@@ -4,7 +4,7 @@ import { FleetTransactionEntity } from '../entities/fleet-transaction.entity';
 import { FleetWalletEntity } from '../entities/fleet-wallet.entity';
 import { Repository } from 'typeorm';
 import { Point } from '../interfaces/point';
-import { FleetEntity } from 'src/entities/fleet.entity';
+import { FleetEntity } from './../entities/fleet.entity';
 
 @Injectable()
 export class SharedFleetService {

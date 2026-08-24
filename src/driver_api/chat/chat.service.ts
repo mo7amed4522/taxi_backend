@@ -7,9 +7,9 @@ import { Inject } from '@nestjs/common';
 
 import { OrderMessageDTO } from './dto/order-message.dto';
 import { OrderMessageInput } from './dto/order-message.input';
-import { OrderMessageEntity } from 'src/entities/request-message.entity';
-import { RequestEntity } from 'src/entities/request.entity';
-import { RiderNotificationService } from 'src/order/firebase-notification-service/rider-notification.service';
+import { OrderMessageEntity } from './../../entities/request-message.entity';
+import { RequestEntity } from './../../entities/request.entity';
+import { RiderNotificationService } from './../../order/firebase-notification-service/rider-notification.service';
 
 @QueryService(OrderMessageEntity)
 export class ChatService extends TypeOrmQueryService<OrderMessageEntity> {

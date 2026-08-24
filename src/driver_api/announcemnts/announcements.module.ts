@@ -6,7 +6,7 @@ import {
   AnnouncementDTO,
   AnnouncementAuthorizer,
 } from './dto/announcement.dto';
-import { AnnouncementEntity } from 'src/entities/announcement.entity';
+import { AnnouncementEntity } from './../../entities/announcement.entity';
 
 @Module({
   imports: [

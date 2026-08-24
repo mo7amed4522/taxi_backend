@@ -5,10 +5,10 @@ import { RiderDTO } from './dto/rider.dto';
 import { UpdateRiderInput } from './dto/update-rider.input';
 import { GqlAuthGuard } from '../auth/jwt-gql-auth.guard';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { RiderEntity } from 'src/entities/rider-entity';
-import { RiderTransactionEntity } from 'src/entities/rider-transaction.entity';
-import { RiderWalletEntity } from 'src/entities/rider-wallet.entity';
-import { SharedRiderService } from 'src/order/shared-rider.service';
+import { RiderEntity } from './../../entities/rider-entity';
+import { RiderTransactionEntity } from './../../entities/rider-transaction.entity';
+import { RiderWalletEntity } from './../../entities/rider-wallet.entity';
+import { SharedRiderService } from './../../order/shared-rider.service';
 
 @Module({
   imports: [
