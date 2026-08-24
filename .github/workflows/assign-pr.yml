@@ -8,14 +8,10 @@ jobs:
   assign:
     name: Auto Assign PR
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
     steps:
-      - name: Assign PR to creator
-        uses: technote-space/assign-pr-action@v2
-        with:
-          ASSIGNEE: ${{ github.event.pull_request.user.login }}
-
       - name: Add reviewers based on label
-        if: github.event.pull_request.labels.length > 0
         uses: actions/github-script@v7
         with:
           script: |
