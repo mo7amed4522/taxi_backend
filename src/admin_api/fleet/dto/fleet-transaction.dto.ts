@@ -13,13 +13,13 @@ import { ProviderRechargeTransactionType } from 'src/entities/enums/provider-rec
 @Relation('operator', () => OperatorDTO, { nullable: true })
 export class FleetTransactionDTO {
   @IDField(() => ID)
-  id: number;
+  id!: number;
   transactionTimestamp!: Date;
-  action: TransactionAction;
+  action!: TransactionAction;
   deductType?: ProviderDeductTransactionType;
   rechargeType?: ProviderRechargeTransactionType;
-  amount: number;
-  currency: string;
+  amount!: number;
+  currency!: string;
   refrenceNumber?: string;
   description?: string;
   @FilterableField(() => ID)
@@ -27,5 +27,5 @@ export class FleetTransactionDTO {
   @FilterableField(() => ID)
   requestId?: number;
   @FilterableField(() => ID)
-  fleetId: number;
+  fleetId!: number;
 }

@@ -13,9 +13,9 @@ import { CouponAuthorizer } from './coupon.authorizer';
 export class CouponDTO {
   @IDField(() => ID)
   id!: number;
-  code: string;
-  title: string;
-  description: string;
+  code!: string;
+  title!: string;
+  description!: string;
   @Field(() => Int)
   manyUsersCanUse!: number;
   @Field(() => Int)

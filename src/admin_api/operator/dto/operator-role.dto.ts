@@ -9,5 +9,5 @@ export class OperatorRoleDTO {
   @IDField(() => ID)
   id!: number;
   title!: string;
-  permissions: OperatorPermission[];
+  permissions!: OperatorPermission[];
 }

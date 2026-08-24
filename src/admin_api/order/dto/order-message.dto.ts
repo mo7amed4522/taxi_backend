@@ -5,10 +5,10 @@ import { MessageStatus } from 'src/entities/enums/message-status.enum';
 @ObjectType('AdminOrderMessage')
 export class OrderMessageDTO {
   @IDField(() => ID)
-  id: number;
+  id!: number;
   @Field()
-  content: string;
-  sentAt: Date;
-  sentByDriver: boolean;
-  status: MessageStatus;
+  content!: string;
+  sentAt!: Date;
+  sentByDriver!: boolean;
+  status!: MessageStatus;
 }

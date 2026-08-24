@@ -2559,10 +2559,6 @@ type DriverRiderMaxAggregate {
   id: ID
 }
 
-type Login {
-  jwtToken: String!
-}
-
 type DriverAnnouncement {
   id: ID!
   title: String!
@@ -2873,7 +2869,6 @@ type DriverComplaintMaxAggregate {
 }
 
 type Query {
-  requireUpdate(versionCode: Int!): VersionStatus!
   driverOrderAggregate(
     """Filter to find records to aggregate on"""
     filter: DriverOrderAggregateFilter
@@ -2962,12 +2957,6 @@ type Query {
     """Specify to sort results."""
     sorting: [DriverAnnouncementSort!]! = []
   ): [DriverAnnouncement!]!
-}
-
-enum VersionStatus {
-  Latest
-  MandatoryUpdate
-  OptionalUpdate
 }
 
 input CursorPaging {
@@ -3073,8 +3062,6 @@ enum DriverAnnouncementSortFields {
 }
 
 type Mutation {
-  login(input: LoginInput!): Login!
-  deleteUser: Driver!
   updateOneDriverOrder(input: UpdateOneDriverOrderInput!): DriverOrder!
   updateDriversLocationNew(point: PointInput!): [DriverOrder!]!
   sosSignal(orderId: ID!, location: PointInput): SOS!
@@ -3092,10 +3079,6 @@ type Mutation {
   deleteManyDriverOrderMessages(input: DeleteManyDriverOrderMessagesInput!): DeleteManyResponse!
   topUpWallet(input: TopUpWalletInput!): TopUpWalletResponse!
   createOneDriverComplaint(input: CreateOneDriverComplaintInput!): DriverComplaint!
-}
-
-input LoginInput {
-  firebaseToken: String!
 }
 
 input UpdateOneDriverOrderInput {

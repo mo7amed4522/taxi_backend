@@ -19,14 +19,14 @@ export class ComplaintDTO {
   @IDField(() => ID)
   id!: number;
   inscriptionTimestamp!: Date;
-  requestedByDriver: boolean;
+  requestedByDriver!: boolean;
   @Field()
-  subject: string;
+  subject!: string;
   @Field()
-  description: string;
+  description!: string;
   content?: string;
   @FilterableField(() => ComplaintStatus)
-  status: ComplaintStatus;
+  status!: ComplaintStatus;
   @FilterableField(() => ID)
-  requestId: number;
+  requestId!: number;
 }

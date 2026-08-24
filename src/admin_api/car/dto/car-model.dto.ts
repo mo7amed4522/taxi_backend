@@ -6,6 +6,6 @@ import { CarAuthorizer } from './car.authorizer';
 @Authorize(CarAuthorizer)
 export class CarModelDTO {
   @IDField(() => ID)
-  id: number;
-  name: string;
+  id!: number;
+  name!: string;
 }

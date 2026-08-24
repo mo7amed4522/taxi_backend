@@ -29,13 +29,13 @@ export class AnnouncementAuthorizer implements CustomAuthorizer<any> {
 @Authorize(AnnouncementAuthorizer)
 export class AnnouncementDTO {
   @IDField(() => ID)
-  id: number;
+  id!: number;
   @Field()
-  title: string;
-  description: string;
-  startAt: Date;
-  expireAt: Date;
+  title!: string;
+  description!: string;
+  startAt!: Date;
+  expireAt!: Date;
   url?: string;
   @Field(() => [AnnouncementUserType])
-  userType: AnnouncementUserType[];
+  userType!: AnnouncementUserType[];
 }

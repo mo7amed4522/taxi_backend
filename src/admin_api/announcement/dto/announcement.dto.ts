@@ -13,10 +13,10 @@ export class AnnouncementDTO {
   @IDField(() => ID)
   id!: number;
   @Field()
-  title: string;
-  description: string;
+  title!: string;
+  description!: string;
   url?: string;
-  userType: AnnouncementUserType[];
-  startAt: Date;
-  expireAt: Date;
+  userType!: AnnouncementUserType[];
+  startAt!: Date;
+  expireAt!: Date;
 }

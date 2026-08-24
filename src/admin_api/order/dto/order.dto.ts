@@ -45,20 +45,20 @@ export class OrderDTO {
   startTimestamp?: Date;
   finishTimestamp?: Date;
   @FilterableField(() => OrderStatus)
-  status: OrderStatus;
+  status!: OrderStatus;
   @Field(() => Int)
-  distanceBest: number;
+  distanceBest!: number;
   @Field(() => Int)
-  durationBest: number;
-  costBest: number;
-  costAfterCoupon: number;
-  currency: string;
+  durationBest!: number;
+  costBest!: number;
+  costAfterCoupon!: number;
+  currency!: string;
   waitMinutes!: number;
-  addresses: string[];
-  points: Point[];
+  addresses!: string[];
+  points!: Point[];
   expectedTimestamp?: Date;
   @FilterableField(() => ID)
-  riderId: number;
+  riderId!: number;
   @FilterableField(() => ID)
   driverId?: number;
 }

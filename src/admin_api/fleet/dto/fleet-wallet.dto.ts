@@ -10,11 +10,11 @@ import { FleetDTO } from './fleet.dto';
 @Relation('fleet', () => FleetDTO)
 export class FleetWalletDTO {
   @IDField(() => ID)
-  id: number;
+  id!: number;
   @FilterableField(() => Float)
-  balance: number;
+  balance!: number;
   @FilterableField(() => String)
-  currency: string;
+  currency!: string;
   @FilterableField(() => ID)
-  fleetId: number;
+  fleetId!: number;
 }

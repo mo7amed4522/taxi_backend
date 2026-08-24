@@ -14,12 +14,12 @@ import { MessageStatus } from 'src/entities/enums/message-status.enum';
 })
 export class OrderMessageDTO {
   @IDField(() => ID)
-  id: number;
-  sentAt: Date;
-  status: MessageStatus;
+  id!: number;
+  sentAt!: Date;
+  status!: MessageStatus;
   @Field()
-  content: string;
-  sentByDriver: boolean;
+  content!: string;
+  sentByDriver!: boolean;
   @FilterableField(() => ID)
-  requestId: number;
+  requestId!: number;
 }

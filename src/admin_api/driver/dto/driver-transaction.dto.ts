@@ -11,13 +11,13 @@ import { DriverRechargeTransactionType } from 'src/entities/enums/driver-recharg
 @Relation('operator', () => OperatorDTO, { nullable: true })
 export class DriverTransactionDTO {
   @FilterableField()
-  createdAt: Date;
-  action: TransactionAction;
-  status: TransactionStatus;
+  createdAt!: Date;
+  action!: TransactionAction;
+  status!: TransactionStatus;
   deductType?: DriverDeductTransactionType;
   rechargeType?: DriverRechargeTransactionType;
-  amount: number;
-  currency: string;
+  amount!: number;
+  currency!: string;
   refrenceNumber?: string;
   @FilterableField(() => ID)
   driverId!: number;

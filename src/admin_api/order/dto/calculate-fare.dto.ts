@@ -10,9 +10,9 @@ registerEnumType(CalculateFareError, { name: 'CalculateFareError' });
 
 @ObjectType()
 export class CalculateFareDTO {
-  currency: string;
-  distance: number;
-  duration: number;
-  services: ServiceCategoryWithCostDTO[];
+  currency!: string;
+  distance!: number;
+  duration!: number;
+  services!: ServiceCategoryWithCostDTO[];
   error?: CalculateFareError;
 }

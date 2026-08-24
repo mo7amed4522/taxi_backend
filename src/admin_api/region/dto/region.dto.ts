@@ -16,5 +16,5 @@ export class RegionDTO {
   @FilterableField(() => String)
   currency!: string;
   enabled!: boolean;
-  location: Point[][];
+  location!: Point[][];
 }

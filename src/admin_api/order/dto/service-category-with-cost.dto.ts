@@ -11,5 +11,5 @@ export class ServiceCategoryWithCostDTO {
   @IDField(() => ID)
   id!: number;
   name!: string;
-  services: ServiceWithCostDTO[];
+  services: ServiceWithCostDTO[] = [];
 }

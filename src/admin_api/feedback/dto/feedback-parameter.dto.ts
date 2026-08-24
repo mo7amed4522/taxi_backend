@@ -4,9 +4,9 @@ import { ID, ObjectType } from '@nestjs/graphql';
 @ObjectType('FeedbackParameter')
 export class FeedbackParameterDTO {
   @IDField(() => ID)
-  id: number;
+  id!: number;
   @FilterableField()
-  title: string;
+  title!: string;
   @FilterableField()
-  isGood: boolean;
+  isGood!: boolean;
 }

@@ -6,6 +6,6 @@ import { RequestActivityType } from 'src/entities/enums/request-activity-type.en
 export class RequestActivityDTO {
   @IDField(() => ID)
   id!: number;
-  createdAt: Date;
-  type: RequestActivityType;
+  createdAt!: Date;
+  type!: RequestActivityType;
 }
