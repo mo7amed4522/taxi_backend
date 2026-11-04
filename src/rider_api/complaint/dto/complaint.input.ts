@@ -11,8 +11,8 @@ import { Field, ID, InputType } from '@nestjs/graphql';
 })
 export class ComplaintInput {
   @Field(() => ID)
-  requestId: number;
-  subject: string;
+  requestId!: number;
+  subject!: string;
   content?: string;
   requestedByDriver?: boolean;
 }

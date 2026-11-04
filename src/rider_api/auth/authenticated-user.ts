@@ -2,7 +2,7 @@ import { GqlExecutionContext, ObjectType } from '@nestjs/graphql';
 
 @ObjectType('AuthenticatedRider')
 export class AuthenticatedRiderDTO {
-  id: number;
+  id!: number;
 }
 
 export type UserContext = GqlExecutionContext & {

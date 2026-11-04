@@ -14,9 +14,9 @@ import { UserContext } from '../../auth/authenticated-user';
 })
 export class RiderWalletDTO {
   @IDField(() => ID)
-  id: number;
-  balance: number;
-  currency: string;
+  id!: number;
+  balance!: number;
+  currency!: string;
   @FilterableField(() => ID, { filterOnly: true })
-  riderId: number;
+  riderId!: number;
 }

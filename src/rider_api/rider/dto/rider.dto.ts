@@ -60,7 +60,7 @@ import { RiderDocumentType } from './../../../entities/enums/rider-document-type
 export class RiderDTO {
   @IDField(() => ID)
   id!: number;
-  mobileNumber: string;
+  mobileNumber?: string;
   firstName?: string;
   lastName?: string;
   email?: string;

@@ -18,11 +18,11 @@ import { RiderAddressType } from './../../../entities/enums/rider-address-type.e
 })
 export class RiderAddressDTO {
   @IDField(() => ID)
-  id: number;
-  type: RiderAddressType;
-  title: string;
-  details: string;
-  location: Point;
+  id!: number;
+  type!: RiderAddressType;
+  title!: string;
+  details!: string;
+  location!: Point;
   @FilterableField(() => ID, { filterOnly: true })
-  riderId: number;
+  riderId!: number;
 }

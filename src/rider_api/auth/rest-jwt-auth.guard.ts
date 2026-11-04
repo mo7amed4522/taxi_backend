@@ -13,7 +13,7 @@ export class RestJwtAuthGuard extends AuthGuard('jwt') {
 
   handleRequest(err: any, user: any) {
     if (err || !user) {
-      throw err || new UnauthorizedException('REST API Auth blocked reqeust.');
+      throw err || new UnauthorizedException('REST API Auth blocked request.');
     }
     return user;
   }

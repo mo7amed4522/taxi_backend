@@ -22,10 +22,10 @@ import { PaymentGatewayType } from './../../../entities/enums/payment-gateway-ty
 })
 export class PaymentGatewayDTO {
   @IDField(() => ID)
-  id: number;
+  id?: number;
   @FilterableField()
-  enabled: boolean;
-  title: string;
-  type: PaymentGatewayType;
+  enabled?: boolean;
+  title?: string;
+  type?: PaymentGatewayType;
   publicKey?: string;
 }
