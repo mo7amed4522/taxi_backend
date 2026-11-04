@@ -18,15 +18,15 @@ import { TransactionAction } from './../../../entities/enums/transaction-action.
 })
 export class RiderTransactionDTO {
   @IDField(() => ID)
-  id: number;
+  id?: number;
   @Field(() => GraphQLTimestamp)
-  createdAt: number;
-  action: TransactionAction;
+  createdAt?: number;
+  action?: TransactionAction;
   deductType?: RiderDeductTransactionType;
   rechargeType?: RiderRechargeTransactionType;
   amount!: number;
-  currency: string;
+  currency?: string;
   refrenceNumber?: string;
   @FilterableField(() => ID, { filterOnly: true })
-  riderId: number;
+  riderId!: number;
 }

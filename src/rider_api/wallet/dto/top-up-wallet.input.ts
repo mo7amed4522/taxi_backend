@@ -15,9 +15,9 @@ registerEnumType(TopUpWalletStatus, { name: 'TopUpWalletStatus' });
 @InputType()
 export class TopUpWalletInput {
   @Field(() => ID)
-  gatewayId: number;
-  amount: number;
-  currency: string;
+  gatewayId!: number;
+  amount!: number;
+  currency!: string;
   token?: string;
   pin?: number;
   otp?: number;
@@ -26,6 +26,6 @@ export class TopUpWalletInput {
 
 @ObjectType()
 export class TopUpWalletResponse {
-  status: TopUpWalletStatus;
-  url: string;
+  status!: TopUpWalletStatus;
+  url!: string;
 }

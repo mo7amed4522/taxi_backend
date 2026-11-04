@@ -5,8 +5,8 @@ import { ComplaintStatus } from './../../../entities/enums/complaint-status.enum
 @ObjectType('Complaint')
 export class ComplaintDTO {
   @IDField(() => ID)
-  id: number;
-  subject: string;
+  id!: number;
+  subject!: string;
   content?: string;
-  status: ComplaintStatus;
+  status!: ComplaintStatus;
 }

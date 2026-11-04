@@ -16,12 +16,12 @@ import { AnnouncementUserType } from './../../../entities/enums/anouncement-user
 })
 export class AnnouncementDTO {
   @IDField(() => ID)
-  id: number;
-  startAt: Date;
-  expireAt: Date;
-  title: string;
-  description: string;
+  id!: number;
+  startAt!: Date;
+  expireAt!: Date;
+  title!: string;
+  description!: string;
   url?: string;
   @FilterableField(() => AnnouncementUserType)
-  userType: AnnouncementUserType;
+  userType!: AnnouncementUserType;
 }

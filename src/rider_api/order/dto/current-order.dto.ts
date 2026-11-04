@@ -4,6 +4,6 @@ import { OrderDTO } from './order.dto';
 
 @ObjectType()
 export class CurrentOrder {
-  order: OrderDTO;
+  order?: OrderDTO;
   driverLocation?: Point;
 }

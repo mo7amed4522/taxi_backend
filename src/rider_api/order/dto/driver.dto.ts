@@ -22,12 +22,12 @@ import { CarModelDTO } from './car-model.dto';
 })
 export class DriverDTO {
   @IDField(() => ID)
-  id: number;
-  mobileNumber: string;
+  id?: number;
+  mobileNumber?: string;
   firstName?: string;
   carPlate?: string;
   lastName?: string;
   @Field(() => Int)
   rating?: number;
-  reviewCount: number;
+  reviewCount?: number;
 }

@@ -6,9 +6,9 @@ import { ServiceOptionType } from './../../../entities/enums/service-option-type
 @ObjectType('ServiceOption')
 export class ServiceOptionDTO {
   @IDField(() => ID)
-  id: number;
-  name: string;
-  type: ServiceOptionType;
+  id?: number;
+  name?: string;
+  type?: ServiceOptionType;
   additionalFee?: number;
-  icon: ServiceOptionIcon;
+  icon?: ServiceOptionIcon;
 }

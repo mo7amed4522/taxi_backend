@@ -17,8 +17,8 @@ import { RiderAddressType } from './../../../entities/enums/rider-address-type.e
   },
 )
 export class CreateRiderAddressInput {
-  title: string;
-  details: string;
-  location: Point;
+  title!: string;
+  details!: string;
+  location!: Point;
   type?: RiderAddressType;
 }

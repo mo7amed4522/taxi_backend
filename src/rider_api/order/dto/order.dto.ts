@@ -49,30 +49,30 @@ import { OrderStatus } from './../../../entities/enums/order-status.enum';
 })
 export class OrderDTO {
   @IDField(() => ID)
-  id: number;
+  id?: number;
   @FilterableField(() => OrderStatus)
-  status: OrderStatus;
+  status?: OrderStatus;
   @FilterableField(() => GraphQLTimestamp)
-  createdOn: Date;
+  createdOn?: Date;
   @Field(() => Int)
   distanceBest!: number;
   @Field(() => Int)
   durationBest!: number;
   @Field(() => Int)
   waitMinutes!: number;
-  points: Point[];
-  addresses: string[];
+  points?: Point[];
+  addresses?: string[];
   expectedTimestamp!: Date;
   startTimestamp?: Date;
   finishTimestamp?: Date;
   @FilterableField(() => ID)
-  riderId: number;
+  riderId!: number;
   @FilterableField(() => ID, { nullable: true })
   driverId?: number;
-  costAfterCoupon: number;
+  costAfterCoupon?: number;
   etaPickup?: Date;
-  costBest: number;
-  paidAmount: number;
-  currency: string;
+  costBest?: number;
+  paidAmount?: number;
+  currenc?: string;
   directions?: Point[];
 }

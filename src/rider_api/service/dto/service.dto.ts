@@ -21,10 +21,10 @@ export class ServiceDTO {
   description?: string;
   @Field(() => Int)
   personCapacity?: number;
-  paymentMethod: ServicePaymentMethod;
-  cost: number;
+  paymentMethod!: ServicePaymentMethod;
+  cost!: number;
   costAfterCoupon?: number;
-  cancellationTotalFee: number;
+  cancellationTotalFee!: number;
   @Field(() => Int)
   prepayPercent!: number;
   twoWayAvailable!: boolean;

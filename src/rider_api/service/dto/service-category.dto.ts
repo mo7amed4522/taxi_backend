@@ -6,7 +6,7 @@ import { ServiceDTO } from './service.dto';
 @ObjectType('ServiceCategory')
 export class ServiceCategoryDTO {
   @IDField(() => ID)
-  id: number;
-  name: string;
-  services: ServiceDTO[];
+  id?: number;
+  name?: string;
+  services?: ServiceDTO[];
 }
